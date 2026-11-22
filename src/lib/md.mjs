@@ -21,19 +21,26 @@ export function slug(s) {
 export function createRenderer({ link = (u) => u, illustration = () => '', audio = () => '' } = {}) {
   function inline(text) {
     const tokens = [];
+    let s = inl(text, tokens);
+    while (/\u0000\d+\u0000/.test(s)) s = s.replace(/\u0000(\d+)\u0000/g, (_, i) => tokens[+i]);
+    return s;
+  }
+
+  // Zwraca HTML z miejscami \u0000N\u0000; tokeny wspólne także dla tekstu linków.
+  function inl(text, tokens) {
     const keep = (html) => `\u0000${tokens.push(html) - 1}\u0000`;
     let s = text
       .replace(/`([^`]+)`/g, (_, c) => keep(`<code>${esc(c)}</code>`))
       .replace(/\{\{tel:([^}]+)\}\}/g, (_, n) => keep(`<a class="tel" href="tel:${n.replace(/\s/g, '')}">${esc(n)}</a>`))
       .replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, (_, t, u) => {
         const ext = /^https?:/.test(u);
-        return keep(`<a href="${esc(ext ? u : link(u))}"${ext ? ' rel="noopener" class="ext"' : ''}>${inline(t)}</a>`);
+        return keep(`<a href="${esc(ext ? u : link(u))}"${ext ? ' rel="noopener" class="ext"' : ''}>${inl(t, tokens)}</a>`);
       });
     s = esc(s)
       .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
       .replace(/(^|[^*])\*([^*\s][^*]*)\*/g, '$1<em>$2</em>')
       .replace(/ -- /g, ' – ');
-    return s.replace(/\u0000(\d+)\u0000/g, (_, i) => tokens[+i]);
+    return s;
   }
 
   function listItem(raw, ordered) {
@@ -152,6 +159,7 @@ export function createRenderer({ link = (u) => u, illustration = () => '', audio
 
 // Front matter: linie „klucz: wartość” między --- a ---. Listy: „klucz:” i niżej „- element”.
 export function parseFrontMatter(src) {
+  src = src.replace(/^\uFEFF/, '').replace(/\r\n?/g, '\n');
   const m = src.match(/^---\n([\s\S]*?)\n---\n?/);
   if (!m) return { meta: {}, body: src };
   const meta = {};

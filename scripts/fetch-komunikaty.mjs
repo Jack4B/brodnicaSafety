@@ -55,28 +55,32 @@ async function main() {
   const out = { pobrano: new Date().toISOString(), zrodla: [], komunikaty: [], bledy: [] };
   const prev = (await readJson(OUT)) || { komunikaty: [] };
   // Gdy źródło nie odpowiada, zostawiamy jego poprzednie wpisy — brak danych to nie „brak komunikatów”.
-  const keepPrevious = (zrodlo) => out.komunikaty.push(...prev.komunikaty.filter((k) => k.zrodlo === zrodlo));
+  const keepPrevious = (zrodlo, url) => {
+    out.komunikaty.push(...prev.komunikaty.filter((k) => k.zrodlo === zrodlo));
+    const old = (prev.zrodla || []).find((z) => z.nazwa === zrodlo);
+    out.zrodla.push({ nazwa: zrodlo, url, blad: true, sprawdzono: old?.sprawdzono || prev.pobrano || null });
+  };
 
   try {
     const xml = await fetchText(CITY_FEED);
     const entries = parseAtom(xml);
-    out.zrodla.push({ nazwa: 'Urząd Miejski w Brodnicy', url: CITY_FEED, wpisow: entries.length });
+    out.zrodla.push({ nazwa: 'Urząd Miejski w Brodnicy', url: CITY_FEED, wpisow: entries.length, sprawdzono: out.pobrano });
     for (const e of entries) {
       const text = `${e.title} ${e.summary}`;
       if (!KEYWORDS.test(text) || EXCLUDE.test(text)) continue;
       out.komunikaty.push({ data: e.updated?.slice(0, 10), tytul: e.title, url: e.link, zrodlo: 'Urząd Miejski w Brodnicy', waga: 'info' });
     }
-  } catch (e) { out.bledy.push(`Urząd Miejski: ${e.message}`); keepPrevious('Urząd Miejski w Brodnicy'); }
+  } catch (e) { out.bledy.push(`Urząd Miejski: ${e.message}`); keepPrevious('Urząd Miejski w Brodnicy', CITY_FEED); }
 
   try {
     const items = parseGovList(await fetchText(PSSE));
-    out.zrodla.push({ nazwa: 'PSSE w Brodnicy', url: PSSE, wpisow: items.length });
+    out.zrodla.push({ nazwa: 'PSSE w Brodnicy', url: PSSE, wpisow: items.length, sprawdzono: out.pobrano });
     for (const it of items) {
       if (!psseDotyczyMiasta(it.tytul)) continue;
       const waga = /niezgodno|nieprzydatno|warunkowej/i.test(it.tytul) ? 'wazne' : 'info';
       out.komunikaty.push({ ...it, zrodlo: 'PSSE w Brodnicy', waga });
     }
-  } catch (e) { out.bledy.push(`PSSE: ${e.message}`); keepPrevious('PSSE w Brodnicy'); }
+  } catch (e) { out.bledy.push(`PSSE: ${e.message}`); keepPrevious('PSSE w Brodnicy', PSSE); }
 
   out.komunikaty.sort((a, b) => (b.data || '').localeCompare(a.data || ''));
   await writeJson(OUT, out);

@@ -44,10 +44,10 @@ const POLSKA_STOPKA = 'Materiał edukacyjny, nie porada medyczna. Nie zastępuje
  * Zapisuje arkusz. `wybory` — lista decyzji protokołu (gdzie wytyczne się różnią: wybrano wersję ERC),
  * pokazywana w stopce. `doSprawdzenia` — punkty oznaczone „DO SPRAWDZENIA”.
  */
-// Polskie przepisy — wspólne dla wszystkich arkuszy (tekst jednolity: Dz.U. 2022 poz. 1720; Kodeks karny).
+// Polskie przepisy — wspólne dla wszystkich arkuszy (teksty jednolite: ustawa o PRM Dz.U. 2026 poz. 141; Kodeks karny Dz.U. 2026 poz. 1342).
 const PRAWO = [
   '<b>Obowiązek:</b> kto zauważy osobę w stanie nagłego zagrożenia zdrowotnego, ma — w miarę możliwości i umiejętności — niezwłocznie powiadomić służby (art. 4 ustawy o Państwowym Ratownictwie Medycznym). Nieudzielenie pomocy człowiekowi w bezpośrednim niebezpieczeństwie utraty życia lub ciężkiego uszczerbku na zdrowiu, gdy można to zrobić bez narażania siebie, grozi karą do 3 lat pozbawienia wolności (art. 162 § 1 Kodeksu karnego).',
-  '<b>Ochrona:</b> osoba udzielająca pierwszej pomocy korzysta z ochrony prawnej przewidzianej dla funkcjonariuszy publicznych i może poświęcić cudze dobra (inne niż życie i zdrowie), jeśli to niezbędne do ratowania życia (art. 5 ustawy o PRM). Szkodę na własnym mieniu poniesioną przy udzielaniu pomocy pokrywa Skarb Państwa przez wojewodę (art. 6).',
+  '<b>Ochrona:</b> osoba udzielająca pierwszej pomocy korzysta z ochrony prawnej przewidzianej dla funkcjonariuszy publicznych i może poświęcić cudze dobra osobiste (inne niż życie i zdrowie) oraz majątkowe w zakresie niezbędnym do ratowania życia lub zdrowia (art. 5 ustawy o PRM). Szkodę na własnym mieniu poniesioną przy udzielaniu pomocy naprawia Skarb Państwa przez wojewodę właściwego dla miejsca zdarzenia (art. 6).',
 ];
 
 /** Wyciąga z panelu jego rysunek SVG (do użycia na stronie). */
@@ -76,7 +76,7 @@ export function arkusz({ plik, title, lede, call, panels, donts = [], notes = []
   console.log(`zapisano ${plik}`);
 }
 
-export const ZRODLO_ERC = 'Wytyczne resuscytacji 2025 Europejskiej Rady Resuscytacji w polskim wydaniu Polskiej Rady Resuscytacji („Resuscytacja dla każdego”, 2026); rządowy „Poradnik bezpieczeństwa” (MSWiA, MON, RCB, 2025); ustawa o Państwowym Ratownictwie Medycznym (Dz.U. 2022 poz. 1720)';
+export const ZRODLO_ERC = 'Wytyczne resuscytacji 2025 Europejskiej Rady Resuscytacji w polskim wydaniu Polskiej Rady Resuscytacji („Resuscytacja dla każdego”, 2026); rządowy „Poradnik bezpieczeństwa” (MSWiA, MON, RCB, 2025); ustawa o Państwowym Ratownictwie Medycznym (Dz.U. 2026 poz. 141)';
 
 // --- rekwizyty wspólne dla arkuszy ---
 

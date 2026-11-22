@@ -125,7 +125,7 @@ async function main() {
     komunikaty: mergeMessages(manual, auto, imgw),
     zrodlaKomunikatow: [
       { nazwa: 'IMGW-PIB — ostrzeżenia dla powiatu brodnickiego', sprawdzono: imgw?.pobrano },
-      ...(auto?.zrodla || []).map((z) => ({ nazwa: z.nazwa, sprawdzono: auto.pobrano, blad: (auto.bledy || []).some((b) => b.startsWith(z.nazwa.split(' ')[0])) })),
+      ...(auto?.zrodla || []).map((z) => ({ nazwa: z.nazwa, sprawdzono: z.sprawdzono || auto.pobrano, blad: !!z.blad })),
       { nazwa: 'Komunikaty redakcji (data/komunikaty.json)', sprawdzono: today },
     ],
   };

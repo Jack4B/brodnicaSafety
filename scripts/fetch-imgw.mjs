@@ -9,6 +9,7 @@
 import { writeFile, mkdir } from 'node:fs/promises';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { fetchText } from './lib.mjs';
 
 const API = 'https://danepubliczne.imgw.pl/api/data/warningsmeteo';
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
@@ -16,11 +17,17 @@ const OUT = resolve(ROOT, 'data/ostrzezenia-imgw.json');
 const i = process.argv.indexOf('--teryt');
 const TERYT = i >= 0 ? process.argv[i + 1] : '0402'; // kujawsko-pomorskie (04), powiat brodnicki (02)
 
-const res = await fetch(API);
-if (!res.ok) { console.error(`IMGW: HTTP ${res.status}`); process.exit(1); }
-const json = await res.json();
+let json;
+try {
+  json = JSON.parse(await fetchText(API));
+} catch (e) { console.error(`IMGW: ${e.message} — zostają poprzednie dane`); process.exit(1); }
 
 // Gdy nie ma ostrzeżeń, API zwraca obiekt { message: "Brak ostrzeżeń ..." } zamiast listy.
+// Każda inna odpowiedź to błąd: nie nadpisujemy danych, bo brak danych ≠ brak zagrożeń.
+if (!Array.isArray(json) && !/brak ostrze/i.test(json?.message || '')) {
+  console.error(`IMGW: nieoczekiwana odpowiedź ${JSON.stringify(json).slice(0, 200)} — zostają poprzednie dane`);
+  process.exit(1);
+}
 const list = Array.isArray(json) ? json : [];
 const local = list.filter((w) => Array.isArray(w.teryt) && w.teryt.some((t) => String(t).startsWith(TERYT)));
 

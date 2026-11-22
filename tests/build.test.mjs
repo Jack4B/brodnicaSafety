@@ -8,7 +8,13 @@ import { join } from 'node:path';
 const DIST = new URL('../dist/', import.meta.url).pathname;
 const pages = [];
 (function walk(d) { for (const f of readdirSync(d)) { const p = join(d, f); if (statSync(p).isDirectory()) walk(p); else if (f.endsWith('.html')) pages.push(p); } })(DIST);
-const toFile = (u) => { const p = u.split('#')[0].split('?')[0]; return join(DIST, p.endsWith('/') ? p + 'index.html' : p); };
+// Adresy na stronie zawierają BASE_PATH (np. /gotowosc/), pliki w dist/ — nie.
+const BASE = (process.env.BASE_PATH || '/').replace(/\/?$/, '/');
+const toFile = (u) => {
+  let p = u.split('#')[0].split('?')[0];
+  if (p.startsWith(BASE)) p = '/' + p.slice(BASE.length);
+  return join(DIST, p.endsWith('/') ? p + 'index.html' : p);
+};
 
 test('są wszystkie kluczowe strony', () => {
   for (const p of ['/', '/alarm/', '/schrony/', '/plecak/', '/pierwsza-pomoc/rko/', '/stopnie-alarmowe/', '/offline/', '/poradnik/', '/kontakty/']) assert.ok(existsSync(toFile(p)), p);
@@ -29,7 +35,7 @@ test('Service Worker zapisuje wszystkie strony i istniejące pliki', () => {
   assert.ok(files.length > 40);
   for (const f of files) assert.ok(existsSync(toFile(f)), f);
   for (const page of pages.filter((p) => !p.endsWith('404.html'))) {
-    const url = page.replace(DIST, '/').replace(/index\.html$/, '');
+    const url = page.replace(DIST, BASE).replace(/index\.html$/, '');
     assert.ok(files.includes(url), `brak w SW: ${url}`);
   }
 });

@@ -4,8 +4,8 @@ lead: Najważniejsze procedury według aktualnych wytycznych Europejskiej Rady R
 aktualizacja: 2026-11-22
 przeglad: przegląd ratownika medycznego — w przygotowaniu
 zrodla:
-- Ustawa o Państwowym Ratownictwie Medycznym, art. 4–6 (Dz.U. 2022 poz. 1720, tekst jednolity) | https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20060910729
-- Kodeks karny, art. 162 | https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU19970880553
+- Ustawa o Państwowym Ratownictwie Medycznym, art. 4–6 (tekst jednolity Dz.U. 2026 poz. 141) | https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20260000141
+- Kodeks karny, art. 162 (tekst jednolity Dz.U. 2026 poz. 1342) | https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20260001342
 - Resuscytacja dla każdego — wytyczne ERC 2025 (Polska Rada Resuscytacji, 2026) | https://www.prc.krakow.pl/wp-content/uploads/2026/04/Broszura-ERC-2025-i.pdf
 - Poradnik bezpieczeństwa — Pierwsza pomoc | https://www.gov.pl/web/poradnikbezpieczenstwa/pierwsza-pomoc
 ---
@@ -24,8 +24,8 @@ zrodla:
 
 - **Obowiązek powiadomienia.** Kto zauważy osobę w stanie nagłego zagrożenia zdrowotnego, ma — w miarę możliwości i umiejętności — niezwłocznie powiadomić służby, np. dzwoniąc pod {{tel:112}} (art. 4 ustawy o Państwowym Ratownictwie Medycznym).
 - **Kara za nieudzielenie pomocy.** Kto nie udziela pomocy człowiekowi w bezpośrednim niebezpieczeństwie utraty życia lub ciężkiego uszczerbku na zdrowiu, choć może to zrobić bez narażania siebie lub innej osoby, podlega karze do 3 lat pozbawienia wolności (art. 162 § 1 Kodeksu karnego). Przestępstwa nie ma, gdy pomoc wymagałaby poddania się zabiegowi lekarskiemu (np. oddania krwi) albo gdy możliwa jest niezwłoczna pomoc instytucji lub osoby do tego powołanej (art. 162 § 2).
-- **Ochrona prawna.** Osoba udzielająca pierwszej pomocy korzysta z ochrony przewidzianej dla funkcjonariuszy publicznych. Może poświęcić cudze dobra (inne niż życie i zdrowie), jeśli to niezbędne do ratowania życia — np. wybić szybę (art. 5 ustawy o PRM).
-- **Zwrot szkód.** Szkodę na własnym mieniu poniesioną przy udzielaniu pierwszej pomocy (np. zniszczone ubranie) pokrywa Skarb Państwa — wniosek składa się do wojewody (art. 6 ustawy o PRM).
+- **Ochrona prawna.** Osoba udzielająca pierwszej pomocy korzysta z ochrony przewidzianej w Kodeksie karnym dla funkcjonariuszy publicznych. Może poświęcić cudze dobra osobiste (inne niż życie i zdrowie) i majątkowe w zakresie niezbędnym do ratowania życia lub zdrowia — np. wybić szybę w samochodzie (art. 5 ustawy o PRM).
+- **Zwrot szkód.** Szkodę na własnym mieniu poniesioną przy udzielaniu pierwszej pomocy (np. zniszczone ubranie) naprawia Skarb Państwa — roszczenie kieruje się do wojewody właściwego dla miejsca zdarzenia (art. 6 ustawy o PRM).
 
 ## Numery i służby
 

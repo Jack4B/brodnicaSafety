@@ -16,8 +16,11 @@ async function precache() {
   await Promise.all(FILES.map(async (f) => {
     try {
       const res = await fetch(new Request(f, { cache: 'reload' }));
-      if (res.ok) await cache.put(f, res);
-    } catch (err) { /* spróbujemy przy następnej wizycie */ }
+      if (res.ok) return await cache.put(f, res);
+    } catch (err) { /* słaba sieć */ }
+    // Nie udało się pobrać: przenieś wersję z poprzedniego zapisu, żeby po aktualizacji nic nie zniknęło offline.
+    const old = await caches.match(f);
+    if (old) await cache.put(f, old);
   }));
 }
 
@@ -63,16 +66,21 @@ self.addEventListener('fetch', (e) => {
   })());
 });
 
-self.addEventListener('message', async (e) => {
+self.addEventListener('message', (e) => {
   if (!e.data) return;
+  // waitUntil: przeglądarka nie zatrzyma workera w trakcie zapisu.
   if (e.data.type === 'status' && e.ports[0]) {
-    const cache = await caches.open(CACHE);
-    const hits = await Promise.all(FILES.map((f) => cache.match(f)));
-    e.ports[0].postMessage({ version: VERSION, cached: hits.filter(Boolean).length, total: FILES.length });
+    e.waitUntil((async () => {
+      const cache = await caches.open(CACHE);
+      const hits = await Promise.all(FILES.map((f) => cache.match(f)));
+      e.ports[0].postMessage({ version: VERSION, cached: hits.filter(Boolean).length, total: FILES.length });
+    })());
   }
   if (e.data.type === 'recache') {
-    await precache();
-    const clients = await self.clients.matchAll();
-    clients.forEach((c) => c.postMessage({ type: 'cached' }));
+    e.waitUntil((async () => {
+      await precache();
+      const clients = await self.clients.matchAll();
+      clients.forEach((c) => c.postMessage({ type: 'cached' }));
+    })());
   }
 });

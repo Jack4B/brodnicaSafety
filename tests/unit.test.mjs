@@ -34,6 +34,19 @@ test('Front matter z listą źródeł', () => {
   assert.equal(body.trim(), 'Treść');
 });
 
+test('Markdown: kod i telefon w tekście linku', () => {
+  const html = md.inline('[numer `999`](/kontakty/) i [{{tel:112}}](/a/)');
+  assert.doesNotMatch(html, /undefined|\u0000/);
+  assert.match(html, /<a href="\/base\/kontakty\/">numer <code>999<\/code><\/a>/);
+});
+
+test('Front matter z końcami linii Windows (CRLF) i BOM', () => {
+  const { meta, body } = parseFrontMatter('\uFEFF---\r\ntitle: A\r\nzrodla:\r\n- X | https://x.pl\r\n---\r\nTreść');
+  assert.equal(meta.title, 'A');
+  assert.equal(meta.zrodla.length, 1);
+  assert.equal(body.trim(), 'Treść');
+});
+
 test('Stopnie alarmowe z raportu dobowego RCB', () => {
   const r = parseRaport(fx('raport-dobowy.html'));
   assert.equal(r.raportDate, '2026-11-22');

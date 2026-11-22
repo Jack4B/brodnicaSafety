@@ -33,7 +33,9 @@ jobs:
     env:
       SITE_URL: ${{ vars.SITE_URL || 'https://gotowosc-brodnica.ct8.pl' }}
       BASE_PATH: ${{ vars.BASE_PATH || '/' }}
-      HAS_CT8: ${{ secrets.CT8_SSH_KEY != '' && secrets.CT8_HOST != '' }}
+      HAS_CT8: ${{ secrets.CT8_SSH_KEY != '' && secrets.CT8_HOST != '' && secrets.CT8_USER != '' && secrets.CT8_PATH != '' }}
+      # Wdrażamy tylko z gałęzi domyślnej — inne gałęzie tylko testują i budują.
+      IS_DEFAULT: ${{ github.ref_name == github.event.repository.default_branch }}
     steps:
       - uses: actions/checkout@v4
 
@@ -74,20 +76,36 @@ jobs:
           git add data/
           if git diff --cached --quiet; then echo "Dane bez zmian"; exit 0; fi
           git commit -m "Dane: aktualizacja automatyczna $(date -u +%Y-%m-%dT%H:%MZ)"
-          git push
+          # Ktoś mógł wypchnąć zmiany w trakcie pobierania — dociągnij i spróbuj ponownie.
+          for i in 1 2 3 4; do
+            git pull --rebase --quiet && git push && exit 0
+            sleep $((i * 5))
+          done
+          echo "::warning::Nie udało się zapisać danych w repozytorium — wdrożenie i tak przejdzie"
+          exit 0
 
       - name: Wdrożenie na CT8 (rsync przez SSH)
-        if: env.HAS_CT8 == 'true'
+        if: env.HAS_CT8 == 'true' && env.IS_DEFAULT == 'true'
         env:
           KEY: ${{ secrets.CT8_SSH_KEY }}
           HOST: ${{ secrets.CT8_HOST }}
           USER: ${{ secrets.CT8_USER }}
           DEST: ${{ secrets.CT8_PATH }}
+          KNOWN: ${{ secrets.CT8_KNOWN_HOSTS }}
         run: |
+          # Zabezpieczenie: rsync --delete tylko do katalogu strony (…/public_html), nigdy do / ani $HOME.
+          case "$DEST" in
+            ""|"/"|"~"|"."|"./") echo "::error::CT8_PATH jest pusty lub niebezpieczny: '$DEST'"; exit 1 ;;
+          esac
+          case "$DEST" in
+            */public_html|*/public_html/) ;;
+            *) echo "::error::CT8_PATH musi kończyć się na /public_html (jest: '$DEST')"; exit 1 ;;
+          esac
           install -m 700 -d ~/.ssh
           printf '%s\n' "$KEY" > ~/.ssh/ct8
           chmod 600 ~/.ssh/ct8
-          ssh-keyscan -H "$HOST" >> ~/.ssh/known_hosts 2>/dev/null
+          if [ -n "$KNOWN" ]; then printf '%s\n' "$KNOWN" >> ~/.ssh/known_hosts
+          else ssh-keyscan -H "$HOST" >> ~/.ssh/known_hosts 2>/dev/null; fi
           rsync -rlz --delete --chmod=D755,F644 -e "ssh -i ~/.ssh/ct8" dist/ "$USER@$HOST:$DEST/"
           echo "Wdrożono do $HOST:$DEST"
 
@@ -99,5 +117,5 @@ jobs:
             echo "- Stopnie: $(node -e "const d=require('./data/stopnie.json');console.log(d.stopnie.map(s=>s.stopien).join(', '),'· raport z',d.raport_z)")"
             echo "- Komunikaty auto: $(node -e "console.log(require('./data/komunikaty-auto.json').komunikaty.length)")"
             echo "- Schrony: $(node -e "const d=require('./data/schrony.json');console.log(d.liczba,'· dane z',d.dane_z)")"
-            echo "- Wdrożenie: ${HAS_CT8}"
+            echo "- Wdrożenie: sekrety ${HAS_CT8}, gałąź domyślna ${IS_DEFAULT}"
           } >> "$GITHUB_STEP_SUMMARY"

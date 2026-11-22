@@ -9,7 +9,7 @@
 | **ERC 2025** | Europejska Rada Resuscytacji, wytyczne 2025 — polskie wydanie Polskiej Rady Resuscytacji „Resuscytacja dla każdego według Wytycznych Europejskiej Rady Resuscytacji 2025” (2026), https://www.prc.krakow.pl/wp-content/uploads/2026/04/Broszura-ERC-2025-i.pdf |
 | **PB 2025** | „Poradnik bezpieczeństwa” (MSWiA, MON, RCB), nr 1/2025, https://www.gov.pl/web/poradnikbezpieczenstwa |
 | **ATP 3-50.21** | US Army, „Survival” (2018) — chłodzenie oparzeń, https://armypubs.army.mil |
-| **PRM / kk** | ustawa o Państwowym Ratownictwie Medycznym (Dz.U. 2022 poz. 1720) art. 4–6; Kodeks karny art. 162 — blok „Podstawa prawna” na każdym arkuszu |
+| **PRM / kk** | ustawa o Państwowym Ratownictwie Medycznym (tekst jednolity Dz.U. 2026 poz. 141, sprawdzony 22.11.2026) art. 4–6; Kodeks karny (Dz.U. 2026 poz. 1342) art. 162 — blok „Podstawa prawna” na każdym arkuszu |
 | **PN-EN ISO 7010** | znaki bezpieczeństwa: E010 (AED), E003 (pierwsza pomoc) — wzmianki w arkuszach 03 i 07 |
 | **medic** | skill https://github.com/zenbakiak/medic, `references/procedures.md` — punkty oznaczone „Varies” rozstrzygnięto na korzyść ERC |
 
