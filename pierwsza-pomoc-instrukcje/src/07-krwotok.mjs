@@ -44,7 +44,7 @@ arkusz({
     m.panel({ n: 4, kind: 'warn', title: 'Kończyna dalej krwawi: opaska uciskowa', text: 'Opaska powyżej rany na udzie lub ramieniu, dokręć do zatrzymania krwawienia. Zapisz godzinę, nie luzuj.', body: opaska() }),
   ],
   donts: ['Nie odrywaj opatrunku, żeby sprawdzić ranę.', 'Nie zakładaj opaski na szyję ani tułów.', 'Nie wyjmuj ciała obcego wbitego w ranę — uciskaj obok niego.'],
-  notes: ['Blady, spocony poszkodowany: połóż go i unieś nogi ok. 30 cm, okryj (poradnik rządowy).'],
+  notes: ['Blady, spocony poszkodowany: połóż go i unieś nogi ok. 30 cm, okryj (poradnik rządowy).', 'Apteczkę w miejscach publicznych i zakładach pracy oznacza znak E003 według PN-EN ISO 7010 (biały krzyż na zielonym tle). Opaskę uciskową rząd zaleca mieć w domowej apteczce.'],
   source: ZRODLO_ERC,
   wybory: ['Ucisk bezpośredni jako podstawa, opaska uciskowa przy krwotoku z kończyny, którego ucisk nie zatrzymuje, z zapisaniem godziny — ERC 2025 i „Poradnik bezpieczeństwa” 2025.'],
   doSprawdzenia: ['Odległość opaski od rany (często podawane 5–7 cm) — nie umieszczono liczby, bo polskie źródła mówią tylko „powyżej rany”.'],

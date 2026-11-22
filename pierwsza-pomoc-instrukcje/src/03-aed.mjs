@@ -48,7 +48,7 @@ arkusz({
     m.panel({ n: 4, title: 'Od razu wróć do RKO', text: 'Uciskaj dalej 30 : 2. AED co 2 minuty sam ponownie oceni rytm — znów słuchaj poleceń.', body: wrocDoRko() }),
   ],
   donts: ['Nie dotykaj poszkodowanego podczas analizy i wyładowania.', 'Nie przerywaj RKO na szukanie AED, gdy jesteś sam.', 'Nie przyklejaj elektrody na plaster z lekiem ani bezpośrednio na wszczepione urządzenie pod skórą.'],
-  notes: ['Gdy pomaga druga osoba, niech uciska klatkę, a ty przyklejasz elektrody.', 'Dzieci: elektrody lub tryb dziecięcy, jeśli są; inaczej elektrody dla dorosłych.'],
+  notes: ['Gdy pomaga druga osoba, niech uciska klatkę, a ty przyklejasz elektrody.', 'Dzieci: elektrody lub tryb dziecięcy, jeśli są; inaczej elektrody dla dorosłych.', 'Miejsce z AED oznacza znak E010 według PN-EN ISO 7010: zielony, białe serce z błyskawicą i krzyżem. Użyć AED może każdy — nie potrzeba szkolenia.'],
   source: ZRODLO_ERC,
   wybory: ['Położenie elektrod i kontynuacja RKO podczas ich przyklejania — ERC 2025 (BLS dorośli).', 'Pójście po AED samemu tylko, gdy zajmie to do 1 minuty — ERC 2025.'],
 });

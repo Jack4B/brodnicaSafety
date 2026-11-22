@@ -49,7 +49,7 @@ arkusz({
     m.panel({ n: 4, kind: 'warn', title: 'Tempo 100–120 na minutę, bez przerw', text: '30 uciśnięć : 2 oddechy do przyjazdu pomocy, użycia AED albo powrotu oddechu. Nie umiesz oddechów — uciskaj bez przerwy.', body: tempo() }),
   ],
   donts: ['Nie zginaj łokci.', 'Nie uciskaj żeber, końca mostka ani brzucha.', 'Nie przerywaj uciśnięć na dłużej niż 10 sekund.'],
-  notes: ['Gdy się zmęczysz, niech zmieni cię ktoś inny — najlepiej co 2 minuty.', 'Gdy dotrze AED, włącz go i postępuj według poleceń (arkusz 03).'],
+  notes: ['Gdy się zmęczysz, niech zmieni cię ktoś inny — najlepiej co 2 minuty.', 'Gdy dotrze AED, włącz go i postępuj według poleceń (arkusz 03).', 'RKO prowadź do przyjazdu ZRM lub osób z uprawnieniami KPP (np. strażaków), które przejmą działania.'],
   source: ZRODLO_ERC,
   wybory: ['Głębokość 5–6 cm, tempo 100–120/min, stosunek 30:2, przerwa na oddechy poniżej 10 s — ERC 2025 (BLS dorośli).', 'Osoba nieprzeszkolona: same uciśnięcia bez przerw (ERC 2025).'],
 });

@@ -44,7 +44,20 @@ const POLSKA_STOPKA = 'Materiał edukacyjny, nie porada medyczna. Nie zastępuje
  * Zapisuje arkusz. `wybory` — lista decyzji protokołu (gdzie wytyczne się różnią: wybrano wersję ERC),
  * pokazywana w stopce. `doSprawdzenia` — punkty oznaczone „DO SPRAWDZENIA”.
  */
+// Polskie przepisy — wspólne dla wszystkich arkuszy (tekst jednolity: Dz.U. 2022 poz. 1720; Kodeks karny).
+const PRAWO = [
+  '<b>Obowiązek:</b> kto zauważy osobę w stanie nagłego zagrożenia zdrowotnego, ma — w miarę możliwości i umiejętności — niezwłocznie powiadomić służby (art. 4 ustawy o Państwowym Ratownictwie Medycznym). Nieudzielenie pomocy człowiekowi w bezpośrednim niebezpieczeństwie utraty życia lub ciężkiego uszczerbku na zdrowiu, gdy można to zrobić bez narażania siebie, grozi karą do 3 lat pozbawienia wolności (art. 162 § 1 Kodeksu karnego).',
+  '<b>Ochrona:</b> osoba udzielająca pierwszej pomocy korzysta z ochrony prawnej przewidzianej dla funkcjonariuszy publicznych i może poświęcić cudze dobra (inne niż życie i zdrowie), jeśli to niezbędne do ratowania życia (art. 5 ustawy o PRM). Szkodę na własnym mieniu poniesioną przy udzielaniu pomocy pokrywa Skarb Państwa przez wojewodę (art. 6).',
+];
+
+/** Wyciąga z panelu jego rysunek SVG (do użycia na stronie). */
+const svgZPanelu = (panelHtml) => (panelHtml.match(/<svg viewBox=[\s\S]*?<\/svg>(?=<div class="mp-words">)/) || [''])[0].replace('<svg ', '<svg xmlns="http://www.w3.org/2000/svg" ');
+
 export function arkusz({ plik, title, lede, call, panels, donts = [], notes = [], source, wybory = [], doSprawdzenia = [] }) {
+  if (process.env.EKSPORT_SVG_DIR) {
+    mkdirSync(process.env.EKSPORT_SVG_DIR, { recursive: true });
+    panels.forEach((p, i) => writeFileSync(join(process.env.EKSPORT_SVG_DIR, `${plik.replace('.html', '')}-${i + 1}.svg`), svgZPanelu(p)));
+  }
   let html = m.page({ title, lede, call, panels, donts, notes, source, theme: 'light', lang: 'pl', columns: 2, disclaimer: POLSKA_STOPKA });
   html = html
     .replace(/:root\{--mp-page:[^}]+\}/, PALETA)
@@ -57,12 +70,13 @@ export function arkusz({ plik, title, lede, call, panels, donts = [], notes = []
     ...doSprawdzenia.map((w) => `<li><span class="mp-sprawdz">DO SPRAWDZENIA:</span> ${w}</li>`),
   ];
   if (blok.length) html = html.replace('<p class="mp-source">', `<div class="mp-protokol"><h4>Protokół i wybory</h4><ul>${blok.join('')}</ul></div><p class="mp-source">`);
+  html = html.replace('<p class="mp-source">', `<div class="mp-protokol"><h4>Podstawa prawna (Polska)</h4><ul>${PRAWO.map((x) => `<li>${x}</li>`).join('')}</ul></div><p class="mp-source">`);
   mkdirSync(OUT, { recursive: true });
   writeFileSync(join(OUT, plik), html);
   console.log(`zapisano ${plik}`);
 }
 
-export const ZRODLO_ERC = 'Europejska Rada Resuscytacji (ERC), wytyczne 2025 — polskie wydanie Polskiej Rady Resuscytacji „Resuscytacja dla każdego” (2026); rządowy „Poradnik bezpieczeństwa” (MSWiA, MON, RCB, 2025)';
+export const ZRODLO_ERC = 'Wytyczne resuscytacji 2025 Europejskiej Rady Resuscytacji w polskim wydaniu Polskiej Rady Resuscytacji („Resuscytacja dla każdego”, 2026); rządowy „Poradnik bezpieczeństwa” (MSWiA, MON, RCB, 2025); ustawa o Państwowym Ratownictwie Medycznym (Dz.U. 2022 poz. 1720)';
 
 // --- rekwizyty wspólne dla arkuszy ---
 

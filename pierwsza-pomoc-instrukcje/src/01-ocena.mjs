@@ -41,7 +41,7 @@ arkusz({
   plik: '01-ocena.html',
   title: 'Ocena poszkodowanego',
   lede: 'Ktoś upadł albo leży bez ruchu. Ta kolejność trwa kilkanaście sekund i decyduje, co robisz dalej.',
-  call: 'Numer alarmowy 112 (pogotowie także 999). Włącz tryb głośnomówiący — dyspozytor poprowadzi cię krok po kroku.',
+  call: 'Numer alarmowy 112 (pogotowie ratunkowe także 999). Włącz tryb głośnomówiący — dyspozytor medyczny poprowadzi cię krok po kroku do przyjazdu zespołu ratownictwa medycznego (ZRM).',
   panels: [
     m.panel({ n: 1, title: 'Sprawdź, czy jest bezpiecznie', text: 'Rozejrzyj się: ruch uliczny, prąd, ogień, gaz. Nie podchodź, jeśli grozi ci niebezpieczeństwo.', body: bezpieczenstwo() }),
     m.panel({ n: 2, title: 'Potrząśnij za barki, zapytaj głośno', text: 'Delikatnie potrząśnij za ramiona i zapytaj: „Czy wszystko w porządku?”. Brak reakcji — wołaj o pomoc.', body: reakcja() }),
@@ -49,7 +49,7 @@ arkusz({
     m.panel({ n: 4, kind: 'warn', title: 'Nie oddycha prawidłowo? Dzwoń 112', text: 'Wyślij kogoś po AED i zacznij RKO (arkusz 02). Oddycha prawidłowo — pozycja bezpieczna (arkusz 04).', body: dzwon() }),
   ],
   donts: ['Nie sprawdzaj oddechu dłużej niż 10 sekund.', 'Nie traktuj rzadkich, głośnych westchnień jako oddechu — to nie jest prawidłowy oddech.', 'Nie zostawiaj nieprzytomnej, oddychającej osoby na plecach.'],
-  notes: ['Wskaż konkretną osobę do dzwonienia: „Pan w niebieskiej kurtce — proszę dzwonić 112!”.'],
+  notes: ['Wskaż konkretną osobę do dzwonienia: „Pan w niebieskiej kurtce — proszę dzwonić 112!”.', 'Powiedz dyspozytorowi: co się stało, gdzie (adres, charakterystyczne miejsca), ile osób, czy oddychają. Nie rozłączaj się pierwszy.'],
   source: ZRODLO_ERC,
   wybory: ['Kolejność i czas oceny oddechu (do 10 s) według ERC 2025, rozdział „Podstawowe zabiegi resuscytacyjne u dorosłych”.', 'Numer alarmowy 112; wytyczne ERC dla Polski wymieniają także 999.'],
 });

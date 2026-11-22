@@ -20,6 +20,7 @@ const ARKUSZE = [
   ['06-zadlawienie-niemowle', 'Zadławienie — niemowlę'],
   ['07-krwotok', 'Tamowanie krwotoku'],
   ['08-oparzenie', 'Oparzenie termiczne'],
+  ['09-anafilaksja', 'Anafilaksja — autostrzykawka'],
 ];
 
 // wysokość strony do zrzutu
