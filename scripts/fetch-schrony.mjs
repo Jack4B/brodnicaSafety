@@ -1,11 +1,13 @@
 #!/usr/bin/env node
 // Pobiera oficjalny zbiór „Punkty schronienia w Polsce” (KG PSP, dane.gov.pl, CC BY 4.0)
-// i zapisuje lokalną kopię tylko dla powiatu brodnickiego do data/schrony.json.
+// i zapisuje lokalną kopię tylko dla miasta Brodnicy do data/schrony.json.
+// (Gmina wiejska Brodnica ma inne miejscowości, więc filtr po miejscowości jej nie obejmuje.)
 //
 // Użycie:
 //   node scripts/fetch-schrony.mjs                  # pobiera aktualny CSV
 //   node scripts/fetch-schrony.mjs --file ps.csv    # używa pliku pobranego ręcznie
-//   node scripts/fetch-schrony.mjs --powiat brodnicki --show-columns
+//   node scripts/fetch-schrony.mjs --show-columns
+//   node scripts/fetch-schrony.mjs --caly-powiat     # cały powiat brodnicki zamiast samego miasta
 //
 // Bez zależności. Wymaga Node 18+.
 
@@ -22,6 +24,7 @@ const args = process.argv.slice(2);
 const opt = (name, def) => { const i = args.indexOf(`--${name}`); return i >= 0 ? args[i + 1] : def; };
 const flag = (name) => args.includes(`--${name}`);
 const POWIAT = (opt('powiat', 'brodnicki')).toLowerCase();
+const MIEJSCOWOSC = flag('caly-powiat') ? null : (opt('miejscowosc', 'Brodnica')).toLowerCase();
 
 function decode(buf) {
   const utf = new TextDecoder('utf-8').decode(buf);
@@ -102,6 +105,7 @@ async function main() {
 
   const items = rows
     .filter((r) => get(r, 'powiat').toLowerCase().includes(POWIAT))
+    .filter((r) => !MIEJSCOWOSC || idx.miejscowosc < 0 || get(r, 'miejscowosc').toLowerCase() === MIEJSCOWOSC)
     .map((r) => ({
       nazwa: get(r, 'nazwa'),
       typ: get(r, 'typ'),
@@ -121,14 +125,14 @@ async function main() {
     licencja: 'CC BY 4.0',
     dane_z: meta.dataDate,
     pobrano: new Date().toISOString(),
-    filtr: { powiat: POWIAT },
+    filtr: { powiat: POWIAT, miejscowosc: MIEJSCOWOSC },
     kolumny_zrodlowe: Object.fromEntries(Object.entries(idx).map(([k, i]) => [k, i >= 0 ? header[i] : null])),
     liczba: items.length,
     punkty: items,
   };
   await mkdir(dirname(OUT), { recursive: true });
   await writeFile(OUT, JSON.stringify(out, null, 2) + '\n');
-  console.log(`Zapisano ${items.length} punktów (powiat ${POWIAT}) do data/schrony.json`);
+  console.log(`Zapisano ${items.length} punktów (${MIEJSCOWOSC || `powiat ${POWIAT}`}) do data/schrony.json`);
 }
 
 main().catch((e) => { console.error(e.message); process.exit(1); });

@@ -1,0 +1,25 @@
+{
+  "pobrano": "2026-11-22T10:35:31.317Z",
+  "zrodla": [
+    {
+      "nazwa": "Urząd Miejski w Brodnicy",
+      "url": "https://www.portal.brodnica.pl/aktualnosci.xml",
+      "wpisow": 10
+    },
+    {
+      "nazwa": "PSSE w Brodnicy",
+      "url": "https://www.gov.pl/web/psse-brodnica/komunikaty",
+      "wpisow": 10
+    }
+  ],
+  "komunikaty": [
+    {
+      "data": "2026-08-14",
+      "tytul": "Komunikaty dotyczące jakości wody w kąpieliskach na terenie powiatu brodnickiego",
+      "url": "https://www.gov.pl/web/psse-brodnica/komunikaty-dotyczace-jakosci-wody-w-kapieliskach-na-terenie-powiatu-brodnickiego",
+      "zrodlo": "PSSE w Brodnicy",
+      "waga": "info"
+    }
+  ],
+  "bledy": []
+}

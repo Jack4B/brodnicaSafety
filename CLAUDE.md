@@ -48,14 +48,24 @@
 
 | Etap | Status | Gdzie |
 |---|---|---|
-| 1. Koncepcja | ✅ gotowa, do akceptacji | `docs/CONCEPTS.md` |
-| 2. Makiety mobile | ✅ v0.1, do akceptacji | `design/makiety.html`, `docs/MAKIETY.md` |
+| 1. Koncepcja | ✅ v0.2 (po researchu), do akceptacji | `docs/CONCEPTS.md` |
+| Research źródeł | ✅ | `docs/RESEARCH.md` |
+| 2. Makiety mobile | ✅ v0.2, do akceptacji | `design/makiety.html`, `docs/MAKIETY.md` |
 | 3. Akceptacja | ⏳ czeka na decyzje (lista w `docs/MAKIETY.md`) | |
 | 4–8 | — | |
 
-Źródła danych: `docs/API.md` (opis) + decyzje w `docs/CONCEPTS.md` §8. Skrypty: `scripts/fetch-schrony.mjs` (PSP, dane.gov.pl), `scripts/fetch-imgw.mjs` (IMGW). Node fetch przez proxy w chmurze: `NODE_USE_ENV_PROXY=1`.
+Zakres: **miasto Brodnica**. Charakter: **niekomercyjny**, maksimum rzetelnej wiedzy.
 
-Zasada danych: telefon nie odpytuje API — dane pobierane przy buildzie do `data/*.json`, zawsze z `zrodlo` i datą.
+Źródła treści: rdzeń = oficjalny „Poradnik bezpieczeństwa” (gov.pl, materiały urzędowe — tekst bez zgody, ilustracje tylko za zgodą RCB); przetrwanie = ATP 3-50.21 (US Army, public release); pierwsza pomoc = PB + wytyczne ERC 2025 (tylko jako źródło). Szczegóły i licencje: `docs/RESEARCH.md`.
+
+Skrypty danych (`scripts/`, bez zależności, wspólne `lib.mjs`):
+- `fetch-stopnie.mjs` — stopnie alarmowe z raportu dobowego RCB (codziennie),
+- `fetch-komunikaty.mjs` — UM Brodnica (Atom) + sanepid Brodnica,
+- `fetch-imgw.mjs` — ostrzeżenia IMGW (TERYT 0402),
+- `fetch-schrony.mjs` — punkty schronienia PSP, filtr: miasto Brodnica (pierwsze pobranie do wykonania).
+Node fetch przez proxy w chmurze: `NODE_USE_ENV_PROXY=1`. gov.pl czasem zrywa połączenia — `fetchText` ponawia.
+
+Zasada danych: telefon nie odpytuje API — dane pobierane przy buildzie do `data/*.json`, zawsze z `zrodlo` i datą. Gdy źródło zawiedzie, zostaje ostatnia dobra wersja; nigdy nie pokazujemy braku danych jako „brak zagrożeń”.
 
 ## Pamięć
 
@@ -68,4 +78,4 @@ Zasada danych: telefon nie odpytuje API — dane pobierane przy buildzie do `dat
 Strona ma charakter informacyjno-edukacyjny. Nie zastępuje oficjalnych komunikatów.
 
 ---
-*Ostatnia aktualizacja: 22 listopada 2026 (etapy 1–2)*
+*Ostatnia aktualizacja: 22 listopada 2026 (etapy 1–2 + research)*

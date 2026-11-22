@@ -6,15 +6,18 @@ Lekka strona informacyjno-edukacyjna dla mieszkańców Brodnicy o gotowości kry
 - Konspekt: [`docs/konspekt.md`](docs/konspekt.md)
 - Koncepcja (etap 1): [`docs/CONCEPTS.md`](docs/CONCEPTS.md)
 - Makiety (etap 2): [`design/makiety.html`](design/makiety.html), opis w [`docs/MAKIETY.md`](docs/MAKIETY.md)
+- Research źródeł i licencji: [`docs/RESEARCH.md`](docs/RESEARCH.md)
 - Źródła danych: [`docs/API.md`](docs/API.md)
 
 ## Dane
 
 ```bash
-NODE_USE_ENV_PROXY=1 node scripts/fetch-imgw.mjs                    # ostrzeżenia IMGW dla powiatu brodnickiego
-NODE_USE_ENV_PROXY=1 node scripts/fetch-schrony.mjs --show-columns  # schrony PSP (dane.gov.pl), powiat brodnicki
+node scripts/fetch-stopnie.mjs                     # stopnie alarmowe (raport dobowy RCB)
+node scripts/fetch-komunikaty.mjs                  # komunikaty: Urząd Miejski + sanepid Brodnica
+node scripts/fetch-imgw.mjs                        # ostrzeżenia IMGW dla powiatu brodnickiego
+node scripts/fetch-schrony.mjs --show-columns      # punkty schronienia PSP (dane.gov.pl), miasto Brodnica
 ```
 
-`NODE_USE_ENV_PROXY=1` potrzebne tylko za proxy (np. w środowisku chmurowym).
+Za proxy (np. w środowisku chmurowym) dodaj na początku `NODE_USE_ENV_PROXY=1`.
 
 > Strona ma charakter informacyjno-edukacyjny. Nie zastępuje oficjalnych komunikatów służb i władz.

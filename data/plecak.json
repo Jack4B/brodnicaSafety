@@ -1,0 +1,76 @@
+{
+  "opis": "Plecak ewakuacyjny na ok. 72 godziny. Wersja podstawowa = oficjalna lista z Poradnika bezpieczeństwa. Wersja rozszerzona = pozycje z podręcznika ATP 3-50.21 Survival i innych źródeł.",
+  "aktualizacja": "2026-11-22",
+  "zrodla": {
+    "PB": { "nazwa": "Poradnik bezpieczeństwa (MSWiA, MON, RCB), nr 1/2025, s. 26–27", "url": "https://www.gov.pl/web/poradnikbezpieczenstwa/ewakuacja" },
+    "PB-zapasy": { "nazwa": "Poradnik bezpieczeństwa, Zapasy domowe na minimum 3 dni, s. 20–22", "url": "https://www.gov.pl/web/poradnikbezpieczenstwa" },
+    "ATP": { "nazwa": "ATP 3-50.21 Survival (US Army, 2018), rozdz. 2 (zestaw medyczny), 3 (woda), 7 (nawigacja)", "url": "https://armypubs.army.mil" }
+  },
+  "uwagi": [
+    "Plecak powinien mieć każdy domownik, także dzieci (PB).",
+    "Woda: minimum 3 litry na osobę na dobę (PB-zapasy). Wody z natury nie pij bez uzdatnienia: tabletki albo gotowanie przez 5 minut (ATP).",
+    "Wybierz zwykły plecak turystyczny w stonowanym kolorze. Raz na kilka miesięcy sprawdzaj terminy ważności i baterie (PB-zapasy)."
+  ],
+  "grupy": [
+    {
+      "nazwa": "Woda i jedzenie",
+      "pozycje": [
+        { "id": "woda", "nazwa": "Woda butelkowana", "poziom": "podst", "zrodlo": "PB" },
+        { "id": "filtr", "nazwa": "Filtr do wody lub tabletki do uzdatniania", "poziom": "podst", "zrodlo": "PB" },
+        { "id": "jedzenie", "nazwa": "Żywność wysokoenergetyczna gotowa do jedzenia (batony, suszone owoce, bakalie)", "poziom": "podst", "zrodlo": "PB" },
+        { "id": "menazka", "nazwa": "Metalowy kubek lub menażka do gotowania wody", "poziom": "rozsz", "zrodlo": "ATP", "uwaga": "gotowanie przez 5 minut uzdatnia wodę" },
+        { "id": "mleko", "nazwa": "Mleko modyfikowane, butelka, jedzenie dla dziecka", "poziom": "podst", "dla": "rodzina", "zrodlo": "PB", "uwaga": "PB: dopasuj listę do potrzeb domowników" }
+      ]
+    },
+    {
+      "nazwa": "Dokumenty i pieniądze",
+      "pozycje": [
+        { "id": "dokumenty", "nazwa": "Dokumenty i ich kopie na pendrivie", "poziom": "podst", "zrodlo": "PB" },
+        { "id": "gotowka", "nazwa": "Gotówka w różnych nominałach", "poziom": "podst", "zrodlo": "PB" },
+        { "id": "mapa", "nazwa": "Mapa papierowa (Brodnica i okolice)", "poziom": "podst", "zrodlo": "PB" },
+        { "id": "kompas", "nazwa": "Kompas", "poziom": "rozsz", "zrodlo": "ATP", "uwaga": "nawigacja z mapą i kompasem, gdy nie działa GPS" },
+        { "id": "pamiatka", "nazwa": "Ważna rzecz osobista, np. zdjęcie, pamiątka rodzinna", "poziom": "podst", "zrodlo": "PB" },
+        { "id": "identyfikator", "nazwa": "Identyfikator dla dziecka lub seniora (imię, nazwisko, telefon)", "poziom": "podst", "dla": "rodzina", "zrodlo": "PB" }
+      ]
+    },
+    {
+      "nazwa": "Zdrowie i higiena",
+      "pozycje": [
+        { "id": "apteczka", "nazwa": "Apteczka i leki osobiste", "poziom": "podst", "zrodlo": "PB" },
+        { "id": "higiena", "nazwa": "Środki higieniczne i do dezynfekcji", "poziom": "podst", "zrodlo": "PB" },
+        { "id": "folia", "nazwa": "Folia termiczna (koc NRC)", "poziom": "podst", "zrodlo": "PB" },
+        { "id": "opaska", "nazwa": "Opaska do tamowania krwotoków (staza taktyczna)", "poziom": "rozsz", "zrodlo": "ATP", "uwaga": "w PB na liście zapasów domowych; naucz się jej zakładać" },
+        { "id": "opatrunki", "nazwa": "Opatrunki i bandaże różnych rozmiarów, chusta", "poziom": "rozsz", "zrodlo": "ATP" },
+        { "id": "masc", "nazwa": "Maść z antybiotykiem, środek odkażający (np. jodopowidon)", "poziom": "rozsz", "zrodlo": "ATP" },
+        { "id": "tasma", "nazwa": "Taśma naprawcza (duct tape), igła i mocna nić", "poziom": "rozsz", "zrodlo": "ATP" },
+        { "id": "ffp3", "nazwa": "Maseczki FFP3", "poziom": "rozsz", "zrodlo": "PB-zapasy" },
+        { "id": "pieluchy", "nazwa": "Pieluchy, chusteczki nawilżane", "poziom": "podst", "dla": "rodzina", "zrodlo": "PB-zapasy" }
+      ]
+    },
+    {
+      "nazwa": "Światło, energia, łączność",
+      "pozycje": [
+        { "id": "latarka", "nazwa": "Latarka", "poziom": "podst", "zrodlo": "PB" },
+        { "id": "radio", "nazwa": "Radio na baterie lub na korbkę", "poziom": "podst", "zrodlo": "PB" },
+        { "id": "telefon", "nazwa": "Naładowany telefon, powerbank, ładowarka, kable, zapasowe baterie", "poziom": "podst", "zrodlo": "PB" },
+        { "id": "walkie", "nazwa": "Alternatywna łączność, np. krótkofalówka (walkie-talkie)", "poziom": "rozsz", "zrodlo": "PB" }
+      ]
+    },
+    {
+      "nazwa": "Odzież i nocleg",
+      "pozycje": [
+        { "id": "ubranie", "nazwa": "Ubranie dopasowane do pory roku, odzież przeciwdeszczowa", "poziom": "podst", "zrodlo": "PB" },
+        { "id": "spiwor", "nazwa": "Śpiwór i karimata", "poziom": "podst", "zrodlo": "PB" }
+      ]
+    },
+    {
+      "nazwa": "Narzędzia",
+      "pozycje": [
+        { "id": "multitool", "nazwa": "Scyzoryk lub multitool", "poziom": "podst", "zrodlo": "PB" },
+        { "id": "zapalniczka", "nazwa": "Zapalniczka", "poziom": "podst", "zrodlo": "PB" },
+        { "id": "worki", "nazwa": "Worki na śmieci", "poziom": "podst", "zrodlo": "PB" },
+        { "id": "linka", "nazwa": "Linka (np. paracord, kilka metrów)", "poziom": "rozsz", "zrodlo": "ATP", "uwaga": "rozdz. 8: wiązanie i improwizowane schronienie" }
+      ]
+    }
+  ]
+}

@@ -96,6 +96,10 @@ figcaption ul { margin: 0; padding-left: 18px; color: var(--muted); font-size: 1
 .ex { font-size: 10.5px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); border: 1px dashed var(--muted); border-radius: 4px; padding: 0 5px; white-space: nowrap; }
 .card { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 14px; display: grid; gap: 6px; }
 .status-val { font-size: 30px; font-weight: 800; letter-spacing: .03em; line-height: 1.1; }
+.levels { display: grid; gap: 6px; margin-block: 4px; }
+.lvl { display: grid; grid-template-columns: 118px 1fr; gap: 10px; align-items: baseline; }
+.lvl b { font-size: 18px; font-weight: 800; letter-spacing: .01em; white-space: nowrap; }
+.lvl span { font-size: 14px; color: var(--muted); }
 .meta { font-size: 13px; color: var(--muted); }
 .row { display: flex; align-items: center; gap: 8px; justify-content: space-between; flex-wrap: wrap; }
 .btn { display: flex; align-items: center; gap: 12px; min-height: 56px; padding: 12px 16px; border-radius: 14px; font-weight: 700; font-size: 17px; text-decoration: none; border: 0; font-family: inherit; cursor: pointer; width: 100%; text-align: left; }
@@ -243,7 +247,7 @@ details.acc ul { margin: 0; padding: 0 14px 14px 32px; display: grid; gap: 6px; 
 <div class="wrap">
 
 <header class="intro">
-  <div class="eyebrow"><svg class="mark" style="width:22px;height:22px"><use href="#i-mark"/></svg> Etap 2 · Makiety mobile · v0.1</div>
+  <div class="eyebrow"><svg class="mark" style="width:22px;height:22px"><use href="#i-mark"/></svg> Etap 2 · Makiety mobile · v0.2 (po researchu)</div>
   <h1>Gotowość Brodnica — makiety do akceptacji</h1>
   <p>Sześć kluczowych ekranów w wersji na telefon, zalążek design systemu i lista decyzji do podjęcia. Elementy da się klikać: checklista plecaka zapisuje postęp, przełączniki filtrują listę, rozwijane sekcje działają.</p>
   <div class="legend"><span class="ex">Przykład</span> <span>= dane fikcyjne lub do uzupełnienia z oficjalnego źródła. Nie publikujemy ich w tej formie.</span></div>
@@ -261,10 +265,14 @@ details.acc ul { margin: 0; padding: 0 14px 14px 32px; display: grid; gap: 6px; 
     <div class="netbar"><span class="dot"></span>Dostępne offline · treści z 22.11.2026</div>
     <div class="body">
       <div class="card">
-        <div class="row"><span class="sec-title">Stopień alarmowy w Polsce</span><span class="ex">Przykład</span></div>
-        <div class="status-val">BRAVO-CRP</div>
-        <p class="meta">Stan na 22.11.2026, 08:00 · źródło: gov.pl</p>
-        <a href="#e2" style="font-size:14.5px;font-weight:600">Co oznacza ten stopień</a>
+        <div class="row"><span class="sec-title">Stopnie alarmowe w Brodnicy</span><span class="meta">do 30.11.2026</span></div>
+        <div class="levels">
+          <div class="lvl"><b>BRAVO</b><span>2. stopień · cały kraj</span></div>
+          <div class="lvl"><b>BRAVO-CRP</b><span>2. stopień · cyberprzestrzeń</span></div>
+          <div class="lvl"><b>CHARLIE</b><span>3. stopień · tylko tereny kolejowe</span></div>
+        </div>
+        <p class="meta">Raport RCB z 22.11.2026 · aktualizowane automatycznie</p>
+        <a href="#e2" style="font-size:14.5px;font-weight:600">Co to znaczy dla mnie</a>
       </div>
       <a class="btn btn-primary" href="#e2"><svg class="i"><use href="#i-siren"/></svg><span>Alarm? Co robić teraz</span><svg class="i"><use href="#i-chev"/></svg></a>
       <nav class="tiles" aria-label="Sekcje">
@@ -288,9 +296,9 @@ details.acc ul { margin: 0; padding: 0 14px 14px 32px; display: grid; gap: 6px; 
           <span class="meta">Sobota 9:00–15:00 · źródło: operator sieci <span class="ex">Przykład</span></span>
         </article>
         <article class="msg">
-          <div class="row"><span class="chip chip-info">Informacja</span><span class="meta">18.11 · 10:05</span></div>
-          <b>Test syren alarmowych w powiecie</b>
-          <span class="meta">źródło: starostwo <span class="ex">Przykład</span></span>
+          <div class="row"><span class="chip chip-info">Sanepid</span><span class="meta">14.08</span></div>
+          <b>Jakość wody w kąpieliskach powiatu brodnickiego</b>
+          <span class="meta">źródło: PSSE w Brodnicy, pobrane automatycznie</span>
         </article>
       </div>
       <a class="btn btn-signal" href="#e6"><svg class="i"><use href="#i-down"/></svg><span>Pobierz poradnik offline</span></a>
@@ -308,7 +316,7 @@ details.acc ul { margin: 0; padding: 0 14px 14px 32px; display: grid; gap: 6px; 
     <h2><span class="id">E1</span> Start</h2>
     <ul>
       <li>Najpierw stan i jedna duża akcja „Alarm? Co robić teraz”, potem sekcje.</li>
-      <li>Stopień alarmowy tylko oficjalny, zawsze z godziną i źródłem. Brak własnej skali.</li>
+      <li>Stopnie alarmowe pobierane codziennie z raportu RCB (dane prawdziwe, stan na 22.11.2026). Pokazujemy, czego dotyczą w Brodnicy. Gdy odczyt się nie uda, zostaje ostatni stan z datą.</li>
       <li>Przycisk 112 w nagłówku na każdej stronie.</li>
       <li>Pasek „Dostępne offline” mówi, z którego dnia są treści.</li>
       <li>Komunikaty: ostrzeżenia IMGW dla powiatu brodnickiego pobierane automatycznie przy budowaniu strony, reszta wpisywana ręcznie.</li>
@@ -332,7 +340,7 @@ details.acc ul { margin: 0; padding: 0 14px 14px 32px; display: grid; gap: 6px; 
           <li><span><b>Wejdź do budynku.</b><small>Nie zostawaj na ulicy ani w samochodzie.</small></span></li>
           <li><span><b>Zejdź niżej, z dala od okien.</b><small>Piwnica, garaż podziemny, korytarz w środku budynku. Najlepiej dwie ściany między tobą a zewnętrzem.</small></span></li>
           <li><span><b>Weź telefon, dokumenty, leki.</b><small>Plecak, jeśli jest pod ręką. Nie wracaj po rzeczy.</small></span></li>
-          <li><span><b>Słuchaj komunikatów.</b><small>Alert RCB (SMS), radio, strona gminy.</small></span></li>
+          <li><span><b>Słuchaj komunikatów.</b><small>Alert RCB (SMS), aplikacja RSO, radio, SMS-Brodnica.</small></span></li>
           <li><span><b>Zostań do odwołania alarmu.</b></span></li>
         </ol>
       </div>
@@ -344,9 +352,17 @@ details.acc ul { margin: 0; padding: 0 14px 14px 32px; display: grid; gap: 6px; 
         </div>
         <div class="siren">
           <svg viewBox="0 0 96 32" aria-hidden="true"><path d="M2 16 H94"/></svg>
-          <p><b>Odwołanie alarmu</b><span>dźwięk ciągły przez 3 minuty</span></p>
+          <p><b>Odwołanie alarmu</b><span>dźwięk ciągły, jednostajny przez 3 minuty</span></p>
         </div>
-        <p class="meta">Pełna lista sygnałów: do potwierdzenia z RCB przed publikacją.</p>
+        <div class="siren">
+          <svg viewBox="0 0 96 32" aria-hidden="true"><path d="M2 16 H34"/><path d="M34 16 H94" stroke-dasharray="2 5" stroke-opacity=".45"/></svg>
+          <p><b>Ćwiczenia, test syren</b><span>dźwięk ciągły przez 1 minutę</span></p>
+        </div>
+        <div class="siren">
+          <svg viewBox="0 0 96 32" aria-hidden="true"><path d="M48 4 L62 28 H34 Z" style="fill:#F2C200;stroke:#7A6100;stroke-width:1.5"/></svg>
+          <p><b>Żółty trójkąt</b><span>alarm wizualny na budynkach i w mediach; zdjęty znak = odwołanie</span></p>
+        </div>
+        <p class="meta">Rozporządzenie MSWiA z 14.05.2025 (Dz.U. poz. 645). Nagrania syren do odsłuchania offline.</p>
       </div>
       <div class="card">
         <span class="sec-title">Skąd brać oficjalne informacje</span>
@@ -354,7 +370,8 @@ details.acc ul { margin: 0; padding: 0 14px 14px 32px; display: grid; gap: 6px; 
           <li><span>Alert RCB<small>SMS przychodzi sam, nic nie trzeba instalować</small></span></li>
           <li><span>Rządowe Centrum Bezpieczeństwa<small>gov.pl/rcb</small></span><svg class="i"><use href="#i-ext"/></svg></li>
           <li><span>Wojewoda Kujawsko-Pomorski<small>komunikaty dla województwa</small></span><svg class="i"><use href="#i-ext"/></svg></li>
-          <li><span>Urząd Miejski w Brodnicy<small>komunikaty lokalne</small></span><svg class="i"><use href="#i-ext"/></svg></li>
+          <li><span>Aplikacja RSO<small>oficjalne komunikaty ostrzegawcze dla regionu</small></span><svg class="i"><use href="#i-ext"/></svg></li>
+          <li><span>SMS-Brodnica<small>bezpłatne powiadomienia z Urzędu Miejskiego, zapis: SMS na 503 340 503</small></span></li>
         </ul>
       </div>
       <details class="acc"><summary>Nieoficjalne mapy zagrożeń z powietrza<svg class="i"><use href="#i-chev"/></svg></summary>
@@ -377,7 +394,7 @@ details.acc ul { margin: 0; padding: 0 14px 14px 32px; display: grid; gap: 6px; 
     <ul>
       <li>Wzorzec każdej strony: blok „Najważniejsze w 30 sekund”, szczegóły niżej.</li>
       <li>Numeracja tylko tam, gdzie kolejność ma znaczenie.</li>
-      <li>Rysunek sygnału syreny zamiast opisu słownego: rozpoznawalny bez czytania.</li>
+      <li>Rysunek sygnału syreny zamiast opisu słownego: rozpoznawalny bez czytania. Uwzględnia zmiany z 2025 r.: sygnał ćwiczebny i alarm wizualny (żółty trójkąt).</li>
       <li>Treści dodatkowe w rozwijanych sekcjach, żeby nie wydłużać ekranu.</li>
       <li>Mapy Zorya i Strażnik tylko jako linki, z wyraźnym „nieoficjalne”. Nie osadzamy ich: ciężkie i nie działają offline.</li>
     </ul>
@@ -408,9 +425,9 @@ details.acc ul { margin: 0; padding: 0 14px 14px 32px; display: grid; gap: 6px; 
       </div>
       <div class="group" id="checklist">
         <h3>Woda i jedzenie</h3>
-        <label class="check"><input type="checkbox" id="c1"><span>Woda pitna na 3 dni<small>ilość na osobę: do potwierdzenia z poradnikiem rządowym</small></span></label>
-        <label class="check"><input type="checkbox" id="c2"><span>Jedzenie bez gotowania</span></label>
-        <label class="check" data-lvl="ext"><input type="checkbox" id="c3"><span>Kuchenka turystyczna, kubek</span></label>
+        <label class="check"><input type="checkbox" id="c1"><span>Woda butelkowana<small>min. 3 litry na osobę na dobę · Poradnik bezpieczeństwa</small></span></label>
+        <label class="check"><input type="checkbox" id="c2"><span>Żywność gotowa do jedzenia (batony, bakalie)</span></label>
+        <label class="check" data-lvl="ext"><input type="checkbox" id="c3"><span>Metalowy kubek do gotowania wody<small>gotowanie 5 minut uzdatnia wodę · ATP 3-50.21</small></span></label>
         <label class="check" data-who="fam"><input type="checkbox" id="c4"><span>Mleko modyfikowane, butelka <span class="tag-fam">rodzina</span></span></label>
       </div>
       <div class="group">
@@ -431,8 +448,8 @@ details.acc ul { margin: 0; padding: 0 14px 14px 32px; display: grid; gap: 6px; 
         <label class="check"><input type="checkbox" id="c12"><span>Latarka + zapasowe baterie</span></label>
         <label class="check"><input type="checkbox" id="c13"><span>Naładowany powerbank i kabel</span></label>
         <label class="check"><input type="checkbox" id="c14"><span>Radio na baterie lub korbkę</span></label>
-        <label class="check" data-lvl="ext"><input type="checkbox" id="c15"><span>Krótkofalówka PMR</span></label>
-        <label class="check" data-lvl="ext"><input type="checkbox" id="c16"><span>Multitool, zapalniczka, taśma</span></label>
+        <label class="check" data-lvl="ext"><input type="checkbox" id="c15"><span>Opaska uciskowa (staza)<small>naucz się ją zakładać · ATP 3-50.21</small></span></label>
+        <label class="check" data-lvl="ext"><input type="checkbox" id="c16"><span>Kompas, linka, taśma naprawcza<small>ATP 3-50.21</small></span></label>
       </div>
     </div>
     <nav class="tabbar" aria-label="Nawigacja główna">
@@ -449,7 +466,7 @@ details.acc ul { margin: 0; padding: 0 14px 14px 32px; display: grid; gap: 6px; 
       <li>Dwa przełączniki zamiast czterech osobnych list. Pozycje „rodzina” oznaczone.</li>
       <li>Postęp zapisuje się tylko w tym telefonie, bez konta i bez wysyłania danych.</li>
       <li>Pola wyboru 24 px, cały wiersz klikalny (min. 52 px wysokości).</li>
-      <li>Lista w MVP pochodzi z <code>data/plecak.json</code>.</li>
+      <li>Wersja podstawowa = oficjalna lista z Poradnika bezpieczeństwa. Rozszerzona = podręcznik US Army ATP 3-50.21 Survival. Źródło przy każdej pozycji (<code>data/plecak.json</code>, 30 pozycji).</li>
     </ul>
   </figcaption>
 </figure>
@@ -464,7 +481,7 @@ details.acc ul { margin: 0; padding: 0 14px 14px 32px; display: grid; gap: 6px; 
     <div class="body">
       <p class="crumb">Schronienia</p>
       <h3 class="page-h">Gdzie się schronić</h3>
-      <div class="notice"><svg class="i"><use href="#i-info"/></svg><span>Układ przykładowy. Docelowo lista pochodzi z oficjalnego zbioru <b>Państwowej Straży Pożarnej</b> (dane.gov.pl), zapisanego w telefonie razem ze stroną.</span></div>
+      <div class="notice"><svg class="i"><use href="#i-info"/></svg><span>Układ przykładowy. Docelowo: punkty schronienia <b>w mieście Brodnicy</b> z oficjalnego zbioru <b>Państwowej Straży Pożarnej</b> (dane.gov.pl), zapisane w telefonie razem ze stroną.</span></div>
       <div class="map">
         <svg viewBox="0 0 320 190" role="img" aria-label="Schematyczny plan miasta z trzema przykładowymi punktami">
           <rect class="land" width="320" height="190"/>
@@ -652,8 +669,9 @@ details.acc ul { margin: 0; padding: 0 14px 14px 32px; display: grid; gap: 6px; 
   <h2 id="q-h">Do decyzji przed etapem 3</h2>
   <ul class="qlist">
     <li><b>Nazwa: „Gotowość Brodnica” czy „Brodnica Alert”?</b><p>Rekomendacja: <strong>Gotowość Brodnica</strong>. Słowo „Alert” sugeruje oficjalny system ostrzegania i myli się z Alert RCB.</p></li>
-    <li><b>Kto i jak często aktualizuje stopień alarmowy i komunikaty?</b><p>Jeśli nie ma osoby, która zrobi to w ciągu godzin, lepiej zastąpić kartę stopnia linkiem do gov.pl niż pokazywać nieaktualny stan.</p></li>
-    <li><b>Schrony: tylko Brodnica czy cały powiat?</b><p>Źródło już wybrane: zbiór PSP z dane.gov.pl. Rekomendacja: <strong>cały powiat brodnicki</strong>, posortowany tak, by Brodnica była pierwsza.</p></li>
+    <li><b>Automatyczne aktualizacje: GitHub Actions czy cron na CT8?</b><p>Rekomendacja: <strong>GitHub Actions</strong> (codziennie pobiera dane, buduje stronę i wgrywa ją na CT8). Wymaga dostępu SFTP do CT8 zapisanego jako sekret.</p></li>
+    <li><b>Ilustracje pierwszej pomocy</b><p>Rekomendacja: <strong>własne piktogramy SVG</strong> + zapytanie do RCB o zgodę na ilustracje z oficjalnego poradnika (projekt maila w <code>docs/RESEARCH.md</code>).</p></li>
+
     <li><b>Tailwind czy własny CSS z tokenami?</b><p>Rekomendacja: <strong>własny CSS</strong> (cel &lt; 15 KB, bez narzędzi budowania). Tailwind też zadziała, jeśli wolisz.</p></li>
     <li><b>Kto przejrzy treści medyczne?</b><p>Procedury pierwszej pomocy publikujemy dopiero po przeglądzie ratownika lub lekarza.</p></li>
     <li><b>Adres na CT8</b><p>Subdomena CT8 na start czy własna domena?</p></li>

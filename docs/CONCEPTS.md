@@ -1,6 +1,8 @@
 # Koncepcja — Gotowość Brodnica (Etap 1)
 
-Status: **do akceptacji** · wersja 0.1 · 22.11.2026
+Status: **do akceptacji** · wersja 0.2 · 22.11.2026 (po researchu, patrz `docs/RESEARCH.md`)
+
+**Zakres:** miasto Brodnica. **Charakter:** niekomercyjny, bez reklam, maksimum rzetelnej wiedzy.
 
 Dokument rozwija `docs/konspekt.md` w konkretną strukturę treści, zakres MVP i decyzje techniczne.
 
@@ -30,16 +32,20 @@ Projektujemy przede wszystkim pod pierwszą sytuację: telefon, słaby internet 
 
 | Adres | Strona | Zawartość | MVP |
 |---|---|---|---|
-| `/` | **Start** | stopień alarmowy (ręcznie), „Alarm? Co robić teraz”, kafle do sekcji, 3 ostatnie komunikaty, „Pobierz offline” | ✅ |
+| `/` | **Start** | stopnie alarmowe (**automatycznie z RCB**), „Alarm? Co robić teraz”, kafle do sekcji, 3 ostatnie komunikaty, „Pobierz offline” | ✅ |
 | `/alarm/` | **Zagrożenia i alarm** | co robić przy alarmie, sygnały syren, zagrożenia z powietrza (ogólnie), oficjalne źródła i jak je śledzić | ✅ |
 | `/komunikaty/` | Komunikaty | pełna lista komunikatów (z datą i źródłem) | ✅ |
-| `/schrony/` | **Schronienia** | lista miejsc z oficjalnego źródła, schemat mapy, jak się zachować, co zabrać | ✅ (lista może startować jako link do źródła) |
+| `/schrony/` | **Schronienia** | punkty schronienia w mieście (zbiór PSP), schemat mapy, jak się zachować, co zabrać | ✅ |
 | `/plecak/` | **Plecak ewakuacyjny** | interaktywna checklista: podstawowy/rozszerzony × osoba/rodzina, zapis w telefonie | ✅ |
 | `/pierwsza-pomoc/` | Pierwsza pomoc | lista procedur + apteczka | ✅ |
 | `/pierwsza-pomoc/krwotok/` itd. | procedura | RKO, krwotok, oparzenia, zadławienie, pozycja boczna, kiedy dzwonić 112 | ✅ (5 procedur) |
 | `/media/` | Prąd, woda, ciepło, paliwo | jedna strona z kotwicami: `#prad`, `#woda`, `#cieplo`, `#paliwo` | ✅ |
 | `/lacznosc/` | Łączność awaryjna | sieć komórkowa przy przeciążeniu, SMS, radio, PMR/CB, plan kontaktu rodzinnego | ✅ |
-| `/poradniki/` | Edukacja | artykuły, checklisty do druku | ⏳ po MVP |
+| `/zagrozenia/…` | **Zagrożenia od A do Z** | osobna strona dla każdego tematu oficjalnego poradnika: pożar, powódź (Drwęca), blackout, atak z powietrza, CBRN, terroryzm, niepokojące zachowania, zagrożenia cyfrowe i dezinformacja, bezpieczeństwo w tłumie | ✅ (treść z Poradnika bezpieczeństwa) |
+| `/przygotowanie/…` | **Przygotowanie** | plan rodzinny, zapasy domowe na 3 dni, osoby potrzebujące pomocy, zwierzęta, dom/szkoła/praca/samochód, higiena w kryzysie, zdrowie i emocje | ✅ |
+| `/przetrwanie/` | **Przetrwanie w terenie** | woda (zdobywanie, uzdatnianie), ogień, schronienie improwizowane, orientacja bez GPS, ochrona przed zimnem; na podstawie ATP 3-50.21 | ✅ |
+| `/kontakty/` | **Kontakty w Brodnicy** | numery alarmowe, Biuro Zarządzania Kryzysowego UM, SMS-Brodnica, sanepid, straż, media (po weryfikacji) | ✅ |
+| `/szkolenia/` | Gdzie się nauczyć | kursy pierwszej pomocy, „Trenuj z wojskiem” (Toruń, Bydgoszcz), organizacje lokalne | ⏳ po MVP |
 | `/offline/` | **Offline** | status zapisu w telefonie, „Dodaj do ekranu głównego”, poradnik do druku/PDF | ✅ |
 | `/poradnik/` | Poradnik w jednym pliku | cała treść na jednej stronie, styl do druku | ✅ |
 
@@ -106,16 +112,19 @@ Edycja = zmiana pliku Markdown/JSON → `npm run build` → wgranie `dist/` na C
 | Błędy w treściach medycznych | procedury na podstawie aktualnych wytycznych (ERC), przegląd przez ratownika/lekarza przed publikacją |
 | Nieprawdziwe dane o schronach | tylko dane z oficjalnych źródeł z datą weryfikacji |
 
-## 8. Źródła danych (na podstawie `docs/API.md`)
+## 8. Źródła danych (na podstawie `docs/API.md` i `docs/RESEARCH.md`)
 
 Zasada: **telefon nigdy nie odpytuje zewnętrznych API.** Dane pobieramy przy budowaniu strony (lub z crona na CT8), zapisujemy w `data/*.json` i publikujemy jako zwykłe pliki. Dzięki temu strona działa offline, nie zależy od dostępności źródeł i nie ma problemów z CORS.
 
 | Źródło | Do czego | Jak | Status |
 |---|---|---|---|
-| **KG PSP — Punkty schronienia w Polsce** (dane.gov.pl, zbiór 28058, CC BY 4.0) | lista schronów, ukryć i MDS | `scripts/fetch-schrony.mjs` → `data/schrony.json` (filtr: powiat brodnicki) | ✅ wybrane; skrypt gotowy, pierwsze pobranie do wykonania |
+| **KG PSP — Punkty schronienia w Polsce** (dane.gov.pl, zbiór 28058, CC BY 4.0) | lista schronów, ukryć i MDS | `scripts/fetch-schrony.mjs` → `data/schrony.json` (filtr: miasto Brodnica) | ✅ wybrane; skrypt gotowy, pierwsze pobranie do wykonania |
 | **IMGW-PIB — ostrzeżenia meteo** (`danepubliczne.imgw.pl/api/data/warningsmeteo`) | komunikaty pogodowe dla powiatu (TERYT 0402) | `scripts/fetch-imgw.mjs` → `data/ostrzezenia-imgw.json` | ✅ działa (22.11.2026: brak ostrzeżeń) |
-| Alert RCB | najważniejsze alerty | brak publicznego API → informujemy, że SMS przychodzi sam; stopień alarmowy wpisywany ręcznie | ręcznie |
-| RSO feed | komunikaty regionalne | nieudokumentowany, stabilność nieznana | ⏳ do weryfikacji po MVP |
+| **RCB — Raport dobowy** | stopnie alarmowe | `scripts/fetch-stopnie.mjs` → `data/stopnie.json`, codziennie; przy błędzie zostaje ostatni stan | ✅ działa |
+| **UM Brodnica — kanał Atom** + **PSSE Brodnica** | komunikaty lokalne (filtr: bezpieczeństwo, media, woda w mieście) | `scripts/fetch-komunikaty.mjs` → `data/komunikaty-auto.json` | ✅ działa |
+| Alert RCB | najważniejsze alerty | brak publicznego API → informujemy, że SMS przychodzi sam | informacja |
+| Aplikacja RSO | komunikaty regionalne | oficjalny kanał wg rozporządzenia z 2025 r.; feed nieudokumentowany → polecamy aplikację, nie pobieramy | informacja |
+| SMS-Brodnica | powiadomienia miejskie | polecamy zapis (503 340 503) | informacja |
 | Zorya, Strażnik | mapy zagrożeń z powietrza | **tylko link** z etykietą „nieoficjalne”; bez osadzania (ciężkie, nie działają offline) | ✅ jako link |
 | NEPTUN, Tryvoha | zagrożenia nad Ukrainą | pomijamy: mało przydatne dla mieszkańca Brodnicy, ryzyko szumu | ❌ |
 | OpenStreetMap | mapa | tylko jeśli po MVP zdecydujemy się na Leaflet | ⏳ |

@@ -1,14 +1,14 @@
 # Makiety — Gotowość Brodnica (Etap 2)
 
-Status: **do akceptacji** · wersja 0.1 · 22.11.2026
+Status: **do akceptacji** · wersja 0.2 · 22.11.2026 (po researchu)
 
 Klikalne makiety mobile: [`design/makiety.html`](../design/makiety.html) (otwórz w przeglądarce, najlepiej w trybie telefonu).
 
 | ID | Ekran | Kluczowe decyzje |
 |---|---|---|
-| E1 | Start | stopień alarmowy (oficjalny, z godziną i źródłem), jedna duża akcja „Alarm? Co robić teraz”, 6 kafli, komunikaty (IMGW automatycznie + ręczne), „Pobierz offline” |
-| E2 | Alarm — co robić | blok „Najważniejsze w 30 sekund”, rysunki sygnałów syren, oficjalne źródła, nieoficjalne mapy (Zorya, Strażnik) tylko jako linki z etykietą |
-| E3 | Plecak ewakuacyjny | checklista z dwoma przełącznikami (podstawowy/rozszerzony, osoba/rodzina), postęp zapisany w telefonie |
+| E1 | Start | stopnie alarmowe **automatycznie z raportu RCB** (z informacją, czego dotyczą w Brodnicy), jedna duża akcja „Alarm? Co robić teraz”, 6 kafli, komunikaty (IMGW, UM Brodnica, sanepid — automatycznie), „Pobierz offline” |
+| E2 | Alarm — co robić | blok „Najważniejsze w 30 sekund”, sygnały wg rozporządzenia z 2025 r. (alarm, odwołanie, ćwiczenia, żółty trójkąt), oficjalne źródła (Alert RCB, RSO, SMS-Brodnica), nieoficjalne mapy tylko jako linki z etykietą |
+| E3 | Plecak ewakuacyjny | checklista z dwoma przełącznikami (podstawowy = Poradnik bezpieczeństwa, rozszerzony = ATP 3-50.21), źródło przy każdej pozycji, postęp zapisany w telefonie |
 | E4 | Schronienia | dane z oficjalnego zbioru PSP (dane.gov.pl), schemat SVG offline, lista z typem obiektu, zasady w schronie |
 | E5 | Procedura pierwszej pomocy | wezwanie 112 na górze, kroki, status przeglądu medycznego |
 | E6 | Offline | potwierdzenie zapisu, „Dodaj do ekranu głównego”, PDF i wersja do druku |
@@ -26,9 +26,13 @@ Wspólne elementy: nagłówek z przyciskiem **112**, pasek „Dostępne offline�
 
 ## Do decyzji
 
-1. **Nazwa:** „Gotowość Brodnica” (rekomendacja) czy „Brodnica Alert”? „Alert” sugeruje oficjalny system ostrzegania i myli się z Alert RCB.
-2. **Aktualizacja stopnia alarmowego i komunikatów:** kto i jak często? Bez dyżuru lepiej linkować do gov.pl niż pokazywać nieaktualny stan.
-3. **Schrony:** tylko Brodnica czy cały powiat brodnicki (rekomendacja: powiat, Brodnica pierwsza)?
+Rozstrzygnięte po researchu: stopnie alarmowe i komunikaty **automatycznie**, zakres **miasto Brodnica**, charakter **niekomercyjny**, plecak i porady oparte na źródłach rządowych i wojskowych.
+
+Otwarte:
+1. **Nazwa:** „Gotowość Brodnica” (rekomendacja) czy „Brodnica Alert”?
+2. **Automatyczne aktualizacje:** GitHub Actions (rekomendacja) czy cron na CT8?
+3. **Ilustracje pierwszej pomocy:** własne piktogramy SVG (rekomendacja) + prośba do RCB o zgodę na ilustracje z poradnika.
 4. **CSS:** własny z tokenami (rekomendacja) czy Tailwind?
 5. **Przegląd medyczny:** kto zatwierdzi procedury pierwszej pomocy?
 6. **Adres:** subdomena CT8 czy własna domena?
+7. **Kontakt z Urzędem Miejskim** (syreny, miejsca doraźnego schronienia, numery awaryjne MPWiK i ciepłownictwa): wysyłasz Ty? Projekt maila jest w `docs/RESEARCH.md` §8.
