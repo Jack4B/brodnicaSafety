@@ -15,7 +15,7 @@
 |---|---|
 | `--brand` granat | marka, przyciski, linki, kroki |
 | `--signal` pomarańcz | znak obrony cywilnej, „zapisz offline”, fokus klawiatury |
-| `--danger` czerwień | wyłącznie 112, „pilne”, strzałki na ilustracjach |
+| `--danger` czerwień #C8102E | wyłącznie 112, „pilne”, znaczniki na rysunkach, ikony pierwszej pomocy |
 | `--warn` bursztyn | „ważne”, dostępność ograniczona |
 | `--ok` zieleń | zrobione, zapisane, całodobowo |
 | `--bg`, `--surface`, `--ink`, `--muted`, `--line` | tła i tekst |
@@ -31,5 +31,6 @@ przycisk (`btn-primary`, `btn-signal`, `btn-ghost`), kafel (`tile`), karta (`car
 Jedna paleta dla ikon, schematów i rysunków:
 
 - **Ikony** — linia w kolorze `--brand`.
-- **Ilustracje pierwszej pomocy** (Wikimedia Commons) — duotone w palecie strony: `--ink` → `--brand` → `--brand-soft` → biel, na jasnej karcie także w trybie ciemnym. Czerwień (`--danger`) tylko tam, gdzie niesie znaczenie (strzałka ucisku). Przetwarzanie: `scripts/ilustracje-paleta.py`.
+- **Rysunki pierwszej pomocy** (skill medic, `src/illustrations/medic/`) — granat #1F2A44 na kontury, beż na skórę (poszkodowany jaśniejszy, ratownik ciemniejszy), czerwień #C8102E tylko na znaczniki, strzałki i liczby. Zawsze na białej karcie, także w trybie ciemnym. Style: `src/assets/medic.css` (generowany).
+- **Ikony pierwszej pomocy** (Health Icons, CC0) — wypełnione, czerwień #C8102E, na listach procedur.
 - **Schematy własne** (SVG) — kolory przez klasy CSS powiązane z tokenami.

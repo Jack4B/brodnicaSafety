@@ -3,6 +3,7 @@ title: Zadławienie
 lead: Ktoś nie może mówić, kaszleć ani oddychać, łapie się za szyję. Liczą się sekundy.
 kolejnosc: 5
 ikona: aid
+ikona-hi: oddech
 aktualizacja: 2026-11-22
 przeglad: przegląd ratownika medycznego — w przygotowaniu
 zrodla:
@@ -24,7 +25,9 @@ zrodla:
 4. **Powtarzaj** na zmianę 5 uderzeń w plecy i 5 uciśnięć nadbrzusza, aż ciało obce wypadnie albo poszkodowany straci przytomność.
 5. **Stracił przytomność** — połóż go na ziemi, dzwoń {{tel:112}} i zacznij [RKO](/pierwsza-pomoc/rko/). Uciskanie klatki piersiowej może usunąć przeszkodę.
 
-{{ilustracja:bb-heimlich|Uciśnięcia nadbrzusza: stań za poszkodowanym, pięść między pępkiem a końcem mostka, chwyć ją drugą dłonią i pociągnij do siebie i ku górze.}}
+{{ilustracja:05-zadlawienie-dorosly-2|5 uderzeń nasadą dłoni między łopatki. Poszkodowany pochylony do przodu.}}
+
+{{ilustracja:05-zadlawienie-dorosly-3|5 uciśnięć nadbrzusza: pięść między pępkiem a końcem mostka, pociągnij do siebie i ku górze.}}
 
 > [!WAZNE] Po uciśnięciach nadbrzusza — do lekarza
 > Nawet jeśli wszystko się udało, poszkodowany powinien zostać zbadany przez lekarza. Uciśnięcia mogą uszkodzić narządy wewnętrzne.
@@ -34,6 +37,8 @@ zrodla:
 - **Nie wykonuj uciśnięć nadbrzusza.**
 - **5 uderzeń w plecy:** połóż niemowlę brzuszkiem na swoim przedramieniu, głową w dół, podtrzymując żuchwę. Uderzaj nasadą dłoni między łopatki.
 - **5 uciśnięć klatki piersiowej:** odwróć niemowlę na plecy (nadal głową w dół) i uciśnij dolną połowę mostka — krócej i wolniej niż przy RKO.
-{{ilustracja:bb-niemowle-zadlawienie|Niemowlę: uderzenia w plecy na przedramieniu, głową w dół (z lewej), i uciśnięcia klatki piersiowej (z prawej).}}
+{{ilustracja:06-zadlawienie-niemowle-1|Niemowlę brzuszkiem na przedramieniu, głowa niżej niż tułów: 5 uderzeń między łopatki.}}
+
+{{ilustracja:06-zadlawienie-niemowle-2|Odwróć na plecy, nadal głową w dół: 5 uciśnięć dolnej połowy mostka.}}
 
 - Powtarzaj na zmianę. Gdy straci przytomność — {{tel:112}} i RKO zaczynając od 5 oddechów.

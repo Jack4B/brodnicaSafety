@@ -53,7 +53,7 @@
 | 2. Makiety mobile | ✅ | `design/makiety.html`, `docs/MAKIETY.md` |
 | 3. Akceptacja | ✅ 22.11.2026: nazwa „Gotowość Brodnica”, GitHub Actions, zakres miasto, własne ilustracje | |
 | 4. Design system | ✅ | `docs/DESIGN.md`, `src/assets/style.css` |
-| 5. Kod (v1.0) | ✅ 45 stron, PWA offline | `src/`, `content/` |
+| 5. Kod (v1.1) | ✅ 45 stron, PWA offline, rysunki medic + Health Icons | `src/`, `content/` |
 | 6. Testy | ✅ jednostkowe + build + e2e offline (Playwright) | `tests/` |
 | 7. Wdrożenie CT8 | ⏳ workflow gotowy, czeka na sekrety CT8 | `.github/workflows/aktualizacja.yml`, `docs/WDROZENIE.md` |
 | 8. Dokumentacja treści | ✅ | `docs/AKTUALIZACJA.md` |
@@ -64,7 +64,9 @@
 - **Treści:** `content/**/*.md` z front matter (`title`, `lead`, `kolejnosc`, `ikona`, `aktualizacja`, `przeglad`, `zrodla`). Składnia rozszerzeń: `docs/AKTUALIZACJA.md`.
 - **Strony generowane z danych:** start, stopnie, komunikaty, schrony, plecak, offline, poradnik (do druku), więcej — `src/templates.mjs`.
 - **PWA:** `src/sw.template.js` → `dist/sw.js` z listą wszystkich plików; HTML network-first (4 s), reszta cache-first.
-- **Ilustracje pierwszej pomocy:** z Wikimedia Commons (BruceBlaus, Baedr-9439, Bizhan Khodabandeh, Servier — CC0/CC BY-SA), przekolorowane na paletę strony skryptem `scripts/ilustracje-paleta.py`; metadane i licencje w `src/illustrations/open/licencje.json`, autor pod każdą ilustracją. Decyzja użytkownika 22.11.2026: bez rysunków „własnej roboty” w pierwszej pomocy, jedna paleta dla ikon i rysunków.
+- **Rysunki pierwszej pomocy:** skill medic → arkusze `pierwsza-pomoc-instrukcje/` (9) → panele SVG w `src/illustrations/medic/` + style `src/assets/medic.css` (skrypt `scripts/ilustracje-medic.mjs`). Paleta: granat #1F2A44, beż, czerwień #C8102E; biała karta w obu motywach. Decyzja użytkownika 22.11.2026: jedna paleta dla ikon i rysunków, bez Wikimedii.
+- **Ikony pierwszej pomocy:** Health Icons (CC0) z `pierwsza-pomoc-ikony/svg/`, pole `ikona-hi` w front matter. `--danger` = #C8102E.
+- **Prawo i normy w treściach:** art. 4–6 ustawy o PRM, art. 162 kk (`content/pierwsza-pomoc/index.md`), znaki PN-EN ISO 7010 E003/E004/E010.
 - **Schematy własne** (syreny, flagi, orientacja, ogień): SVG w `src/illustrations/`, kolory przez klasy CSS.
 - **Automatyzacja:** GitHub Actions co 3 h (RCB, IMGW, UM, sanepid), schrony co tydzień; commit danych do repo; rsync na CT8.
 

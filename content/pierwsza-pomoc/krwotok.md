@@ -3,6 +3,7 @@ title: Silny krwotok
 lead: Obfity krwotok może zabić w kilka minut. Działaj szybko — uciskaj ranę.
 kolejnosc: 3
 ikona: aid
+ikona-hi: krwawienie
 aktualizacja: 2026-11-22
 przeglad: przegląd ratownika medycznego — w przygotowaniu
 zrodla:
@@ -26,9 +27,11 @@ zrodla:
 5. **Poszkodowany jest blady i spocony?** To objawy wstrząsu. Połóż go i unieś mu nogi na około 30 cm.
 6. **Okryj go** — osoby po urazie szybko się wychładzają. Folia termiczna (koc NRC) srebrną stroną do ciała.
 
-{{ilustracja:bk-opatrunek-uciskowy|Opatrunek uciskowy: przyłóż gazę na ranę i owiń mocno bandażem. Gdy przesiąka, dołóż kolejną warstwę.}}
+{{ilustracja:07-krwotok-2|Uciskaj ranę mocno i bezpośrednio — opatrunkiem lub czystą tkaniną, najlepiej w rękawiczkach.}}
 
-{{ilustracja:bk-staza|Opaska uciskowa (staza) powyżej rany — na udzie lub ramieniu. Dokręć, aż krew przestanie płynąć, i zapisz godzinę.}}
+{{ilustracja:07-krwotok-3|Przesiąka? Nie zdejmuj opatrunku. Dołóż kolejną warstwę i uciskaj mocniej.}}
+
+{{ilustracja:07-krwotok-4|Kończyna dalej krwawi: opaska uciskowa powyżej rany, na udzie lub ramieniu. Dokręć, aż krew przestanie płynąć, i zapisz godzinę.}}
 
 > [!PORADA] Opaska uciskowa w apteczce
 > Opaskę do tamowania krwotoków rząd zaleca mieć w domowej apteczce. Kupuj sprawdzone modele (np. typu CAT lub SOF-T) i naucz się ją zakładać na kursie — w stresie nie ma czasu na czytanie instrukcji.

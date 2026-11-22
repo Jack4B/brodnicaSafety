@@ -32,18 +32,15 @@ aktualizacja: 2026-11-22
 
 Gdy źródło nie odpowiada, strona pokazuje ostatnie poprawnie pobrane dane z datą. Brak danych nigdy nie jest pokazywany jako „brak zagrożeń”.
 
-## Ilustracje
+## Ilustracje i ikony
 
-Ilustracje pierwszej pomocy pochodzą z **Wikimedia Commons** i są na otwartych licencjach. Przycięliśmy je (usunięte angielskie podpisy) i przekolorowaliśmy na barwy strony. Autor i licencja są podane pod każdą ilustracją:
+**Rysunki pierwszej pomocy** przygotowaliśmy sami: jedna postać, jedna kreska i jedna paleta we wszystkich procedurach. Narysowaliśmy je narzędziem [medic](https://github.com/zenbakiak/medic), które składa rysunki z postaci o anatomicznych proporcjach. Treść każdego kroku pochodzi z wytycznych ERC 2025 w polskim wydaniu Polskiej Rady Resuscytacji. Rysunki udostępniamy na licencji CC BY-SA 4.0.
 
-| Autor | Licencja | Ilustracje |
-|---|---|---|
-| [BruceBlaus](https://commons.wikimedia.org/wiki/User:BruceBlaus) | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.pl) | RKO dorosłego i dziecka, zadławienie |
-| [Baedr-9439](https://commons.wikimedia.org/wiki/User:Baedr-9439) | [CC0](https://creativecommons.org/publicdomain/zero/1.0/deed.pl) | elektrody AED, adrenalina, wychłodzenie |
-| [Bizhan Khodabandeh](https://commons.wikimedia.org/wiki/User:Bizhan_Khodabandeh) | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.pl) | opatrunek uciskowy, staza |
-| [Servier Medical Art](https://smart.servier.com) | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/deed.pl) | pozycja bezpieczna |
+**Ikony pierwszej pomocy** pochodzą z projektu [Health Icons](https://healthicons.org) (licencja [CC0](https://creativecommons.org/publicdomain/zero/1.0/deed.pl), domena publiczna). Przekolorowaliśmy je na czerwień ratunkową #C8102E, tę samą co na rysunkach.
 
-Przerobione wersje udostępniamy na tych samych licencjach. Schematy w innych działach (syreny, flagi, orientacja, ogień) są własne, na licencji CC BY-SA 4.0.
+**Schematy w innych działach** (syreny, flagi, orientacja, ogień) też są własne, na licencji CC BY-SA 4.0.
+
+Rysunki i opisy czekają na przegląd osoby z uprawnieniami ratownika medycznego lub kursem KPP.
 
 ## Prywatność
 

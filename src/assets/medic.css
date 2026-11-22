@@ -1,0 +1,56 @@
+/* Wygenerowane przez scripts/ilustracje-medic.mjs z kitu skilla medic — nie edytuj ręcznie. */
+/* Paleta rysunków jak w arkuszach: czerwień #C8102E, granat #1F2A44, beż; zawsze na białej karcie. */
+.illu-medic{--mp-paper:#ffffff;--mp-ink:#1F2A44;--mp-mid:#5A6478;--mp-faint:#D8DCE4;--mp-a:#F6E7D7;--mp-b:#DFC2A3;--mp-accent:#C8102E;--mp-water:#7E95BE;--mp-ok:#1F2A44;--mp-soft:#F3EEE8;background:#ffffff}
+.illu-medic .mp-edge{fill:none;stroke:var(--mp-ink);stroke-linecap:round;stroke-linejoin:round}
+.illu-medic .mp-skin{fill:none;stroke:var(--mp-a);stroke-linecap:round;stroke-linejoin:round}
+.illu-medic .mp-blob{fill:var(--mp-a);stroke:var(--mp-ink);stroke-width:1.2}
+.illu-medic .mp-eye{fill:var(--mp-ink)}
+.illu-medic .mp-figure[data-tone="b"] .mp-skin{stroke:var(--mp-b)}
+.illu-medic .mp-figure[data-tone="b"] .mp-blob{fill:var(--mp-b)}
+.illu-medic .mp-figure .mp-lit .mp-edge{stroke:var(--mp-accent)}
+.illu-medic .mp-figure .mp-lit .mp-blob{stroke:var(--mp-accent);stroke-width:1.8}
+.illu-medic .mp-figure[data-ghost]{opacity:.35}
+.illu-medic .mp-stroke{fill:none;stroke:var(--mp-ink);stroke-width:1.6;stroke-linecap:round}
+.illu-medic .mp-tip,.illu-medic .mp-dot{fill:var(--mp-ink)}
+.illu-medic [data-tone="accent"] .mp-stroke,.illu-medic [data-tone="accent"].mp-stroke{stroke:var(--mp-accent);stroke-width:2.2}
+.illu-medic [data-tone="accent"] .mp-tip,.illu-medic [data-tone="accent"] .mp-dot{fill:var(--mp-accent)}
+.illu-medic [data-tone="ok"] .mp-stroke{stroke:var(--mp-ok);stroke-width:2.2}
+.illu-medic [data-tone="ok"] .mp-tip,.illu-medic [data-tone="ok"] .mp-dot{fill:var(--mp-ok)}
+.illu-medic [data-tone="water"] .mp-stroke{stroke:var(--mp-water);stroke-width:2.2}
+.illu-medic [data-tone="water"] .mp-tip{fill:var(--mp-water)}
+.illu-medic .mp-callout text{fill:var(--mp-ink);font-size:11.5px;font-weight:600}
+.illu-medic .mp-callout .mp-stroke{stroke-width:1}
+.illu-medic .mp-label{fill:var(--mp-ink);font-size:11.5px;font-weight:600}
+.illu-medic .mp-label[data-tone="accent"]{fill:var(--mp-accent)}
+.illu-medic .mp-label[data-tone="mid"]{fill:var(--mp-mid);font-weight:500}
+.illu-medic .mp-flesh{fill:var(--mp-a);stroke:var(--mp-ink);stroke-width:1.4;stroke-linejoin:round;stroke-linecap:round}
+.illu-medic .mp-closeup[data-tone="b"] .mp-flesh{fill:var(--mp-b)}
+.illu-medic .mp-flesh-fill{fill:var(--mp-a);stroke:none}
+.illu-medic .mp-flesh-edge{fill:none;stroke:var(--mp-ink);stroke-width:1.4;stroke-linecap:round}
+.illu-medic .mp-hint{fill:none;stroke:var(--mp-faint);stroke-width:1.4;stroke-linecap:round}
+.illu-medic .mp-prop[data-tone="ok"]{stroke:var(--mp-ok)}
+.illu-medic .mp-prop[data-fill="ok"]{fill:var(--mp-ok);fill-opacity:.16}
+.illu-medic .mp-patch ellipse{fill:var(--mp-accent);fill-opacity:.3;stroke:var(--mp-accent);stroke-width:1.6;stroke-dasharray:1 4;stroke-linecap:round}
+.illu-medic .mp-blister{fill:var(--mp-paper);stroke:var(--mp-accent);stroke-width:1.2}
+.illu-medic .mp-band{stroke:var(--mp-ink);stroke-width:1.2;fill:var(--mp-a)}
+.illu-medic .mp-band[data-layer="fat"]{fill:var(--mp-paper)}
+.illu-medic .mp-band[data-layer="muscle"]{fill:var(--mp-soft)}
+.illu-medic .mp-fibre{fill:none;stroke:var(--mp-mid);stroke-width:1}
+.illu-medic .mp-lobes circle{fill:none;stroke:var(--mp-faint);stroke-width:1.2}
+.illu-medic .mp-count{fill:var(--mp-accent);font-weight:800;font-variant-numeric:tabular-nums}
+.illu-medic .mp-count[data-tone="ink"]{fill:var(--mp-ink)}
+.illu-medic .mp-forbid circle,.illu-medic .mp-forbid path{fill:none;stroke:var(--mp-accent);stroke-width:3.2;stroke-linecap:round}
+.illu-medic .mp-ground{fill:none;stroke:var(--mp-faint);stroke-width:2;stroke-linecap:round}
+.illu-medic .mp-prop{stroke:var(--mp-ink);stroke-width:1.2;stroke-linejoin:round;stroke-linecap:round;fill:var(--mp-paper)}
+.illu-medic .mp-prop[data-fill="none"]{fill:none}
+.illu-medic .mp-prop[data-fill="soft"]{fill:var(--mp-soft)}
+.illu-medic .mp-prop[data-fill="accent"]{fill:var(--mp-accent)}
+.illu-medic .mp-prop[data-fill="ink"]{fill:var(--mp-ink)}
+.illu-medic .mp-prop[data-fill="water"]{fill:var(--mp-water)}
+.illu-medic .mp-prop[data-tone="accent"]{stroke:var(--mp-accent)}
+.illu-medic .mp-prop[data-tone="mid"]{stroke:var(--mp-mid)}
+.illu-medic .mp-drops path{fill:var(--mp-water)}
+.illu-medic .mp-drops[data-tone="accent"] path{fill:var(--mp-accent)}
+.illu-medic .mp-frame{visibility:hidden}
+@media (prefers-reduced-motion:reduce){.illu-medic .mp-frame{animation:none!important}.illu-medic .mp-frame[data-still]{visibility:visible}}
+@media print{.illu-medic .mp-frame{animation:none!important}.illu-medic .mp-frame[data-still]{visibility:visible}}

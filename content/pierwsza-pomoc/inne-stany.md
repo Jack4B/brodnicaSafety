@@ -3,6 +3,7 @@ title: Inne nagłe stany
 lead: Ból w klatce piersiowej, ciężka alergia, niski cukier, wychłodzenie i przegrzanie.
 kolejnosc: 8
 ikona: aid
+ikona-hi: serce
 aktualizacja: 2026-11-22
 przeglad: przegląd ratownika medycznego — w przygotowaniu
 zrodla:
@@ -28,7 +29,9 @@ Duszność, świszczący oddech, obrzęk ust, języka lub szyi, nagłe osłabien
 3. Niech siedzi (gdy ma duszność) albo leży (gdy jest słaby).
 4. Jeśli objawy nie ustępują, **po 5 minutach** można podać kolejną dawkę adrenaliny.
 
-{{ilustracja:ba-adrenalina|Autostrzykawka z adrenaliną: w zewnętrzną część uda, można przez ubranie.}}
+{{ilustracja:09-anafilaksja-2|Autostrzykawka z adrenaliną w zewnętrzną część uda — można przez ubranie.}}
+
+Autostrzykawka z adrenaliną jest w Polsce lekiem na receptę, przepisanym konkretnej osobie. Pomagasz poszkodowanemu użyć **jego własnej** autostrzykawki.
 
 ## Niski cukier (hipoglikemia)
 
@@ -37,8 +40,6 @@ Często u osób z cukrzycą: drżenie, poty, rozdrażnienie, splątanie. Jeśli 
 ## Wychłodzenie (hipotermia)
 
 Drżenie, senność, splątanie, spowolnienie. Przenieś do ciepłego miejsca, **zdejmij mokre ubrania**, okryj kocami i folią termiczną, podaj ciepły słodki napój, jeśli jest przytomny. Ostrożnie przemieszczaj. Przy zatrzymaniu krążenia z powodu wychłodzenia prowadź RKO bez przerw — szanse na powrót do zdrowia są duże.
-
-{{ilustracja:ba-wychlodzenie|Na zewnątrz: izolacja od ziemi (karimata), śpiwór lub koce, szczelne zawinięcie razem z głową, na wierzchu folia lub plandeka.}}
 
 ## Przegrzanie (udar cieplny)
 

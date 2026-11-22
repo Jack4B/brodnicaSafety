@@ -3,6 +3,7 @@ title: Tonięcie
 lead: W okolicy Brodnicy są jeziora i Drwęca. Tonący często nie krzyczy — tonięcie bywa ciche.
 kolejnosc: 7
 ikona: drop
+ikona-hi: ratunkowy
 aktualizacja: 2026-11-22
 przeglad: przegląd ratownika medycznego — w przygotowaniu
 zrodla:

@@ -3,9 +3,11 @@ title: Oparzenia
 lead: Chłodź oparzenie wodą od razu i długo — co najmniej 20 minut.
 kolejnosc: 6
 ikona: aid
+ikona-hi: oparzenie
 aktualizacja: 2026-11-22
 przeglad: przegląd ratownika medycznego — w przygotowaniu
 zrodla:
+- Resuscytacja dla każdego — wytyczne ERC 2025 w polskim wydaniu (Polska Rada Resuscytacji, 2026), rozdz. „Pierwsza pomoc” | https://www.prc.krakow.pl/wp-content/uploads/2026/04/Broszura-ERC-2025-i.pdf
 - ATP 3-50.21 Survival (US Army, 2018), rozdz. 2 — oparzenia | https://armypubs.army.mil
 - Poradnik bezpieczeństwa — Apteczka (opatrunki na oparzenia) | https://www.gov.pl/web/poradnikbezpieczenstwa
 ---
@@ -16,6 +18,10 @@ zrodla:
 3. **Zdejmij biżuterię** i ubranie, które nie przywarło do skóry.
 4. **Przykryj** luźno czystym opatrunkiem lub folią spożywczą. Okryj poszkodowanego, żeby się nie wychłodził.
 :::
+
+{{ilustracja:08-oparzenie-2|Chłodź oparzenie chłodną, bieżącą wodą przez 20 minut.}}
+
+{{ilustracja:08-oparzenie-3|Przykryj luźno czystym opatrunkiem lub folią spożywczą. Okryj poszkodowanego.}}
 
 ## Ważne zasady
 

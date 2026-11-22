@@ -3,6 +3,7 @@ title: Resuscytacja (RKO) dorosłego
 lead: Ktoś nie reaguje i nie oddycha prawidłowo. Każda minuta bez uciskania klatki piersiowej zmniejsza szanse na przeżycie.
 kolejnosc: 1
 ikona: aid
+ikona-hi: rko
 aktualizacja: 2026-11-22
 przeglad: przegląd ratownika medycznego — w przygotowaniu
 zrodla:
@@ -27,19 +28,23 @@ zrodla:
 6. **Uciskaj klatkę piersiową.** Uklęknij obok. Nasadę dłoni połóż na środku klatki piersiowej (dolna połowa mostka), drugą dłoń na niej, spleć palce. Ramiona proste, barki pionowo nad klatką. Uciskaj na **5–6 cm**, w tempie **100–120 na minutę** (około 2 razy na sekundę). Po każdym ucisku pozwól klatce wrócić, nie odrywając dłoni.
 7. **Oddechy ratownicze — jeśli umiesz.** Po 30 uciśnięciach udrożnij drogi oddechowe, zaciśnij nos, obejmij ustami usta poszkodowanego i wdmuchuj powietrze przez około 1 sekundę, aż klatka się uniesie. Zrób 2 oddechy i wróć do uciskania. Przerwa nie może trwać dłużej niż 10 sekund. **Jeśli nie umiesz albo nie chcesz — uciskaj bez przerw.**
 8. **Użyj AED, gdy tylko dotrze.** Włącz i postępuj według poleceń głosowych. Elektrody przyklej na odsłoniętą klatkę piersiową. Jeśli pomaga ktoś drugi, niech uciska, gdy ty przyklejasz elektrody.
-9. **Kontynuuj** do przyjazdu ratowników, wyraźnych oznak życia (oddech, ruch, kaszel) albo gdy pomaganie stanie się dla ciebie niebezpieczne. Gdy się zmęczysz, niech zmieni cię ktoś inny.
+9. **Kontynuuj** do przyjazdu zespołu ratownictwa medycznego (ZRM), wyraźnych oznak życia (oddech, ruch, kaszel) albo gdy pomaganie stanie się dla ciebie niebezpieczne. Gdy się zmęczysz, niech zmieni cię ktoś inny.
 
-{{ilustracja:bb-drogi-oddechowe|Udrożnienie dróg oddechowych: ręka na czole, opuszki palców drugiej ręki pod brodą. Odegnij głowę do tyłu i unieś brodę.}}
+{{ilustracja:01-ocena-3|Udrożnienie dróg oddechowych: ręka na czole, palce pod brodą. Patrz, słuchaj i wyczuwaj oddech najwyżej 10 sekund.}}
 
-{{ilustracja:bb-dlonie-mostek|Nasada dłoni na środku klatki piersiowej (dolna połowa mostka), druga dłoń na niej, palce splecione.}}
+{{ilustracja:02-rko-1|Nasada dłoni na środku klatki piersiowej (dolna połowa mostka), druga dłoń na niej, palce splecione.}}
 
-{{ilustracja:bb-pozycja-rko|Barki pionowo nad dłońmi, ramiona proste. Uciskaj na 5–6 cm, 100–120 razy na minutę.}}
+{{ilustracja:02-rko-2|Barki pionowo nad dłońmi, ramiona proste. Uciskaj na 5–6 cm, 100–120 razy na minutę.}}
 
-{{ilustracja:ba-aed-elektrody|Elektrody AED: jedna pod prawym obojczykiem, druga na lewym boku poniżej pachy — tak jak na rysunku na elektrodach. Nie dotykaj poszkodowanego podczas analizy i wyładowania.}}
+{{ilustracja:03-aed-2|Elektrody AED: pod prawym obojczykiem i na lewym boku poniżej pachy — tak jak na rysunku na elektrodach.}}
+
+{{ilustracja:03-aed-3|Analiza rytmu i wyładowanie: nikt nie dotyka poszkodowanego. Potem od razu wróć do uciskania.}}
 
 > [!WAZNE] Nie pomyl z drgawkami
 > Na początku zatrzymania krążenia mogą pojawić się krótkie ruchy przypominające drgawki. Jeśli potem poszkodowany nie reaguje i nie oddycha prawidłowo — zaczynaj RKO.
 
 ## Gdzie znaleźć AED
 
-Defibrylatory wiszą w urzędach, szkołach, sklepach wielkopowierzchniowych i na dworcach — szukaj zielonego znaku z sercem i błyskawicą. Zainstaluj aplikację z mapą AED (np. „Staying Alive”), zanim będzie potrzebna. AED jest bezpieczny: sam ocenia rytm serca i nie wykona wyładowania, jeśli nie jest potrzebne.
+Defibrylatory wiszą w urzędach, szkołach, sklepach wielkopowierzchniowych i na dworcach. Szukaj znaku **E010 „Automatyczny defibrylator zewnętrzny”** z normy PN-EN ISO 7010: zielony kwadrat, białe serce z błyskawicą i krzyżykiem. Znak **E003** (biały krzyż na zielonym tle) oznacza punkt pierwszej pomocy lub apteczkę.
+
+AED może użyć każdy, także bez szkolenia — urządzenie prowadzi poleceniami głosowymi po polsku. Zainstaluj aplikację z mapą AED (np. „Staying Alive”), zanim będzie potrzebna. AED jest bezpieczny: sam ocenia rytm serca i nie wykona wyładowania, jeśli nie jest potrzebne.

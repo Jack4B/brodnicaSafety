@@ -86,7 +86,7 @@ export function sourcesBlock(ctx, meta) {
 function childLinks(ctx, children) {
   if (!children.length) return '';
   return `<nav class="links" aria-label="W tej sekcji">${children
-    .map((c) => `<a href="${ctx.url(c.path)}">${c.meta.ikona ? icon(c.meta.ikona) : ''}<span>${esc(c.meta.title)}${c.meta.lead ? `<small>${esc(c.meta.lead)}</small>` : ''}</span>${icon('chev', 'i chev')}</a>`)
+    .map((c) => `<a href="${ctx.url(c.path)}">${c.meta['ikona-hi'] && ctx.healthIcons?.get(c.meta['ikona-hi']) ? ctx.healthIcons.get(c.meta['ikona-hi']) : c.meta.ikona ? icon(c.meta.ikona) : ''}<span>${esc(c.meta.title)}${c.meta.lead ? `<small>${esc(c.meta.lead)}</small>` : ''}</span>${icon('chev', 'i chev')}</a>`)
     .join('')}</nav>`;
 }
 

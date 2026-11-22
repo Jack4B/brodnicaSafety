@@ -32,10 +32,42 @@ async function walk(dir) {
 }
 
 // ---------- ilustracje i dźwięki ----------
+/** Strona do druku: z animowanych rysunków medic zostaje tylko klatka nieruchoma (data-still). */
+function stillFrames(html) {
+  let out = '', i = 0;
+  for (;;) {
+    const start = html.indexOf('<g class="mp-frame"', i);
+    if (start < 0) return out + html.slice(i);
+    let depth = 0, j = start, end = -1;
+    const re = /<g[\s>]|<\/g>/g;
+    re.lastIndex = start;
+    for (let mm; (mm = re.exec(html));) {
+      depth += mm[0] === '</g>' ? -1 : 1;
+      if (depth === 0) { end = re.lastIndex; break; }
+    }
+    if (end < 0) return out + html.slice(i);
+    const frame = html.slice(start, end);
+    out += html.slice(i, start);
+    const open = frame.slice(0, frame.indexOf('>') + 1);
+    if (open.includes('data-still')) out += '<g>' + frame.slice(open.length);
+    i = end;
+  }
+}
+
 const illuCache = new Map();
-let openIllu = {};
+const medicIllu = new Set();
+const healthIcons = new Map();
 async function loadIllustrations() {
-  openIllu = JSON.parse(await readFile(join(ROOT, 'src/illustrations/open/licencje.json'), 'utf8'));
+  for (const f of await readdir(join(ROOT, 'src/illustrations/medic')).catch(() => [])) {
+    if (!f.endsWith('.svg')) continue;
+    const name = f.replace(/\.svg$/, '');
+    illuCache.set(name, (await readFile(join(ROOT, 'src/illustrations/medic', f), 'utf8')).trim());
+    medicIllu.add(name);
+  }
+  // Ikony Health Icons (CC0) z pierwsza-pomoc-ikony/svg — kolor #C8102E w pliku
+  for (const f of await readdir(join(ROOT, 'pierwsza-pomoc-ikony/svg')).catch(() => [])) {
+    if (f.endsWith('.svg')) healthIcons.set(f.replace(/\.svg$/, ''), (await readFile(join(ROOT, 'pierwsza-pomoc-ikony/svg', f), 'utf8')).replace(/<title>.*?<\/title><desc>.*?<\/desc>/, '').replace(/ width="48" height="48"/, ' class="i hi" aria-hidden="true" focusable="false"').trim());
+  }
   const dir = join(ROOT, 'src/illustrations');
   try {
     for (const f of await readdir(dir)) if (f.endsWith('.svg')) illuCache.set(f.replace(/\.svg$/, ''), (await readFile(join(dir, f), 'utf8')).trim());
@@ -45,15 +77,12 @@ const missing = [];
 const renderer = createRenderer({
   link: (u) => url(u),
   illustration: (name, caption) => {
-    const o = openIllu[name];
-    if (o) {
-      const lic = { 'CC BY-SA 4.0': 'https://creativecommons.org/licenses/by-sa/4.0/deed.pl', 'CC BY-SA 3.0': 'https://creativecommons.org/licenses/by-sa/3.0/deed.pl', CC0: 'https://creativecommons.org/publicdomain/zero/1.0/deed.pl' }[o.licencja];
-      const src = 'https://commons.wikimedia.org/wiki/File:' + encodeURIComponent(o.plik.replace(/ /g, '_'));
-      return `<figure class="illu illu-open"><img src="${url('/assets/ilustracje/' + name + '.webp')}" width="${o.szerokosc}" height="${o.wysokosc}" alt="${esc(o.alt)}" loading="lazy" decoding="async">${caption ? `<figcaption>${caption}</figcaption>` : ''}<p class="credit">Ilustracja: <a href="${src}" rel="noopener">${esc(o.autor)}</a>, <a href="${lic}" rel="noopener">${esc(o.licencja)}</a>, Wikimedia Commons; ${o.licencja === 'CC0' ? 'kolory dostosowane' : 'kadr i kolory dostosowane'}.</p></figure>`;
-    }
     const svg = illuCache.get(name);
     if (!svg) { missing.push(`ilustracja: ${name}`); return ''; }
-    return `<figure class="illu">${svg.replace(/<\?xml[^>]*>/, '').replace(/<svg /, '<svg role="img" ')}${caption ? `<figcaption>${caption}</figcaption>` : ''}</figure>`;
+    const clean = svg.replace(/<\?xml[^>]*>/, '');
+    const body = /role="img"/.test(clean) ? clean : clean.replace(/<svg /, '<svg role="img" ');
+    const medic = medicIllu.has(name);
+    return `<figure class="illu${medic ? ' illu-medic' : ''}">${body}${caption ? `<figcaption>${caption}</figcaption>` : ''}</figure>`;
   },
   audio: (file, caption) => `<div class="audio"><p>${caption || 'Posłuchaj'}</p><audio controls preload="none" src="${url('/assets/audio/' + file)}"></audio></div>`,
 });
@@ -102,15 +131,13 @@ async function main() {
   };
 
   // ---------- zasoby z hashem ----------
-  const css = await readFile(join(ROOT, 'src/assets/style.css'), 'utf8');
+  const css = (await readFile(join(ROOT, 'src/assets/style.css'), 'utf8')) + '\n' + (await readFile(join(ROOT, 'src/assets/medic.css'), 'utf8').catch(() => ''));
   const js = await readFile(join(ROOT, 'src/assets/app.js'), 'utf8');
   const assets = { css: `assets/style.${hash(css)}.css`, js: `assets/app.${hash(js)}.js` };
   await mkdir(join(DIST, 'assets/audio'), { recursive: true });
   await writeFile(join(DIST, assets.css), css);
   await writeFile(join(DIST, assets.js), js);
   for (const f of await readdir(join(ROOT, 'src/assets/audio'))) await copyFile(join(ROOT, 'src/assets/audio', f), join(DIST, 'assets/audio', f));
-  await mkdir(join(DIST, 'assets/ilustracje'), { recursive: true });
-  for (const f of (await readdir(join(ROOT, 'src/illustrations/open'))).filter((x) => x.endsWith('.webp'))) await copyFile(join(ROOT, 'src/illustrations/open', f), join(DIST, 'assets/ilustracje', f));
   await mkdir(join(DIST, 'icons'), { recursive: true });
   await writeFile(join(DIST, 'icons/icon.svg'), MARK_SVG);
   for (const f of await readdir(join(ROOT, 'src/icons')).catch(() => [])) await copyFile(join(ROOT, 'src/icons', f), join(DIST, 'icons', f));
@@ -128,7 +155,7 @@ async function main() {
   const children = (p) => [...pages.values()].filter((x) => x.path !== p && x.path.startsWith(p) && x.path.slice(p.length).split('/').filter(Boolean).length === 1)
     .sort((a, b) => (+a.meta.kolejnosc || 99) - (+b.meta.kolejnosc || 99) || a.meta.title.localeCompare(b.meta.title, 'pl'));
 
-  const ctx = { url, data, pages, buildDate: today, assets };
+  const ctx = { url, data, pages, buildDate: today, assets, healthIcons };
   const out = new Map(); // ścieżka → { title, description, main }
 
   const special = {
@@ -161,7 +188,7 @@ async function main() {
     order.push({ title: p.meta.title, lead: p.meta.lead, html });
     for (const c of children(n.path)) order.push({ title: c.meta.title, lead: c.meta.lead, html: c.html });
   }
-  out.set('/poradnik/', { title: 'Poradnik do druku', description: 'Cały poradnik na jednej stronie — do druku lub zapisania jako PDF.', main: T.pagePoradnik(ctx, order) });
+  out.set('/poradnik/', { title: 'Poradnik do druku', description: 'Cały poradnik na jednej stronie — do druku lub zapisania jako PDF.', main: stillFrames(T.pagePoradnik(ctx, order)) });
 
   // ---------- zapis stron ----------
   const files = [];
@@ -194,8 +221,7 @@ async function main() {
   await writeFile(join(DIST, 'manifest.webmanifest'), JSON.stringify(manifest, null, 2));
 
   const staticFiles = [assets.css, assets.js, 'manifest.webmanifest', 'icons/icon.svg', 'icons/icon-192.png', 'icons/apple-touch-icon.png',
-    ...(await readdir(join(DIST, 'assets/audio'))).map((f) => `assets/audio/${f}`),
-    ...(await readdir(join(DIST, 'assets/ilustracje'))).map((f) => `assets/ilustracje/${f}`)].map((f) => url('/' + f));
+    ...(await readdir(join(DIST, 'assets/audio'))).map((f) => `assets/audio/${f}`)].map((f) => url('/' + f));
   const precache = [...files, ...staticFiles];
   const version = hash(precache.join() + css + js + [...out.values()].map((p) => p.main).join());
   const sw = (await readFile(join(ROOT, 'src/sw.template.js'), 'utf8'))

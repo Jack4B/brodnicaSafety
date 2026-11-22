@@ -70,13 +70,13 @@ zrodla:
 
 ## Ilustracje
 
-**Pierwsza pomoc** — ilustracje z Wikimedia Commons na otwartych licencjach (CC0, CC BY-SA), przekolorowane na paletę strony. Opis każdej (plik na Commons, autor, licencja, tekst alternatywny, kadr) jest w `src/illustrations/open/licencje.json`. Aby dodać nową:
+**Pierwsza pomoc** — rysunki z arkuszy `pierwsza-pomoc-instrukcje/` (skill medic: jedna postać, kreska i paleta). Każdy panel arkusza to osobny plik `src/illustrations/medic/<arkusz>-<nr>.svg`, np. `02-rko-2`. Aby zmienić lub dodać rysunek:
 
-1. Znajdź na Commons ilustrację na licencji CC0, CC BY lub CC BY-SA. Sprawdź, czy technika jest zgodna z aktualnymi wytycznymi ERC.
-2. Pobierz ją w standardowym rozmiarze miniatury (np. `Special:FilePath/NAZWA?width=960`), zapisz jako `KLUCZ.png` w dowolnym katalogu.
-3. Dopisz wpis do `licencje.json` (`plik`, `autor`, `licencja`, `alt`, opcjonalnie `kadr` [lewo, góra, prawo, dół] jako ułamki i `czerwien: true`, jeśli czerwona strzałka ma zostać).
-4. `python3 scripts/ilustracje-paleta.py KATALOG` (wymaga Pillow) — powstanie `KLUCZ.webp` w palecie strony.
-5. W treści: `{{ilustracja:KLUCZ|Podpis}}`. Autor i licencja dopiszą się pod ilustracją automatycznie.
+1. Popraw arkusz w `pierwsza-pomoc-instrukcje/src/NN-nazwa.mjs` (pozy, podpisy, liczby tylko z wytycznych ERC/PRR).
+2. `node scripts/ilustracje-medic.mjs` — przebuduje arkusze, wyeksportuje panele do `src/illustrations/medic/` i style rysunków do `src/assets/medic.css`. Wymaga skilla w `~/.claude/skills/medic` (albo zmiennej `MEDIC_KIT`).
+3. W treści: `{{ilustracja:02-rko-2|Podpis}}`. Rysunek dostaje białą kartę w obu motywach.
+
+**Ikony pierwszej pomocy** — Health Icons (CC0) w `pierwsza-pomoc-ikony/svg/`, kolor #C8102E. Na liście procedur ikonę wybiera pole `ikona-hi` w front matter (nazwa pliku bez `.svg`, np. `ikona-hi: krwawienie`). Nowe ikony: `node scripts/ikony-healthicons.mjs`.
 
 **Schematy własne** (syreny, flagi, orientacja, ogień) — pliki SVG w `src/illustrations/`, `viewBox` ok. 320×200. Kolory tylko przez klasy (działają w jasnym i ciemnym motywie): `skin`, `lr` (ratownik), `lv` (poszkodowany), `lk` (dłoń), `arrow`/`arrow-f` (czerwona strzałka), `accent`, `lbl`/`lbl-b` (podpisy), `ground`, `surface`, `muted-s`, `water`, `red`, `star`. Podgląd: `npm test`, potem `npm run serve`.
 
