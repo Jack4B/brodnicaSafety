@@ -1,0 +1,40 @@
+GOTOWOŚĆ BRODNICA — PACZKA INSTALACYJNA NA CT8
+==============================================
+
+Zawartość:
+  public_html/         gotowa strona (pliki statyczne, działa offline)
+  instaluj.sh          instalator: poddomena, pliki, SSL, sprawdzenie
+  htaccess-minimalny   zapasowy .htaccess (gdy serwer zgłosi błąd 500)
+  SHA256SUMS           sumy kontrolne
+
+Potrzebne: konto na ct8.pl (login, hasło, nazwa serwera np. s1.ct8.pl —
+panel.ct8.pl → Informacje o koncie).
+
+1. Wyślij paczkę na serwer (na swoim komputerze):
+
+     scp gotowosc-brodnica-ct8-*.tar.gz LOGIN@sX.ct8.pl:
+
+2. Zaloguj się i rozpakuj:
+
+     ssh LOGIN@sX.ct8.pl
+     tar xzf gotowosc-brodnica-ct8-*.tar.gz
+     cd gotowosc-brodnica-ct8-*/
+
+3. Zainstaluj na nowej poddomenie:
+
+     sh instaluj.sh                          → https://gotowosc.LOGIN.ct8.pl
+     sh instaluj.sh brodnica.LOGIN.ct8.pl    → inna nazwa
+     sh instaluj.sh DOMENA --klucz           → plus klucz SSH dla GitHuba
+
+   Na końcu skrypt wypisze adres strony i wartości do wpisania w GitHubie.
+
+4. Nowa poddomena może potrzebować kilkunastu minut na DNS. Jeśli certyfikat
+   SSL się nie udał, uruchom ponownie: sh instaluj.sh DOMENA
+
+5. Automatyczne aktualizacje (stopnie alarmowe co 3 h): wpisz sekrety
+   wypisane przez instalator w GitHubie (Settings → Secrets and variables →
+   Actions) i ustaw gałąź z kodem jako domyślną. Szczegóły: docs/WDROZENIE.md.
+
+Uwaga: CT8 usuwa konto po 90 dniach bez logowania do panelu lub przez SSH.
+Własna domena (np. gotowosc-brodnica.pl): dodaj ją w panelu CT8, ustaw DNS
+na serwer CT8 i uruchom: sh instaluj.sh gotowosc-brodnica.pl

@@ -55,7 +55,7 @@
 | 4. Design system | ✅ | `docs/DESIGN.md`, `src/assets/style.css` |
 | 5. Kod (v1.1) | ✅ 45 stron, PWA offline, rysunki medic + Health Icons | `src/`, `content/` |
 | 6. Testy | ✅ jednostkowe + build + e2e offline (Playwright) | `tests/` |
-| 7. Wdrożenie CT8 | ⏳ workflow gotowy, czeka na sekrety CT8 | `.github/workflows/aktualizacja.yml`, `docs/WDROZENIE.md` |
+| 7. Wdrożenie CT8 | ⏳ paczka + instalator gotowe (poddomena, SSL, test 500), czeka na konto i sekrety CT8 | `deploy/ct8/`, `scripts/paczka.sh`, `docs/WDROZENIE.md` |
 | 8. Dokumentacja treści | ✅ | `docs/AKTUALIZACJA.md` |
 
 ## Decyzje techniczne (obowiązujące)
@@ -68,7 +68,9 @@
 - **Ikony pierwszej pomocy:** Health Icons (CC0) z `pierwsza-pomoc-ikony/svg/`, pole `ikona-hi` w front matter. `--danger` = #C8102E.
 - **Prawo i normy w treściach:** art. 4–6 ustawy o PRM, art. 162 kk (`content/pierwsza-pomoc/index.md`), znaki PN-EN ISO 7010 E003/E004/E010.
 - **Schematy własne** (syreny, flagi, orientacja, ogień): SVG w `src/illustrations/`, kolory przez klasy CSS.
-- **Automatyzacja:** GitHub Actions co 3 h (RCB, IMGW, UM, sanepid), schrony co tydzień; commit danych do repo; rsync na CT8.
+- **Automatyzacja:** GitHub Actions co 3 h (RCB, IMGW, UM, sanepid), schrony co tydzień; commit danych do repo; rsync na CT8 tylko z gałęzi domyślnej, `CT8_PATH` musi kończyć się na `/public_html`.
+- **CT8:** NGINX z emulacją `.htaccess` (błąd składni → 500, wtedy `deploy/ct8/htaccess-minimalny`); HTTPS przez `devil www options DOMENA sslonly on`, nie przez `.htaccess`; strony błędów w `errors/`. Konto usuwane po 90 dniach bez logowania.
+- **Przegląd kodu 22.11.2026:** naprawione: IMGW nie zeruje ostrzeżeń przy błędzie API, źródło komunikatów z błędem zostaje na liście, SW nie gubi plików przy aktualizacji, Markdown (kod w linku, CRLF/BOM), testy z BASE_PATH. Ustawa o PRM: tekst jednolity Dz.U. 2026 poz. 141; kk: Dz.U. 2026 poz. 1342.
 
 ## Komendy
 
@@ -78,6 +80,7 @@ npm run serve         # podgląd dist/ na :8080
 node tests/e2e-offline.mjs   # test offline w przeglądarce (Playwright)
 npm run fetch         # dane: stopnie, IMGW, komunikaty (w chmurze: NODE_USE_ENV_PROXY=1)
 npm run fetch:schrony # punkty schronienia PSP
+npm run paczka        # paczka instalacyjna CT8 → paczka/*.tar.gz (instalator: deploy/ct8/instaluj.sh)
 ```
 
 Zakres: **miasto Brodnica**. Charakter: **niekomercyjny**, maksimum rzetelnej wiedzy.
@@ -111,4 +114,4 @@ Zasada danych: telefon nie odpytuje API — dane pobierane przy buildzie do `dat
 Strona ma charakter informacyjno-edukacyjny. Nie zastępuje oficjalnych komunikatów.
 
 ---
-*Ostatnia aktualizacja: 22 listopada 2026 (v1.0: strona, automatyzacja, testy)*
+*Ostatnia aktualizacja: 22 listopada 2026 (v1.1: rysunki medic, przegląd kodu, paczka CT8)*

@@ -1,0 +1,3 @@
+# Gotowość Brodnica — minimalny .htaccess (wersja awaryjna).
+# Używany, gdy serwer odrzuci pełny plik błędem 500. HTTPS wymusza ustawienie strony w CT8 (sslonly).
+AddDefaultCharset utf-8

@@ -201,6 +201,9 @@ async function main() {
   }
   const notFound = T.layout(ctx, { title: 'Nie ma takiej strony', path: '/404/', noindex: true, main: `<h1 class="page-h">Nie ma takiej strony</h1><p class="lead">Adres mógł się zmienić. Wróć na <a href="${url('/')}">stronę główną</a> albo wybierz dział z menu.</p>${T.pageWiecej(ctx).replace(/<h1[^>]*>.*?<\/h1>/, '')}` });
   await writeFile(join(DIST, '404.html'), notFound);
+  // CT8 / MyDevil (NGINX) pokazuje własną stronę błędu z katalogu errors/.
+  await mkdir(join(DIST, 'errors'), { recursive: true });
+  await writeFile(join(DIST, 'errors/404.html'), notFound);
 
   // ---------- PWA ----------
   const manifest = {

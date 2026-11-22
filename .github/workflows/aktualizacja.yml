@@ -108,6 +108,29 @@ jobs:
           else ssh-keyscan -H "$HOST" >> ~/.ssh/known_hosts 2>/dev/null; fi
           rsync -rlz --delete --chmod=D755,F644 -e "ssh -i ~/.ssh/ct8" dist/ "$USER@$HOST:$DEST/"
           echo "Wdrożono do $HOST:$DEST"
+          # Serwer (np. CT8/NGINX) może odrzucić pełny .htaccess błędem 500 — wtedy wersja minimalna.
+          sleep 3
+          KOD=$(curl -s -o /dev/null -m 20 -w '%{http_code}' "$SITE_URL/" || echo 000)
+          if [ "$KOD" = 500 ]; then
+            echo "::warning::Strona zwraca 500 — wgrywam deploy/ct8/htaccess-minimalny jako .htaccess"
+            scp -i ~/.ssh/ct8 deploy/ct8/htaccess-minimalny "$USER@$HOST:$DEST/.htaccess"
+            KOD=$(curl -s -o /dev/null -m 20 -w '%{http_code}' "$SITE_URL/" || echo 000)
+          fi
+          echo "Strona $SITE_URL odpowiada: HTTP $KOD"
+          echo "KOD_STRONY=$KOD" >> "$GITHUB_ENV"
+
+      # Ręczne uruchomienie: gotowa paczka instalacyjna do pobrania (Actions → przebieg → Artifacts).
+      - name: Paczka instalacyjna CT8
+        if: github.event_name == 'workflow_dispatch'
+        run: bash scripts/paczka.sh
+
+      - name: Zapisz paczkę
+        if: github.event_name == 'workflow_dispatch'
+        uses: actions/upload-artifact@v4
+        with:
+          name: paczka-ct8
+          path: paczka/*.tar.gz
+          retention-days: 30
 
       - name: Podsumowanie
         if: always()
@@ -117,5 +140,5 @@ jobs:
             echo "- Stopnie: $(node -e "const d=require('./data/stopnie.json');console.log(d.stopnie.map(s=>s.stopien).join(', '),'· raport z',d.raport_z)")"
             echo "- Komunikaty auto: $(node -e "console.log(require('./data/komunikaty-auto.json').komunikaty.length)")"
             echo "- Schrony: $(node -e "const d=require('./data/schrony.json');console.log(d.liczba,'· dane z',d.dane_z)")"
-            echo "- Wdrożenie: sekrety ${HAS_CT8}, gałąź domyślna ${IS_DEFAULT}"
+            echo "- Wdrożenie: sekrety ${HAS_CT8}, gałąź domyślna ${IS_DEFAULT}, odpowiedź strony ${KOD_STRONY:-—}"
           } >> "$GITHUB_STEP_SUMMARY"

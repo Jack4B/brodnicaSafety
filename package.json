@@ -1,15 +1,18 @@
 {
   "name": "gotowosc-brodnica",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "private": true,
   "description": "Niekomercyjny poradnik dla mieszkańców Brodnicy o gotowości kryzysowej. Statyczna strona, działa offline.",
   "type": "module",
-  "engines": { "node": ">=20" },
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "fetch": "node scripts/fetch-stopnie.mjs; node scripts/fetch-imgw.mjs; node scripts/fetch-komunikaty.mjs",
     "fetch:schrony": "node scripts/fetch-schrony.mjs",
     "build": "node src/build.mjs",
     "test": "node --test tests/unit.test.mjs && node src/build.mjs && node --test tests/build.test.mjs",
-    "serve": "node scripts/serve.mjs"
+    "serve": "node scripts/serve.mjs",
+    "paczka": "bash scripts/paczka.sh"
   }
 }
