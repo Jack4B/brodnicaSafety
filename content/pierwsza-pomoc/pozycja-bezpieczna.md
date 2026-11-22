@@ -23,4 +23,4 @@ zrodla:
 6. **Ułóż głowę** lekko odchyloną do tyłu, tak by drogi oddechowe były drożne, a usta skierowane w dół. Dłoń pod policzkiem podtrzymuje głowę.
 7. **Obserwuj oddech** do przyjazdu pogotowia. Jeśli przestanie oddychać prawidłowo — połóż go na plecach i zacznij RKO.
 
-{{ilustracja:pozycja-bezpieczna|Pozycja bezpieczna: na boku, górna noga zgięta, dłoń pod policzkiem, głowa odchylona, usta skierowane w dół.}}
+{{ilustracja:sv-pozycja-bezpieczna|Pozycja bezpieczna: na boku, dłoń pod policzkiem, górna noga zgięta w kolanie, głowa lekko odchylona, usta skierowane w dół.}}

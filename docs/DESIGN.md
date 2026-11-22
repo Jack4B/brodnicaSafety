@@ -28,4 +28,8 @@ przycisk (`btn-primary`, `btn-signal`, `btn-ghost`), kafel (`tile`), karta (`car
 
 ## Ilustracje
 
-Piktogramy liniowe: grube kreski z zaokrąglonymi końcami. Ratownik w kolorze `--illu-cloth`, poszkodowany `--illu-cloth2`, skóra `--illu-skin`, ruch i nacisk — czerwone strzałki. Licencja CC BY-SA 4.0.
+Jedna paleta dla ikon, schematów i rysunków:
+
+- **Ikony** — linia w kolorze `--brand`.
+- **Ilustracje pierwszej pomocy** (Wikimedia Commons) — duotone w palecie strony: `--ink` → `--brand` → `--brand-soft` → biel, na jasnej karcie także w trybie ciemnym. Czerwień (`--danger`) tylko tam, gdzie niesie znaczenie (strzałka ucisku). Przetwarzanie: `scripts/ilustracje-paleta.py`.
+- **Schematy własne** (SVG) — kolory przez klasy CSS powiązane z tokenami.

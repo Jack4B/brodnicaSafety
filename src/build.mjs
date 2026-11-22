@@ -33,7 +33,9 @@ async function walk(dir) {
 
 // ---------- ilustracje i dźwięki ----------
 const illuCache = new Map();
+let openIllu = {};
 async function loadIllustrations() {
+  openIllu = JSON.parse(await readFile(join(ROOT, 'src/illustrations/open/licencje.json'), 'utf8'));
   const dir = join(ROOT, 'src/illustrations');
   try {
     for (const f of await readdir(dir)) if (f.endsWith('.svg')) illuCache.set(f.replace(/\.svg$/, ''), (await readFile(join(dir, f), 'utf8')).trim());
@@ -43,6 +45,12 @@ const missing = [];
 const renderer = createRenderer({
   link: (u) => url(u),
   illustration: (name, caption) => {
+    const o = openIllu[name];
+    if (o) {
+      const lic = { 'CC BY-SA 4.0': 'https://creativecommons.org/licenses/by-sa/4.0/deed.pl', 'CC BY-SA 3.0': 'https://creativecommons.org/licenses/by-sa/3.0/deed.pl', CC0: 'https://creativecommons.org/publicdomain/zero/1.0/deed.pl' }[o.licencja];
+      const src = 'https://commons.wikimedia.org/wiki/File:' + encodeURIComponent(o.plik.replace(/ /g, '_'));
+      return `<figure class="illu illu-open"><img src="${url('/assets/ilustracje/' + name + '.webp')}" width="${o.szerokosc}" height="${o.wysokosc}" alt="${esc(o.alt)}" loading="lazy" decoding="async">${caption ? `<figcaption>${caption}</figcaption>` : ''}<p class="credit">Ilustracja: <a href="${src}" rel="noopener">${esc(o.autor)}</a>, <a href="${lic}" rel="noopener">${esc(o.licencja)}</a>, Wikimedia Commons; ${o.licencja === 'CC0' ? 'kolory dostosowane' : 'kadr i kolory dostosowane'}.</p></figure>`;
+    }
     const svg = illuCache.get(name);
     if (!svg) { missing.push(`ilustracja: ${name}`); return ''; }
     return `<figure class="illu">${svg.replace(/<\?xml[^>]*>/, '').replace(/<svg /, '<svg role="img" ')}${caption ? `<figcaption>${caption}</figcaption>` : ''}</figure>`;
@@ -101,6 +109,8 @@ async function main() {
   await writeFile(join(DIST, assets.css), css);
   await writeFile(join(DIST, assets.js), js);
   for (const f of await readdir(join(ROOT, 'src/assets/audio'))) await copyFile(join(ROOT, 'src/assets/audio', f), join(DIST, 'assets/audio', f));
+  await mkdir(join(DIST, 'assets/ilustracje'), { recursive: true });
+  for (const f of (await readdir(join(ROOT, 'src/illustrations/open'))).filter((x) => x.endsWith('.webp'))) await copyFile(join(ROOT, 'src/illustrations/open', f), join(DIST, 'assets/ilustracje', f));
   await mkdir(join(DIST, 'icons'), { recursive: true });
   await writeFile(join(DIST, 'icons/icon.svg'), MARK_SVG);
   for (const f of await readdir(join(ROOT, 'src/icons')).catch(() => [])) await copyFile(join(ROOT, 'src/icons', f), join(DIST, 'icons', f));
@@ -184,7 +194,8 @@ async function main() {
   await writeFile(join(DIST, 'manifest.webmanifest'), JSON.stringify(manifest, null, 2));
 
   const staticFiles = [assets.css, assets.js, 'manifest.webmanifest', 'icons/icon.svg', 'icons/icon-192.png', 'icons/apple-touch-icon.png',
-    ...(await readdir(join(DIST, 'assets/audio'))).map((f) => `assets/audio/${f}`)].map((f) => url('/' + f));
+    ...(await readdir(join(DIST, 'assets/audio'))).map((f) => `assets/audio/${f}`),
+    ...(await readdir(join(DIST, 'assets/ilustracje'))).map((f) => `assets/ilustracje/${f}`)].map((f) => url('/' + f));
   const precache = [...files, ...staticFiles];
   const version = hash(precache.join() + css + js + [...out.values()].map((p) => p.main).join());
   const sw = (await readFile(join(ROOT, 'src/sw.template.js'), 'utf8'))

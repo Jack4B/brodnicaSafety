@@ -24,9 +24,7 @@ zrodla:
 4. **Powtarzaj** na zmianę 5 uderzeń w plecy i 5 uciśnięć nadbrzusza, aż ciało obce wypadnie albo poszkodowany straci przytomność.
 5. **Stracił przytomność** — połóż go na ziemi, dzwoń {{tel:112}} i zacznij [RKO](/pierwsza-pomoc/rko/). Uciskanie klatki piersiowej może usunąć przeszkodę.
 
-{{ilustracja:zadlawienie-plecy|Uderzenia w plecy: pochyl poszkodowanego do przodu, uderzaj nasadą dłoni między łopatki.}}
-
-{{ilustracja:zadlawienie-nadbrzusze|Uciśnięcia nadbrzusza: pięść między pępkiem a mostkiem, pociągnij do siebie i ku górze.}}
+{{ilustracja:bb-heimlich|Uciśnięcia nadbrzusza: stań za poszkodowanym, pięść między pępkiem a końcem mostka, chwyć ją drugą dłonią i pociągnij do siebie i ku górze.}}
 
 > [!WAZNE] Po uciśnięciach nadbrzusza — do lekarza
 > Nawet jeśli wszystko się udało, poszkodowany powinien zostać zbadany przez lekarza. Uciśnięcia mogą uszkodzić narządy wewnętrzne.
@@ -36,4 +34,6 @@ zrodla:
 - **Nie wykonuj uciśnięć nadbrzusza.**
 - **5 uderzeń w plecy:** połóż niemowlę brzuszkiem na swoim przedramieniu, głową w dół, podtrzymując żuchwę. Uderzaj nasadą dłoni między łopatki.
 - **5 uciśnięć klatki piersiowej:** odwróć niemowlę na plecy (nadal głową w dół) i uciśnij dwoma palcami środek klatki piersiowej.
+{{ilustracja:bb-niemowle-zadlawienie|Niemowlę: uderzenia w plecy na przedramieniu, głową w dół (z lewej), i uciśnięcia klatki piersiowej dwoma palcami (z prawej).}}
+
 - Powtarzaj na zmianę. Gdy straci przytomność — {{tel:112}} i RKO zaczynając od 5 oddechów.

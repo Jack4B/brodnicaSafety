@@ -64,7 +64,8 @@
 - **Treści:** `content/**/*.md` z front matter (`title`, `lead`, `kolejnosc`, `ikona`, `aktualizacja`, `przeglad`, `zrodla`). Składnia rozszerzeń: `docs/AKTUALIZACJA.md`.
 - **Strony generowane z danych:** start, stopnie, komunikaty, schrony, plecak, offline, poradnik (do druku), więcej — `src/templates.mjs`.
 - **PWA:** `src/sw.template.js` → `dist/sw.js` z listą wszystkich plików; HTML network-first (4 s), reszta cache-first.
-- **Ilustracje:** własne SVG w `src/illustrations/`, kolory przez klasy CSS (jasny/ciemny motyw), CC BY-SA 4.0.
+- **Ilustracje pierwszej pomocy:** z Wikimedia Commons (BruceBlaus, Baedr-9439, Bizhan Khodabandeh, Servier — CC0/CC BY-SA), przekolorowane na paletę strony skryptem `scripts/ilustracje-paleta.py`; metadane i licencje w `src/illustrations/open/licencje.json`, autor pod każdą ilustracją. Decyzja użytkownika 22.11.2026: bez rysunków „własnej roboty” w pierwszej pomocy, jedna paleta dla ikon i rysunków.
+- **Schematy własne** (syreny, flagi, orientacja, ogień): SVG w `src/illustrations/`, kolory przez klasy CSS.
 - **Automatyzacja:** GitHub Actions co 3 h (RCB, IMGW, UM, sanepid), schrony co tydzień; commit danych do repo; rsync na CT8.
 
 ## Komendy

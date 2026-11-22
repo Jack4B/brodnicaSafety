@@ -70,7 +70,15 @@ zrodla:
 
 ## Ilustracje
 
-Pliki SVG w `src/illustrations/`, `viewBox` ok. 320×200. Kolory tylko przez klasy (działają w jasnym i ciemnym motywie): `skin`, `lr` (ratownik), `lv` (poszkodowany), `lk` (dłoń), `arrow`/`arrow-f` (czerwona strzałka), `accent`, `lbl`/`lbl-b` (podpisy), `ground`, `surface`, `muted-s`, `water`, `red`, `star`. Podgląd: `npm test`, potem `npm run serve`.
+**Pierwsza pomoc** — ilustracje z Wikimedia Commons na otwartych licencjach (CC0, CC BY-SA), przekolorowane na paletę strony. Opis każdej (plik na Commons, autor, licencja, tekst alternatywny, kadr) jest w `src/illustrations/open/licencje.json`. Aby dodać nową:
+
+1. Znajdź na Commons ilustrację na licencji CC0, CC BY lub CC BY-SA. Sprawdź, czy technika jest zgodna z aktualnymi wytycznymi ERC.
+2. Pobierz ją w standardowym rozmiarze miniatury (np. `Special:FilePath/NAZWA?width=960`), zapisz jako `KLUCZ.png` w dowolnym katalogu.
+3. Dopisz wpis do `licencje.json` (`plik`, `autor`, `licencja`, `alt`, opcjonalnie `kadr` [lewo, góra, prawo, dół] jako ułamki i `czerwien: true`, jeśli czerwona strzałka ma zostać).
+4. `python3 scripts/ilustracje-paleta.py KATALOG` (wymaga Pillow) — powstanie `KLUCZ.webp` w palecie strony.
+5. W treści: `{{ilustracja:KLUCZ|Podpis}}`. Autor i licencja dopiszą się pod ilustracją automatycznie.
+
+**Schematy własne** (syreny, flagi, orientacja, ogień) — pliki SVG w `src/illustrations/`, `viewBox` ok. 320×200. Kolory tylko przez klasy (działają w jasnym i ciemnym motywie): `skin`, `lr` (ratownik), `lv` (poszkodowany), `lk` (dłoń), `arrow`/`arrow-f` (czerwona strzałka), `accent`, `lbl`/`lbl-b` (podpisy), `ground`, `surface`, `muted-s`, `water`, `red`, `star`. Podgląd: `npm test`, potem `npm run serve`.
 
 ## Przed publikacją treści medycznych
 

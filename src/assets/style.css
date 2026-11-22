@@ -150,6 +150,10 @@ tr:last-child td { border-bottom: 0; }
 figure.illu { margin: 4px 0; background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 12px; display: grid; gap: 8px; }
 figure.illu svg { width: 100%; height: auto; display: block; }
 figure.illu figcaption { font-size: 14.5px; color: var(--muted); }
+/* Ilustracje z Commons w palecie strony (duotone): zawsze na jasnym tle, także w trybie ciemnym. */
+figure.illu-open img { display: block; width: 100%; height: auto; border-radius: 12px; background: #fff; }
+figure.illu-open .credit { font-size: 12.5px; color: var(--muted); }
+figure.illu-open .credit a { color: var(--muted); }
 .illu .skin { fill: var(--illu-skin); }
 .illu .cloth { fill: var(--illu-cloth); }
 .illu .cloth2 { fill: var(--illu-cloth2); }

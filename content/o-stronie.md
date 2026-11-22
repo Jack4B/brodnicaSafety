@@ -34,7 +34,16 @@ Gdy źródło nie odpowiada, strona pokazuje ostatnie poprawnie pobrane dane z d
 
 ## Ilustracje
 
-Ilustracje pierwszej pomocy i przetrwania są **własne**, narysowane na podstawie aktualnych wytycznych. Udostępniamy je na licencji **CC BY-SA 4.0** — możesz je wykorzystać, podając źródło.
+Ilustracje pierwszej pomocy pochodzą z **Wikimedia Commons** i są na otwartych licencjach. Przycięliśmy je (usunięte angielskie podpisy) i przekolorowaliśmy na barwy strony. Autor i licencja są podane pod każdą ilustracją:
+
+| Autor | Licencja | Ilustracje |
+|---|---|---|
+| [BruceBlaus](https://commons.wikimedia.org/wiki/User:BruceBlaus) | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.pl) | RKO dorosłego i dziecka, zadławienie |
+| [Baedr-9439](https://commons.wikimedia.org/wiki/User:Baedr-9439) | [CC0](https://creativecommons.org/publicdomain/zero/1.0/deed.pl) | elektrody AED, adrenalina, wychłodzenie |
+| [Bizhan Khodabandeh](https://commons.wikimedia.org/wiki/User:Bizhan_Khodabandeh) | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.pl) | opatrunek uciskowy, staza |
+| [Servier Medical Art](https://smart.servier.com) | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/deed.pl) | pozycja bezpieczna |
+
+Przerobione wersje udostępniamy na tych samych licencjach. Schematy w innych działach (syreny, flagi, orientacja, ogień) są własne, na licencji CC BY-SA 4.0.
 
 ## Prywatność
 

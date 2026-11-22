@@ -25,7 +25,5 @@ zrodla:
 - **Porażenie prądem:** najpierw odłącz zasilanie. Nawet małe ślady na skórze mogą oznaczać poważne obrażenia wewnętrzne — wezwij pomoc.
 - Przy długim chłodzeniu pilnuj, żeby poszkodowany (zwłaszcza dziecko) się nie wychłodził: chłodź tylko oparzone miejsce.
 
-{{ilustracja:oparzenie-chlodzenie|Chłodzenie oparzenia: chłodna, czysta woda przez co najmniej 20 minut.}}
-
 > [!112] Kiedy dzwonić 112
 > Gdy oparzenie jest duże (większe niż dłoń poszkodowanego), obejmuje twarz, dłonie, stopy, krocze lub stawy, jest chemiczne lub od prądu, gdy poszkodowany ma trudności z oddychaniem albo jest małym dzieckiem lub osobą starszą.

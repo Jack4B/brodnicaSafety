@@ -28,6 +28,8 @@ Duszność, świszczący oddech, obrzęk ust, języka lub szyi, nagłe osłabien
 3. Niech siedzi (gdy ma duszność) albo leży (gdy jest słaby).
 4. Jeśli objawy nie ustępują, **po 5 minutach** można podać kolejną dawkę adrenaliny.
 
+{{ilustracja:ba-adrenalina|Autostrzykawka z adrenaliną: w zewnętrzną część uda, można przez ubranie.}}
+
 ## Niski cukier (hipoglikemia)
 
 Często u osób z cukrzycą: drżenie, poty, rozdrażnienie, splątanie. Jeśli poszkodowany jest przytomny i może przełykać — podaj **słodki napój, cukierki lub tabletki z glukozą**. Gdy jest coraz gorzej albo traci przytomność — {{tel:112}}.
@@ -35,6 +37,8 @@ Często u osób z cukrzycą: drżenie, poty, rozdrażnienie, splątanie. Jeśli 
 ## Wychłodzenie (hipotermia)
 
 Drżenie, senność, splątanie, spowolnienie. Przenieś do ciepłego miejsca, **zdejmij mokre ubrania**, okryj kocami i folią termiczną, podaj ciepły słodki napój, jeśli jest przytomny. Ostrożnie przemieszczaj. Przy zatrzymaniu krążenia z powodu wychłodzenia prowadź RKO bez przerw — szanse na powrót do zdrowia są duże.
+
+{{ilustracja:ba-wychlodzenie|Na zewnątrz: izolacja od ziemi (karimata), śpiwór lub koce, szczelne zawinięcie razem z głową, na wierzchu folia lub plandeka.}}
 
 ## Przegrzanie (udar cieplny)
 

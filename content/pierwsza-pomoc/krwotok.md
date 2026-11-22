@@ -26,9 +26,9 @@ zrodla:
 5. **Poszkodowany jest blady i spocony?** To objawy wstrząsu. Połóż go i unieś mu nogi na około 30 cm.
 6. **Okryj go** — osoby po urazie szybko się wychładzają. Folia termiczna (koc NRC) srebrną stroną do ciała.
 
-{{ilustracja:ucisk-rany|Ucisk bezpośredni: mocno uciskaj ranę przez opatrunek. Gdy przesiąka, dołóż kolejną warstwę.}}
+{{ilustracja:bk-opatrunek-uciskowy|Opatrunek uciskowy: przyłóż gazę na ranę i owiń mocno bandażem. Gdy przesiąka, dołóż kolejną warstwę.}}
 
-{{ilustracja:opaska-uciskowa|Opaska uciskowa: powyżej rany na ramieniu lub udzie. Zapisz godzinę założenia.}}
+{{ilustracja:bk-staza|Opaska uciskowa (staza) powyżej rany — na udzie lub ramieniu. Dokręć, aż krew przestanie płynąć, i zapisz godzinę.}}
 
 > [!PORADA] Opaska uciskowa w apteczce
 > Opaskę do tamowania krwotoków rząd zaleca mieć w domowej apteczce. Kupuj sprawdzone modele (np. typu CAT lub SOF-T) i naucz się ją zakładać na kursie — w stresie nie ma czasu na czytanie instrukcji.

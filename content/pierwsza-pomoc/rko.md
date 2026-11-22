@@ -29,11 +29,13 @@ zrodla:
 8. **Użyj AED, gdy tylko dotrze.** Włącz i postępuj według poleceń głosowych. Elektrody przyklej na odsłoniętą klatkę piersiową. Jeśli pomaga ktoś drugi, niech uciska, gdy ty przyklejasz elektrody.
 9. **Kontynuuj** do przyjazdu ratowników, wyraźnych oznak życia (oddech, ruch, kaszel) albo gdy pomaganie stanie się dla ciebie niebezpieczne. Gdy się zmęczysz, niech zmieni cię ktoś inny.
 
-{{ilustracja:rko-udroznienie|Udrożnienie dróg oddechowych: ręka na czole, palce drugiej ręki pod brodą, odegnij głowę do tyłu.}}
+{{ilustracja:bb-drogi-oddechowe|Udrożnienie dróg oddechowych: ręka na czole, opuszki palców drugiej ręki pod brodą. Odegnij głowę do tyłu i unieś brodę.}}
 
-{{ilustracja:rko-uciski|Uciskanie klatki piersiowej: nasada dłoni na środku klatki, ramiona proste i pionowo nad poszkodowanym, 5–6 cm, 100–120 na minutę.}}
+{{ilustracja:bb-dlonie-mostek|Nasada dłoni na środku klatki piersiowej (dolna połowa mostka), druga dłoń na niej, palce splecione.}}
 
-{{ilustracja:aed|AED: włącz, przyklej elektrody jak na rysunku na opakowaniu, nie dotykaj poszkodowanego podczas analizy i wyładowania.}}
+{{ilustracja:bb-pozycja-rko|Barki pionowo nad dłońmi, ramiona proste. Uciskaj na 5–6 cm, 100–120 razy na minutę.}}
+
+{{ilustracja:ba-aed-elektrody|Elektrody AED: jedna pod prawym obojczykiem, druga na lewym boku poniżej pachy — tak jak na rysunku na elektrodach. Nie dotykaj poszkodowanego podczas analizy i wyładowania.}}
 
 > [!WAZNE] Nie pomyl z drgawkami
 > Na początku zatrzymania krążenia mogą pojawić się krótkie ruchy przypominające drgawki. Jeśli potem poszkodowany nie reaguje i nie oddycha prawidłowo — zaczynaj RKO.

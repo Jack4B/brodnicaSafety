@@ -1,0 +1,149 @@
+{
+  "bb-drogi-oddechowe": {
+    "plik": "CPR Adult Airway.png",
+    "autor": "BruceBlaus",
+    "licencja": "CC BY-SA 4.0",
+    "alt": "Udrożnienie dróg oddechowych: jedna ręka na czole, palce drugiej pod brodą, głowa odgięta do tyłu",
+    "kadr": [
+      0,
+      0.12,
+      1,
+      1
+    ],
+    "szerokosc": 733,
+    "wysokosc": 598
+  },
+  "bb-dlonie-mostek": {
+    "plik": "CPR Adult Chest Compression.png",
+    "autor": "BruceBlaus",
+    "licencja": "CC BY-SA 4.0",
+    "alt": "Dłonie jedna na drugiej na środku klatki piersiowej leżącego mężczyzny",
+    "kadr": [
+      0,
+      0.02,
+      1,
+      0.82
+    ],
+    "szerokosc": 760,
+    "wysokosc": 452
+  },
+  "bb-pozycja-rko": {
+    "plik": "CPR Adult Chest Compression 2.png",
+    "autor": "BruceBlaus",
+    "licencja": "CC BY-SA 4.0",
+    "alt": "Ratowniczka klęczy obok poszkodowanego, ramiona proste, barki nad dłońmi, strzałka w dół",
+    "kadr": [
+      0.05,
+      0.04,
+      0.98,
+      0.84
+    ],
+    "szerokosc": 702,
+    "wysokosc": 576,
+    "czerwien": true
+  },
+  "bb-dziecko-oddechy": {
+    "plik": "CPR Child Blow In Air.png",
+    "autor": "BruceBlaus",
+    "licencja": "CC BY-SA 4.0",
+    "alt": "Oddech ratowniczy u dziecka: odgięta głowa, zaciśnięty nos, usta na ustach",
+    "kadr": [
+      0.05,
+      0.02,
+      1,
+      0.84
+    ],
+    "szerokosc": 760,
+    "wysokosc": 550
+  },
+  "bb-dziecko-uciski": {
+    "plik": "CPR Child Chest Compression.png",
+    "autor": "BruceBlaus",
+    "licencja": "CC BY-SA 4.0",
+    "alt": "Uciskanie klatki piersiowej dziecka jedną dłonią, druga ręka na czole",
+    "kadr": [
+      0.05,
+      0,
+      1,
+      0.78
+    ],
+    "szerokosc": 758,
+    "wysokosc": 524
+  },
+  "bb-heimlich": {
+    "plik": "Heimlich Adult & Child.png",
+    "autor": "BruceBlaus",
+    "licencja": "CC BY-SA 4.0",
+    "alt": "Uciśnięcia nadbrzusza: ratownik stoi za poszkodowanym, pięść między pępkiem a mostkiem, przybliżenie ułożenia dłoni",
+    "kadr": [
+      0,
+      0.04,
+      0.615,
+      0.8
+    ],
+    "szerokosc": 597,
+    "wysokosc": 564
+  },
+  "bb-niemowle-zadlawienie": {
+    "plik": "Heimlich Infant.png",
+    "autor": "BruceBlaus",
+    "licencja": "CC BY-SA 4.0",
+    "alt": "Niemowlę: uderzenia w plecy na przedramieniu głową w dół oraz uciśnięcia klatki piersiowej dwoma palcami",
+    "kadr": [
+      0,
+      0,
+      1,
+      0.66
+    ],
+    "szerokosc": 760,
+    "wysokosc": 235
+  },
+  "ba-aed-elektrody": {
+    "plik": "Aed-electrode-placement.png",
+    "autor": "Baedr-9439",
+    "licencja": "CC0",
+    "alt": "Elektrody AED: jedna pod prawym obojczykiem, druga na lewym boku pod pachą",
+    "szerokosc": 601,
+    "wysokosc": 903
+  },
+  "ba-wychlodzenie": {
+    "plik": "Hypothermia-wrap.png",
+    "autor": "Baedr-9439",
+    "licencja": "CC0",
+    "alt": "Owijanie wychłodzonej osoby: koc i śpiwór na izolacji od ziemi, szczelne zawinięcie z głową",
+    "szerokosc": 760,
+    "wysokosc": 533
+  },
+  "ba-adrenalina": {
+    "plik": "Epinephrine-injection.png",
+    "autor": "Baedr-9439",
+    "licencja": "CC0",
+    "alt": "Wstrzyknięcie adrenaliny autostrzykawką w zewnętrzną część uda",
+    "szerokosc": 760,
+    "wysokosc": 644
+  },
+  "bk-opatrunek-uciskowy": {
+    "plik": "Application of Pressure Dressing.svg",
+    "autor": "Bizhan Khodabandeh",
+    "licencja": "CC BY-SA 4.0",
+    "alt": "Zakładanie opatrunku uciskowego: bandaż owijany mocno wokół rany na przedramieniu",
+    "szerokosc": 760,
+    "wysokosc": 590
+  },
+  "bk-staza": {
+    "plik": "Applying tourniquet.svg",
+    "autor": "Bizhan Khodabandeh",
+    "licencja": "CC BY-SA 4.0",
+    "alt": "Opaska uciskowa założona na udzie powyżej krwawiącej rany na nodze",
+    "szerokosc": 623,
+    "wysokosc": 663
+  },
+  "sv-pozycja-bezpieczna": {
+    "plik": "People - Recovery position -- Smart-Servier.png",
+    "autor": "Servier Medical Art (Servier)",
+    "licencja": "CC BY-SA 3.0",
+    "alt": "Pozycja bezpieczna: osoba na boku, dłoń przy policzku, górna noga zgięta w kolanie",
+    "szerokosc": 500,
+    "wysokosc": 210
+  }
+}
