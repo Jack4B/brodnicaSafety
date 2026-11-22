@@ -21,7 +21,8 @@ zrodla:
 - **Zawsze zaczynasz od 5 oddechów ratowniczych.** U niemowlęcia obejmij ustami jego usta i nos jednocześnie. U starszego dziecka zaciśnij nos i wdmuchuj w usta. Każdy oddech trwa około 1 sekundy — tyle, żeby klatka piersiowa się uniosła.
 {{ilustracja:bb-dziecko-oddechy|Oddech ratowniczy u dziecka: odegnij głowę, zaciśnij nos, wdmuchuj powietrze przez około 1 sekundę.}}
 
-- **Głębokość uciśnięć:** co najmniej jedna trzecia głębokości klatki piersiowej. U niemowlęcia uciskaj palcami, u dziecka jedną lub dwiema dłońmi.
+- **Głębokość uciśnięć:** co najmniej jedna trzecia głębokości klatki piersiowej, na dolnej połowie mostka.
+- **Technika:** u niemowlęcia ERC zaleca **uciskanie dwoma kciukami**, obejmując klatkę piersiową dłońmi. U dziecka uciskaj jedną lub dwiema rękami — zależnie od wielkości dziecka.
 {{ilustracja:bb-dziecko-uciski|U dziecka uciskaj jedną lub dwiema dłońmi na środku klatki piersiowej, na co najmniej 1/3 jej głębokości.}}
 
 - **Proporcja:** jeśli przeszedłeś kurs pierwszej pomocy dzieciom — 15 uciśnięć i 2 oddechy. Jeśli nie — rób RKO tak, jak u dorosłego (30:2). Najgorsze jest nierobienie niczego.

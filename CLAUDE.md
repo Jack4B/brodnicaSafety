@@ -84,6 +84,12 @@ Zakres: **miasto Brodnica**. Charakter: **niekomercyjny**, maksimum rzetelnej wi
 
 Zasada danych: telefon nie odpytuje API — dane pobierane przy buildzie do `data/*.json`, zawsze z `zrodlo` i datą. Gdy źródło zawiedzie, zostaje ostatnia dobra wersja; nigdy nie pokazujemy braku danych jako „brak zagrożeń”.
 
+## Materiały dodatkowe (22.11.2026)
+
+- `pierwsza-pomoc-ikony/` — 34 ikony Health Icons (CC0), filled 48 px, #C8102E, równe marginesy; skrypt `scripts/ikony-healthicons.mjs`.
+- `pierwsza-pomoc-instrukcje/` — 8 arkuszy instrukcji (skill medic): HTML animowane, `png/` do druku, `index.html`, `ZRODLA.md` (punkty DO SPRAWDZENIA); budowanie `node pierwsza-pomoc-instrukcje/src/zbuduj.mjs` (wymaga skilla w `~/.claude/skills/medic`).
+- Ustalenie: ERC 2025 — RKO niemowlęcia dwoma kciukami z objęciem klatki (poprawione na stronie).
+
 ## Otwarte
 
 - przegląd treści medycznych przez ratownika/lekarza (pole `przeglad` w plikach `content/pierwsza-pomoc/`),

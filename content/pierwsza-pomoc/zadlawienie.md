@@ -33,7 +33,7 @@ zrodla:
 
 - **Nie wykonuj uciśnięć nadbrzusza.**
 - **5 uderzeń w plecy:** połóż niemowlę brzuszkiem na swoim przedramieniu, głową w dół, podtrzymując żuchwę. Uderzaj nasadą dłoni między łopatki.
-- **5 uciśnięć klatki piersiowej:** odwróć niemowlę na plecy (nadal głową w dół) i uciśnij dwoma palcami środek klatki piersiowej.
-{{ilustracja:bb-niemowle-zadlawienie|Niemowlę: uderzenia w plecy na przedramieniu, głową w dół (z lewej), i uciśnięcia klatki piersiowej dwoma palcami (z prawej).}}
+- **5 uciśnięć klatki piersiowej:** odwróć niemowlę na plecy (nadal głową w dół) i uciśnij dolną połowę mostka — krócej i wolniej niż przy RKO.
+{{ilustracja:bb-niemowle-zadlawienie|Niemowlę: uderzenia w plecy na przedramieniu, głową w dół (z lewej), i uciśnięcia klatki piersiowej (z prawej).}}
 
 - Powtarzaj na zmianę. Gdy straci przytomność — {{tel:112}} i RKO zaczynając od 5 oddechów.
