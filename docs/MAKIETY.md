@@ -24,15 +24,8 @@ Wspólne elementy: nagłówek z przyciskiem **112**, pasek „Dostępne offline�
 - Komponenty: przycisk główny / sygnałowy / obrysowany, chip (informacja, ważne, pilne, zapisano), karta, lista kroków, checklista, rozwijana sekcja, kafel.
 - Dane przykładowe oznaczone ramką „PRZYKŁAD” i nigdy niepublikowane w tej formie.
 
-## Do decyzji
+## Decyzje (22.11.2026)
 
-Rozstrzygnięte po researchu: stopnie alarmowe i komunikaty **automatycznie**, zakres **miasto Brodnica**, charakter **niekomercyjny**, plecak i porady oparte na źródłach rządowych i wojskowych.
+Zaakceptowane: nazwa **Gotowość Brodnica**, automatyczne aktualizacje przez **GitHub Actions**, zakres **miasto Brodnica**, **własne ilustracje** zgodne z aktualnymi wytycznymi, własny CSS. Makiety zrealizowane w wersji 1.0 strony (`src/`, `content/`).
 
-Otwarte:
-1. **Nazwa:** „Gotowość Brodnica” (rekomendacja) czy „Brodnica Alert”?
-2. **Automatyczne aktualizacje:** GitHub Actions (rekomendacja) czy cron na CT8?
-3. **Ilustracje pierwszej pomocy:** własne piktogramy SVG (rekomendacja) + prośba do RCB o zgodę na ilustracje z poradnika.
-4. **CSS:** własny z tokenami (rekomendacja) czy Tailwind?
-5. **Przegląd medyczny:** kto zatwierdzi procedury pierwszej pomocy?
-6. **Adres:** subdomena CT8 czy własna domena?
-7. **Kontakt z Urzędem Miejskim** (syreny, miejsca doraźnego schronienia, numery awaryjne MPWiK i ciepłownictwa): wysyłasz Ty? Projekt maila jest w `docs/RESEARCH.md` §8.
+Otwarte: przegląd medyczny, potwierdzenia w Urzędzie Miejskim, adres na CT8 — patrz `CLAUDE.md` → „Otwarte”.

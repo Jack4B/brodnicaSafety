@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 180" aria-label="Bezpośredni ucisk na ranę">
+<rect class="skin" x="20" y="112" width="280" height="38" rx="19"/>
+<ellipse class="red" cx="170" cy="128" rx="16" ry="6"/>
+<rect x="134" y="100" width="72" height="26" rx="5" fill="#F4F6FA" stroke="#B8C0CC" stroke-width="2"/>
+<rect class="skin" x="132" y="64" width="76" height="34" rx="12"/>
+<path class="lr lt" d="M170 64 L170 6"/>
+<path class="arrow" d="M108 46 V90"/><path class="arrow-f" d="M101 86 L115 86 L108 98 Z"/><path class="arrow" d="M232 46 V90"/><path class="arrow-f" d="M225 86 L239 86 L232 98 Z"/>
+<text class="lbl-b" x="10" y="30">uciskaj mocno</text>
+<text class="lbl" x="300" y="174" text-anchor="end">opatrunek na ranie</text>
+</svg>

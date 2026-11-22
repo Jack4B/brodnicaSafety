@@ -8,7 +8,7 @@
   },
   "uwagi": [
     "Plecak powinien mieć każdy domownik, także dzieci (PB).",
-    "Woda: minimum 3 litry na osobę na dobę (PB-zapasy). Wody z natury nie pij bez uzdatnienia: tabletki albo gotowanie przez 5 minut (ATP).",
+    "Woda: minimum 3 litry na osobę na dobę (PB-zapasy). Wody z natury nie pij bez uzdatnienia: tabletki, filtr albo gotowanie co najmniej 1 minutę od zawrzenia (ATP).",
     "Wybierz zwykły plecak turystyczny w stonowanym kolorze. Raz na kilka miesięcy sprawdzaj terminy ważności i baterie (PB-zapasy)."
   ],
   "grupy": [
@@ -18,7 +18,7 @@
         { "id": "woda", "nazwa": "Woda butelkowana", "poziom": "podst", "zrodlo": "PB" },
         { "id": "filtr", "nazwa": "Filtr do wody lub tabletki do uzdatniania", "poziom": "podst", "zrodlo": "PB" },
         { "id": "jedzenie", "nazwa": "Żywność wysokoenergetyczna gotowa do jedzenia (batony, suszone owoce, bakalie)", "poziom": "podst", "zrodlo": "PB" },
-        { "id": "menazka", "nazwa": "Metalowy kubek lub menażka do gotowania wody", "poziom": "rozsz", "zrodlo": "ATP", "uwaga": "gotowanie przez 5 minut uzdatnia wodę" },
+        { "id": "menazka", "nazwa": "Metalowy kubek lub menażka do gotowania wody", "poziom": "rozsz", "zrodlo": "ATP", "uwaga": "zagotuj i gotuj co najmniej 1 minutę — to uzdatnia wodę" },
         { "id": "mleko", "nazwa": "Mleko modyfikowane, butelka, jedzenie dla dziecka", "poziom": "podst", "dla": "rodzina", "zrodlo": "PB", "uwaga": "PB: dopasuj listę do potrzeb domowników" }
       ]
     },

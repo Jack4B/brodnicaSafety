@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 200" aria-label="Udrożnienie dróg oddechowych przez odgięcie głowy i uniesienie brody">
+<path class="ground" d="M10 178 H310"/>
+<path class="lv" d="M150 156 H296"/><path class="lv" d="M128 152 L150 156"/>
+<circle class="skin" cx="112" cy="146" r="22"/>
+<path class="lr lt" d="M58 52 L92 112"/><path class="lk" d="M92 112 L104 126"/>
+<path class="lr lt" d="M190 74 L146 118"/><path class="lk" d="M146 118 L134 128"/>
+<path class="arrow" d="M80 118 Q64 136 74 160"/><path class="arrow-f" d="M66 156 L80 154 L78 168 Z"/>
+<path class="arrow" d="M134 106 L140 90"/><path class="arrow-f" d="M133 94 L146 96 L142 82 Z"/>
+<text class="lbl-b" x="10" y="196">odegnij głowę</text><text class="lbl-b" x="150" y="40">unieś brodę</text>
+<text class="lbl" x="12" y="40">ręka na czole</text><text class="lbl" x="200" y="64">palce pod brodą</text>
+</svg>

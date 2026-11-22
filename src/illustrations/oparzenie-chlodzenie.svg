@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 190" aria-label="Chłodzenie oparzenia wodą">
+<path class="muted-s" style="stroke-width:12" d="M20 24 H118 V44"/>
+<rect class="water" x="110" y="48" width="16" height="74" rx="6"/>
+<rect class="skin" x="40" y="122" width="230" height="32" rx="16"/>
+<ellipse class="red" cx="118" cy="132" rx="22" ry="7" opacity=".55"/>
+<circle class="surface" cx="252" cy="56" r="30"/><path class="line" d="M252 56 V36 M252 56 L266 64"/>
+<text class="lbl-b" x="206" y="112">min. 20 minut</text>
+<text class="lbl" x="40" y="178">chłodna, czysta woda · bez lodu</text>
+</svg>

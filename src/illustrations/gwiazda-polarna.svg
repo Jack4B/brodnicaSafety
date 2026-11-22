@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 330 215" aria-label="Wyznaczanie Gwiazdy Polarnej z Wielkiego Wozu">
+<path class="muted-s" style="opacity:.6" d="M122 148 L104 170 L74 160 L88 136 Z M88 136 L62 124 L40 116 L18 124"/>
+<path class="muted-s" style="opacity:.6" d="M258 74 L272 96 L288 78 L302 100 L318 80"/>
+<path class="accent-s dash" d="M104 170 L212 38"/>
+<circle class="star" cx="122" cy="148" r="4"/><circle class="star" cx="104" cy="170" r="4"/><circle class="star" cx="74" cy="160" r="4"/><circle class="star" cx="88" cy="136" r="4"/><circle class="star" cx="62" cy="124" r="4"/><circle class="star" cx="40" cy="116" r="4"/><circle class="star" cx="18" cy="124" r="4"/><circle class="star" cx="258" cy="74" r="4"/><circle class="star" cx="272" cy="96" r="4"/><circle class="star" cx="288" cy="78" r="4"/><circle class="star" cx="302" cy="100" r="4"/><circle class="star" cx="318" cy="80" r="4"/><circle class="star" cx="212" cy="38" r="7"/>
+<text class="lbl-b" x="202" y="24" text-anchor="end">Gwiazda Polarna</text>
+<path class="muted-s dash" d="M212 48 V196"/><text class="lbl-b" x="212" y="210" text-anchor="middle">północ</text>
+<text class="lbl" x="10" y="200">Wielki Wóz</text><text class="lbl" x="260" y="124">Kasjopeja</text>
+<text class="lbl" x="166" y="112">× 5 odległości</text>
+</svg>

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 210" aria-label="Uciśnięcia nadbrzusza przy zadławieniu">
+<path class="ground" d="M10 198 H310"/>
+<path class="lv" d="M120 198 L122 126"/><path class="lv" d="M122 126 L112 64"/><circle class="skin" cx="106" cy="42" r="17"/>
+<path class="lr" d="M176 198 L172 126"/><path class="lr" d="M172 126 L164 62"/><circle class="skin" cx="164" cy="40" r="17"/>
+<path class="lr lt" d="M162 76 L142 100"/><path class="lr lt" d="M142 100 L108 100"/><circle class="skin" cx="102" cy="100" r="10"/>
+<path class="arrow" d="M86 118 Q86 96 110 86"/><path class="arrow-f" d="M104 80 L118 84 L108 94 Z"/>
+<text class="lbl-b" x="196" y="74">pięść między</text><text class="lbl-b" x="196" y="90">pępkiem</text><text class="lbl-b" x="196" y="106">a mostkiem</text>
+<text class="lbl" x="10" y="150">do siebie</text><text class="lbl" x="10" y="166">i ku górze</text>
+</svg>

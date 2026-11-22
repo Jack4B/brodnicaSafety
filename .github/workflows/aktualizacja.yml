@@ -1,0 +1,103 @@
+# Aktualizacja danych, test i wdrożenie strony „Gotowość Brodnica” na CT8.
+# - co 3 godziny: stopnie alarmowe (RCB), ostrzeżenia IMGW, komunikaty UM Brodnica i sanepidu,
+# - raz w tygodniu (poniedziałek): punkty schronienia PSP,
+# - przy każdej zmianie treści na gałęzi domyślnej oraz ręcznie (Actions → Run workflow).
+# Wdrożenie wymaga sekretów CT8_SSH_KEY, CT8_HOST, CT8_USER, CT8_PATH (opis: docs/WDROZENIE.md).
+# Bez nich workflow tylko pobiera dane, testuje i buduje stronę.
+name: Aktualizacja i wdrożenie
+
+on:
+  schedule:
+    - cron: '17 */3 * * *'   # co 3 h (UTC)
+    - cron: '43 4 * * 1'     # poniedziałek — schrony
+  push:
+    paths: ['content/**', 'src/**', 'data/plecak.json', 'data/komunikaty.json', 'scripts/**', '.github/workflows/**']
+  workflow_dispatch:
+    inputs:
+      schrony:
+        description: 'Pobierz też punkty schronienia (PSP)'
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: aktualizacja
+  cancel-in-progress: false
+
+jobs:
+  aktualizacja:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      SITE_URL: ${{ vars.SITE_URL || 'https://gotowosc-brodnica.ct8.pl' }}
+      BASE_PATH: ${{ vars.BASE_PATH || '/' }}
+      HAS_CT8: ${{ secrets.CT8_SSH_KEY != '' && secrets.CT8_HOST != '' }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      # Każde źródło osobno: awaria jednego nie blokuje pozostałych, a skrypty
+      # przy błędzie zostawiają ostatnie poprawne dane.
+      - name: Stopnie alarmowe (RCB)
+        if: github.event_name != 'push'
+        continue-on-error: true
+        run: node scripts/fetch-stopnie.mjs
+
+      - name: Ostrzeżenia IMGW
+        if: github.event_name != 'push'
+        continue-on-error: true
+        run: node scripts/fetch-imgw.mjs
+
+      - name: Komunikaty UM Brodnica i sanepidu
+        if: github.event_name != 'push'
+        continue-on-error: true
+        run: node scripts/fetch-komunikaty.mjs
+
+      - name: Punkty schronienia (PSP)
+        if: github.event.schedule == '43 4 * * 1' || inputs.schrony
+        continue-on-error: true
+        run: node scripts/fetch-schrony.mjs
+
+      - name: Testy i build
+        run: npm test
+
+      - name: Zapisz nowe dane w repozytorium
+        if: github.event_name != 'push'
+        run: |
+          git config user.name "gotowosc-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/
+          if git diff --cached --quiet; then echo "Dane bez zmian"; exit 0; fi
+          git commit -m "Dane: aktualizacja automatyczna $(date -u +%Y-%m-%dT%H:%MZ)"
+          git push
+
+      - name: Wdrożenie na CT8 (rsync przez SSH)
+        if: env.HAS_CT8 == 'true'
+        env:
+          KEY: ${{ secrets.CT8_SSH_KEY }}
+          HOST: ${{ secrets.CT8_HOST }}
+          USER: ${{ secrets.CT8_USER }}
+          DEST: ${{ secrets.CT8_PATH }}
+        run: |
+          install -m 700 -d ~/.ssh
+          printf '%s\n' "$KEY" > ~/.ssh/ct8
+          chmod 600 ~/.ssh/ct8
+          ssh-keyscan -H "$HOST" >> ~/.ssh/known_hosts 2>/dev/null
+          rsync -rlz --delete --chmod=D755,F644 -e "ssh -i ~/.ssh/ct8" dist/ "$USER@$HOST:$DEST/"
+          echo "Wdrożono do $HOST:$DEST"
+
+      - name: Podsumowanie
+        if: always()
+        run: |
+          {
+            echo "### Gotowość Brodnica"
+            echo "- Stopnie: $(node -e "const d=require('./data/stopnie.json');console.log(d.stopnie.map(s=>s.stopien).join(', '),'· raport z',d.raport_z)")"
+            echo "- Komunikaty auto: $(node -e "console.log(require('./data/komunikaty-auto.json').komunikaty.length)")"
+            echo "- Schrony: $(node -e "const d=require('./data/schrony.json');console.log(d.liczba,'· dane z',d.dane_z)")"
+            echo "- Wdrożenie: ${HAS_CT8}"
+          } >> "$GITHUB_STEP_SUMMARY"

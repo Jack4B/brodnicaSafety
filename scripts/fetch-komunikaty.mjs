@@ -8,7 +8,7 @@
 //
 // Użycie: node scripts/fetch-komunikaty.mjs
 
-import { fetchText, stripTags, decodeEntities, dataPath, writeJson } from './lib.mjs';
+import { fetchText, stripTags, decodeEntities, dataPath, writeJson, readJson } from './lib.mjs';
 
 const CITY_FEED = 'https://www.portal.brodnica.pl/aktualnosci.xml';
 const PSSE = 'https://www.gov.pl/web/psse-brodnica/komunikaty';
@@ -53,6 +53,9 @@ export function psseDotyczyMiasta(tytul) {
 
 async function main() {
   const out = { pobrano: new Date().toISOString(), zrodla: [], komunikaty: [], bledy: [] };
+  const prev = (await readJson(OUT)) || { komunikaty: [] };
+  // Gdy źródło nie odpowiada, zostawiamy jego poprzednie wpisy — brak danych to nie „brak komunikatów”.
+  const keepPrevious = (zrodlo) => out.komunikaty.push(...prev.komunikaty.filter((k) => k.zrodlo === zrodlo));
 
   try {
     const xml = await fetchText(CITY_FEED);
@@ -63,7 +66,7 @@ async function main() {
       if (!KEYWORDS.test(text) || EXCLUDE.test(text)) continue;
       out.komunikaty.push({ data: e.updated?.slice(0, 10), tytul: e.title, url: e.link, zrodlo: 'Urząd Miejski w Brodnicy', waga: 'info' });
     }
-  } catch (e) { out.bledy.push(`Urząd Miejski: ${e.message}`); }
+  } catch (e) { out.bledy.push(`Urząd Miejski: ${e.message}`); keepPrevious('Urząd Miejski w Brodnicy'); }
 
   try {
     const items = parseGovList(await fetchText(PSSE));
@@ -73,7 +76,7 @@ async function main() {
       const waga = /niezgodno|nieprzydatno|warunkowej/i.test(it.tytul) ? 'wazne' : 'info';
       out.komunikaty.push({ ...it, zrodlo: 'PSSE w Brodnicy', waga });
     }
-  } catch (e) { out.bledy.push(`PSSE: ${e.message}`); }
+  } catch (e) { out.bledy.push(`PSSE: ${e.message}`); keepPrevious('PSSE w Brodnicy'); }
 
   out.komunikaty.sort((a, b) => (b.data || '').localeCompare(a.data || ''));
   await writeJson(OUT, out);

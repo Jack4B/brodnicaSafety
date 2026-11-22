@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 210" aria-label="Uciskanie klatki piersiowej">
+<path class="ground" d="M10 190 H310"/>
+<circle class="skin" cx="58" cy="164" r="17"/>
+<path class="lv" d="M82 170 H205"/><path class="lv" d="M205 172 L300 178"/>
+<path class="lr" d="M150 120 L136 66"/><circle class="skin" cx="132" cy="44" r="17"/>
+<path class="lr" d="M150 120 L178 186"/><path class="lr" d="M178 186 L236 188"/>
+<path class="lr lt" d="M134 72 L131 146"/><rect class="skin" x="116" y="146" width="32" height="10" rx="5"/>
+<path class="arrow" d="M96 92 V138"/><path class="arrow-f" d="M89 134 L103 134 L96 146 Z"/>
+<text class="lbl-b" x="10" y="100">5–6 cm</text><text class="lbl" x="10" y="118">100–120</text><text class="lbl" x="10" y="134">na minutę</text>
+<text class="lbl" x="178" y="40">ramiona proste,</text><text class="lbl" x="178" y="56">barki nad dłońmi</text>
+<text class="lbl" x="200" y="160">środek klatki</text><path class="muted-s" d="M198 156 L152 151"/>
+</svg>

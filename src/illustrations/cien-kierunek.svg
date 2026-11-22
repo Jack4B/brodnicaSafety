@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 210" aria-label="Metoda cienia do wyznaczania kierunków">
+<path class="muted-s" style="opacity:.5" d="M160 170 L96 92 M160 170 L224 92"/>
+<circle class="muted-f" cx="160" cy="170" r="6"/><text class="lbl" x="172" y="186">patyk</text>
+<circle class="muted-f" cx="96" cy="92" r="9"/><circle class="muted-f" cx="224" cy="92" r="9"/>
+<path class="accent-s dash" d="M70 92 H250"/>
+<text class="lbl-b" x="60" y="80" text-anchor="middle">1. zachód</text><text class="lbl-b" x="262" y="80" text-anchor="middle">2. wschód</text>
+<text class="lbl" x="262" y="116" text-anchor="middle">(po 10–15 min)</text>
+<path class="arrow" d="M160 86 V30"/><path class="arrow-f" d="M152 36 L168 36 L160 20 Z"/><text class="lbl-b" x="172" y="34">północ</text>
+<circle class="star" cx="286" cy="186" r="14"/><text class="lbl" x="226" y="190">słońce</text>
+</svg>

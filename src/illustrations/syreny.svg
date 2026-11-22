@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 220" aria-label="Wykresy trzech sygnałów syreny">
+<text class="lbl-b" x="10" y="16">Ogłoszenie alarmu</text>
+<path class="wave" d="M10 42 q10 -30 20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0"/><text class="lbl" x="262" y="47">3 min</text>
+<text class="lbl-b" x="10" y="94">Odwołanie alarmu</text>
+<path class="wave" d="M10 118 H250"/><text class="lbl" x="262" y="123">3 min</text>
+<text class="lbl-b" x="10" y="170">Ćwiczenia, test syren</text>
+<path class="wave" d="M10 194 H90"/><path class="muted-s dash" d="M96 194 H250"/><text class="lbl" x="262" y="199">1 min</text>
+</svg>

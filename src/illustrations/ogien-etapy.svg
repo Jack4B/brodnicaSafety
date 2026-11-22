@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 330 170" aria-label="Trzy etapy rozpalania ognia">
+<path d="M30 110 q8 -20 16 0 t16 0 t16 0 M34 96 q8 -16 16 0 t16 0 M40 124 q8 -14 16 0 t16 0" stroke="#8B5A2B" stroke-linecap="round" fill="none" stroke-width="2"/>
+<path d="M130 120 L180 92 M132 98 L184 124 M140 130 L174 82 M128 110 H186" stroke="#8B5A2B" stroke-linecap="round" fill="none" stroke-width="4"/>
+<path d="M236 126 L306 98 M238 98 L300 128" stroke="#8B5A2B" stroke-linecap="round" fill="none" stroke-width="14"/>
+<path class="muted-s" d="M96 108 L112 108 M106 102 L112 108 L106 114 M206 108 L222 108 M216 102 L222 108 L216 114"/>
+<text class="lbl-b" x="55" y="160" text-anchor="middle">rozpałka</text><text class="lbl-b" x="157" y="160" text-anchor="middle">podpałka</text><text class="lbl-b" x="271" y="160" text-anchor="middle">paliwo</text>
+<text class="lbl" x="55" y="40" text-anchor="middle">garść suchych</text><text class="lbl" x="55" y="56" text-anchor="middle">włókien</text>
+<text class="lbl" x="157" y="40" text-anchor="middle">gałązki do</text><text class="lbl" x="157" y="56" text-anchor="middle">grubości ołówka</text>
+<text class="lbl" x="271" y="40" text-anchor="middle">grubsze, suche</text><text class="lbl" x="271" y="56" text-anchor="middle">drewno</text>
+</svg>

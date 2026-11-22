@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 210" aria-label="Uderzenia w plecy przy zadławieniu">
+<path class="ground" d="M10 198 H310"/>
+<path class="lv" d="M156 198 L156 128"/><path class="lv" d="M156 128 L104 86"/><circle class="skin" cx="86" cy="74" r="17"/>
+<path class="lr" d="M224 198 L220 124"/><path class="lr" d="M220 124 L212 62"/><circle class="skin" cx="210" cy="40" r="17"/>
+<path class="lr lt" d="M208 78 L136 110"/><path class="lk" d="M136 110 L118 112"/>
+<path class="lr lt" d="M214 72 L190 44"/><path class="lr lt" d="M190 44 L146 84"/><path class="lk" d="M146 84 L134 94"/>
+<path class="arrow" d="M150 66 L138 80"/><path class="arrow" d="M162 74 L150 88"/>
+<text class="lbl-b" x="10" y="24">5 uderzeń nasadą dłoni</text><text class="lbl" x="10" y="40">między łopatki</text>
+<text class="lbl" x="10" y="150">pochyl do przodu</text>
+</svg>

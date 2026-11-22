@@ -1,23 +1,33 @@
 # Gotowość Brodnica
 
-Lekka strona informacyjno-edukacyjna dla mieszkańców Brodnicy o gotowości kryzysowej. Mobile first, działa offline, hosting CT8.
+Niekomercyjny poradnik dla mieszkańców Brodnicy o gotowości kryzysowej: co robić przy alarmie, 221 punktów schronienia w mieście, plecak ewakuacyjny, pierwsza pomoc (ERC 2025), zagrożenia, przygotowanie domu, przetrwanie w terenie. Mobile first, działa offline (PWA), bez reklam i śledzenia.
 
-- Kontekst i zasady: [`CLAUDE.md`](CLAUDE.md), [`AGENTS.md`](AGENTS.md)
-- Konspekt: [`docs/konspekt.md`](docs/konspekt.md)
-- Koncepcja (etap 1): [`docs/CONCEPTS.md`](docs/CONCEPTS.md)
-- Makiety (etap 2): [`design/makiety.html`](design/makiety.html), opis w [`docs/MAKIETY.md`](docs/MAKIETY.md)
-- Research źródeł i licencji: [`docs/RESEARCH.md`](docs/RESEARCH.md)
-- Źródła danych: [`docs/API.md`](docs/API.md)
+Stopnie alarmowe, ostrzeżenia IMGW i komunikaty miejskie aktualizują się automatycznie (GitHub Actions, co 3 godziny).
 
-## Dane
+## Szybki start
 
 ```bash
-node scripts/fetch-stopnie.mjs                     # stopnie alarmowe (raport dobowy RCB)
-node scripts/fetch-komunikaty.mjs                  # komunikaty: Urząd Miejski + sanepid Brodnica
-node scripts/fetch-imgw.mjs                        # ostrzeżenia IMGW dla powiatu brodnickiego
-node scripts/fetch-schrony.mjs --show-columns      # punkty schronienia PSP (dane.gov.pl), miasto Brodnica
+npm test          # testy + build do dist/ (Node ≥ 20, bez zależności)
+npm run serve     # podgląd: http://localhost:8080
 ```
 
-Za proxy (np. w środowisku chmurowym) dodaj na początku `NODE_USE_ENV_PROXY=1`.
+## Dokumentacja
+
+| Plik | Co zawiera |
+|---|---|
+| [`CLAUDE.md`](CLAUDE.md) | stan projektu, decyzje, komendy |
+| [`docs/AKTUALIZACJA.md`](docs/AKTUALIZACJA.md) | jak edytować treści, komunikaty i ilustracje |
+| [`docs/WDROZENIE.md`](docs/WDROZENIE.md) | CT8, sekrety, harmonogram aktualizacji |
+| [`docs/RESEARCH.md`](docs/RESEARCH.md) | źródła, licencje, dane lokalne |
+| [`docs/CONCEPTS.md`](docs/CONCEPTS.md), [`docs/MAKIETY.md`](docs/MAKIETY.md), [`docs/DESIGN.md`](docs/DESIGN.md) | koncepcja, makiety, design system |
+
+## Struktura
+
+```
+content/   treści (Markdown)          data/      dane (JSON; część automatycznie)
+src/       generator, szablony, CSS,  scripts/   pobieranie danych, ikony, podgląd
+           JS, Service Worker,        tests/     testy jednostkowe, builda i offline
+           ilustracje SVG             .github/   automatyczna aktualizacja i wdrożenie
+```
 
 > Strona ma charakter informacyjno-edukacyjny. Nie zastępuje oficjalnych komunikatów służb i władz.

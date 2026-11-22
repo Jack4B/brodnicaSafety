@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 200" aria-label="Żółty trójkąt — alarm wizualny na budynku">
+<rect class="surface" x="70" y="30" width="180" height="160" rx="4"/>
+<rect class="muted-f" x="92" y="140" width="28" height="36" rx="2" opacity=".35"/><rect class="muted-f" x="200" y="140" width="28" height="36" rx="2" opacity=".35"/><rect class="muted-f" x="146" y="146" width="28" height="44" rx="2" opacity=".5"/>
+<path d="M160 50 L212 130 L108 130 Z" fill="#F2C200" stroke="#8A6D00" stroke-width="3" stroke-linejoin="round"/>
+<text class="lbl" x="160" y="22" text-anchor="middle">wierzchołek do góry, podstawa w dół</text>
+</svg>

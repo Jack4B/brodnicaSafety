@@ -53,7 +53,10 @@ function parseCSV(text) {
 
 // Nazwy kolumn w zbiorze mogą się zmieniać, więc szukamy ich po wzorcach.
 const COLS = {
+  id: /identyfikator/i,
   nazwa: /nazwa/i,
+  opis: /opis/i,
+  dostepnosc: /dost(e|ę)pno/i,
   typ: /rodzaj|typ|kategori/i,
   miejscowosc: /miejscowo/i,
   ulica: /ulica|adres/i,
@@ -101,16 +104,21 @@ async function main() {
   }
 
   const get = (r, k) => (idx[k] >= 0 ? (r[idx[k]] || '').trim() : '');
+  // Zbiór PSP nie ma kolumny „miejscowość” — jest na końcu adresu: „ul. Kamionka 24, Brodnica”.
+  const town = (r) => get(r, 'miejscowosc') || (get(r, 'ulica').split(',').pop() || '').trim();
   const num = (v) => { const n = parseFloat(String(v).replace(',', '.')); return Number.isFinite(n) ? n : null; };
 
   const items = rows
     .filter((r) => get(r, 'powiat').toLowerCase().includes(POWIAT))
-    .filter((r) => !MIEJSCOWOSC || idx.miejscowosc < 0 || get(r, 'miejscowosc').toLowerCase() === MIEJSCOWOSC)
+    .filter((r) => !MIEJSCOWOSC || town(r).toLowerCase() === MIEJSCOWOSC)
     .map((r) => ({
+      id: get(r, 'id'),
       nazwa: get(r, 'nazwa'),
       typ: get(r, 'typ'),
-      miejscowosc: get(r, 'miejscowosc'),
-      adres: [get(r, 'ulica'), get(r, 'nr')].filter(Boolean).join(' '),
+      opis: get(r, 'opis'),
+      dostepnosc: get(r, 'dostepnosc'),
+      miejscowosc: town(r),
+      adres: [get(r, 'ulica'), get(r, 'nr')].filter(Boolean).join(' ').replace(/,\s*[^,]+$/, ''),
       gmina: get(r, 'gmina'),
       pojemnosc: num(get(r, 'pojemnosc')),
       lat: num(get(r, 'lat')),
@@ -118,6 +126,10 @@ async function main() {
     }))
     .sort((a, b) => a.miejscowosc.localeCompare(b.miejscowosc, 'pl') || a.adres.localeCompare(b.adres, 'pl'));
 
+  if (items.length === 0) {
+    console.error('Filtr nie zwrócił żadnego punktu — format pliku mógł się zmienić. data/schrony.json bez zmian.');
+    process.exit(2);
+  }
   const out = {
     zrodlo: 'Komenda Główna Państwowej Straży Pożarnej — Punkty schronienia w Polsce',
     zbior: DATASET_PAGE,
