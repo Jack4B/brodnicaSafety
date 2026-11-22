@@ -1,0 +1,696 @@
+<title>Gotowość Brodnica · makiety</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<style>
+/* Layout: ekrany telefonu w siatce, pod każdym adnotacje; niżej design system i pytania.
+   Motyw: międzynarodowy znak obrony cywilnej — niebieski trójkąt na pomarańczowym polu.
+   Niebieski = marka i akcje, pomarańczowy = tylko znak i „offline”, czerwony = wyłącznie 112 i „pilne”. */
+:root {
+  --canvas: #E8ECF2;
+  --bg: #F6F8FB;
+  --surface: #FFFFFF;
+  --ink: #14213D;
+  --muted: #56637C;
+  --line: #DCE2EB;
+  --brand: #1D3F8F;
+  --on-brand: #FFFFFF;
+  --brand-soft: #E6ECF8;
+  --signal: #F08A24;
+  --on-signal: #1B1206;
+  --danger: #B3261E;
+  --on-danger: #FFFFFF;
+  --danger-soft: #FBE9E7;
+  --warn: #7F5300;
+  --warn-soft: #FFF1CC;
+  --ok: #1E7A4C;
+  --ok-soft: #E2F3E9;
+  --bezel: #1B2232;
+  --font: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", Ubuntu, sans-serif;
+  --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --canvas: #090E18; --bg: #0F1625; --surface: #172036; --ink: #E7ECF5; --muted: #9BA8BF; --line: #2A3550;
+    --brand: #9DB6F5; --on-brand: #0B1430; --brand-soft: #1E2B4D;
+    --signal: #F5A04A; --on-signal: #1B1206;
+    --danger: #F08A80; --on-danger: #2A0806; --danger-soft: #3A1B1B;
+    --warn: #F2C46B; --warn-soft: #382C12; --ok: #6FD39F; --ok-soft: #133024; --bezel: #2C354B;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --canvas: #090E18; --bg: #0F1625; --surface: #172036; --ink: #E7ECF5; --muted: #9BA8BF; --line: #2A3550;
+  --brand: #9DB6F5; --on-brand: #0B1430; --brand-soft: #1E2B4D;
+  --signal: #F5A04A; --on-signal: #1B1206;
+  --danger: #F08A80; --on-danger: #2A0806; --danger-soft: #3A1B1B;
+  --warn: #F2C46B; --warn-soft: #382C12; --ok: #6FD39F; --ok-soft: #133024; --bezel: #2C354B;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--canvas); color: var(--ink); font-family: var(--font); font-size: 16px; line-height: 1.5;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 32px 64px;
+}
+.wrap { max-width: 1240px; margin: 0 auto; display: grid; gap: 56px; }
+h1, h2, h3 { text-wrap: balance; margin: 0; line-height: 1.2; }
+p { margin: 0; }
+a { color: var(--brand); }
+:focus-visible { outline: 3px solid var(--signal); outline-offset: 2px; }
+svg.i { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+
+/* ---------- intro ---------- */
+.intro { display: grid; gap: 14px; max-width: 70ch; }
+.eyebrow { font-size: 13px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); display: flex; gap: 10px; align-items: center; }
+.intro h1 { font-size: clamp(28px, 5vw, 40px); font-weight: 800; letter-spacing: -.01em; }
+.intro p { color: var(--muted); font-size: 17px; }
+.legend { display: flex; flex-wrap: wrap; gap: 8px 18px; font-size: 14px; color: var(--muted); align-items: center; }
+
+/* ---------- screens grid ---------- */
+.screens { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr)); gap: 56px 32px; align-items: start; }
+figure.shot { margin: 0; display: grid; gap: 18px; justify-items: center; min-width: 0; }
+.phone { width: 100%; max-width: 380px; background: var(--bezel); border-radius: 34px; padding: 9px; }
+.screen { background: var(--bg); border-radius: 26px; overflow: clip; font-size: 16px; display: flex; flex-direction: column; }
+figcaption { width: 100%; max-width: 380px; display: grid; gap: 8px; }
+figcaption h2 { font-size: 18px; font-weight: 700; display: flex; gap: 10px; align-items: baseline; }
+figcaption h2 .id { font-family: var(--mono); font-size: 13px; color: var(--muted); font-weight: 500; }
+figcaption ul { margin: 0; padding-left: 18px; color: var(--muted); font-size: 14.5px; display: grid; gap: 4px; }
+
+/* ---------- app chrome ---------- */
+.app-head { display: flex; align-items: center; gap: 10px; padding: 12px 14px; background: var(--surface); border-bottom: 1px solid var(--line); }
+.brand { display: flex; align-items: center; gap: 9px; font-weight: 700; font-size: 16px; line-height: 1.15; flex: 1; min-width: 0; }
+.brand small { display: block; font-weight: 500; font-size: 12px; color: var(--muted); }
+.mark { width: 30px; height: 30px; flex: none; }
+.mark .bg { fill: var(--signal); } .mark .tri { fill: #1D3F8F; }
+.call112 { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; padding: 0 14px; border-radius: 999px; background: var(--danger); color: var(--on-danger); font-weight: 800; font-size: 17px; text-decoration: none; font-variant-numeric: tabular-nums; }
+.call112 svg.i { width: 18px; height: 18px; }
+.netbar { display: flex; align-items: center; gap: 8px; padding: 6px 14px; font-size: 12.5px; color: var(--muted); background: var(--surface); border-bottom: 1px solid var(--line); }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: var(--ok); flex: none; }
+.body { padding: 16px 14px 20px; display: grid; gap: 18px; flex: 1; }
+.tabbar { position: sticky; bottom: env(safe-area-inset-bottom, 0px); display: grid; grid-template-columns: repeat(5, 1fr); background: var(--surface); border-top: 1px solid var(--line); }
+.tab { display: grid; justify-items: center; gap: 2px; padding: 8px 2px 10px; min-height: 58px; font-size: 11.5px; color: var(--muted); text-decoration: none; }
+.tab[aria-current="page"] { color: var(--brand); font-weight: 700; box-shadow: inset 0 3px 0 var(--brand); }
+
+/* ---------- components ---------- */
+.sec-title { font-size: 12.5px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; color: var(--muted); }
+.ex { font-size: 10.5px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); border: 1px dashed var(--muted); border-radius: 4px; padding: 0 5px; white-space: nowrap; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 14px; display: grid; gap: 6px; }
+.status-val { font-size: 30px; font-weight: 800; letter-spacing: .03em; line-height: 1.1; }
+.meta { font-size: 13px; color: var(--muted); }
+.row { display: flex; align-items: center; gap: 8px; justify-content: space-between; flex-wrap: wrap; }
+.btn { display: flex; align-items: center; gap: 12px; min-height: 56px; padding: 12px 16px; border-radius: 14px; font-weight: 700; font-size: 17px; text-decoration: none; border: 0; font-family: inherit; cursor: pointer; width: 100%; text-align: left; }
+.btn > span { flex: 1; }
+.btn-primary { background: var(--brand); color: var(--on-brand); }
+.btn-signal { background: var(--signal); color: var(--on-signal); }
+.btn-ghost { background: var(--surface); color: var(--brand); border: 1.5px solid var(--line); }
+.tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.tile { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 14px 12px; min-height: 92px; display: grid; align-content: space-between; gap: 10px; color: var(--ink); text-decoration: none; font-weight: 650; font-size: 15px; line-height: 1.25; }
+.tile svg.i { color: var(--brand); width: 26px; height: 26px; }
+.msgs { display: grid; gap: 8px; }
+.msg { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; display: grid; gap: 4px; }
+.msg b { font-size: 15.5px; line-height: 1.3; }
+.chip { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; font-weight: 700; padding: 2px 8px; border-radius: 999px; }
+.chip-info { background: var(--brand-soft); color: var(--brand); }
+.chip-warn { background: var(--warn-soft); color: var(--warn); }
+.chip-danger { background: var(--danger-soft); color: var(--danger); }
+.chip-ok { background: var(--ok-soft); color: var(--ok); }
+.disclaimer { font-size: 12.5px; color: var(--muted); border-top: 1px solid var(--line); padding-top: 12px; }
+.crumb { font-size: 13px; color: var(--muted); }
+.page-h { font-size: 26px; font-weight: 800; letter-spacing: -.01em; }
+.lead { color: var(--muted); }
+.quick { background: var(--brand-soft); border-radius: 16px; padding: 14px; display: grid; gap: 10px; }
+.quick .sec-title { color: var(--brand); }
+ol.steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; counter-reset: s; }
+ol.steps li { counter-increment: s; display: grid; grid-template-columns: 30px 1fr; gap: 10px; align-items: start; font-size: 16px; line-height: 1.4; }
+ol.steps li::before { content: counter(s); width: 30px; height: 30px; border-radius: 50%; background: var(--brand); color: var(--on-brand); display: grid; place-items: center; font-weight: 800; font-size: 15px; }
+ol.steps li b { display: block; }
+ol.steps li small { color: var(--muted); font-size: 14px; }
+.siren { display: grid; grid-template-columns: 96px 1fr; gap: 12px; align-items: center; }
+.siren svg { width: 96px; height: 32px; stroke: var(--brand); stroke-width: 2.2; fill: none; }
+.siren p { font-size: 15px; line-height: 1.35; }
+.siren p span { color: var(--muted); display: block; font-size: 13.5px; }
+.src-list { margin: 0; padding: 0; list-style: none; display: grid; }
+.src-list li { display: flex; gap: 10px; align-items: center; padding: 11px 0; border-bottom: 1px solid var(--line); font-size: 15px; }
+.src-list li:last-child { border-bottom: 0; }
+.src-list li span { flex: 1; min-width: 0; }
+.src-list li small { display: block; color: var(--muted); font-size: 13px; }
+.src-list svg.i { color: var(--muted); width: 18px; height: 18px; }
+
+/* plecak */
+.seg { display: grid; grid-template-columns: 1fr 1fr; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 3px; gap: 3px; }
+.seg button { min-height: 42px; border: 0; border-radius: 9px; background: transparent; color: var(--ink); font: inherit; font-size: 14.5px; font-weight: 600; cursor: pointer; }
+.seg button[aria-pressed="true"] { background: var(--brand); color: var(--on-brand); }
+.progress { display: grid; gap: 6px; }
+.bar { height: 10px; border-radius: 99px; background: var(--line); overflow: hidden; }
+.bar i { display: block; height: 100%; background: var(--ok); width: 0; transition: width .25s; }
+.group { display: grid; gap: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
+.group h3 { font-size: 13px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); padding: 10px 14px 4px; }
+.check { display: flex; gap: 12px; align-items: center; padding: 10px 14px; min-height: 52px; border-top: 1px solid var(--line); cursor: pointer; font-size: 15.5px; line-height: 1.3; }
+.group h3 + .check { border-top: 0; }
+.check input { width: 24px; height: 24px; accent-color: var(--ok); flex: none; margin: 0; }
+.check:has(input:checked) span { color: var(--muted); text-decoration: line-through; }
+.check small { display: block; color: var(--muted); font-size: 13px; text-decoration: none; }
+.tag-fam { font-size: 11px; font-weight: 700; color: var(--brand); background: var(--brand-soft); padding: 1px 6px; border-radius: 4px; margin-left: 4px; }
+
+/* schrony */
+.map { border-radius: 14px; border: 1px solid var(--line); overflow: hidden; background: var(--surface); }
+.map svg { display: block; width: 100%; height: auto; }
+.map .land { fill: var(--surface); } .map .water { fill: var(--brand-soft); stroke: var(--brand); stroke-width: .6; stroke-opacity: .35; }
+.map .river { fill: none; stroke: var(--brand); stroke-opacity: .45; stroke-width: 6; stroke-linecap: round; }
+.map .road { fill: none; stroke: var(--line); stroke-width: 3; }
+.map .pin circle { fill: var(--brand); } .map .pin text { fill: var(--on-brand); font: 700 11px var(--font); text-anchor: middle; }
+.map .lbl { fill: var(--muted); font: italic 11px var(--font); }
+.map .cap { fill: var(--muted); font: 10px var(--font); }
+.place { display: grid; grid-template-columns: 30px 1fr; gap: 12px; padding: 12px 14px; border-top: 1px solid var(--line); }
+.place:first-child { border-top: 0; }
+.place .n { width: 30px; height: 30px; border-radius: 50%; background: var(--brand); color: var(--on-brand); display: grid; place-items: center; font-weight: 800; font-size: 14px; }
+.place b { display: block; font-size: 15.5px; }
+.place small { color: var(--muted); font-size: 13.5px; display: block; }
+.notice { display: grid; grid-template-columns: 24px 1fr; gap: 10px; padding: 12px 14px; border-radius: 14px; background: var(--warn-soft); color: var(--ink); font-size: 14.5px; line-height: 1.4; }
+.notice svg.i { color: var(--warn); }
+details.acc { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; }
+details.acc summary { min-height: 52px; padding: 0 14px; display: flex; align-items: center; justify-content: space-between; font-weight: 650; cursor: pointer; list-style: none; }
+details.acc summary::-webkit-details-marker { display: none; }
+details.acc summary svg.i { transition: transform .2s; color: var(--muted); }
+details.acc[open] summary svg.i { transform: rotate(90deg); }
+details.acc ul { margin: 0; padding: 0 14px 14px 32px; display: grid; gap: 6px; font-size: 15px; }
+
+/* pierwsza pomoc */
+.callout { display: grid; grid-template-columns: 28px 1fr; gap: 12px; padding: 14px; border-radius: 14px; background: var(--danger-soft); align-items: start; }
+.callout svg.i { color: var(--danger); width: 26px; height: 26px; }
+.callout b { display: block; color: var(--danger); font-size: 17px; }
+.callout p { font-size: 14.5px; }
+.links { display: grid; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
+.links a { display: flex; align-items: center; justify-content: space-between; gap: 10px; min-height: 50px; padding: 0 14px; border-top: 1px solid var(--line); color: var(--ink); text-decoration: none; font-weight: 600; font-size: 15px; }
+.links a:first-child { border-top: 0; }
+.links a svg.i { color: var(--muted); width: 18px; height: 18px; }
+
+/* offline */
+.okcard { background: var(--ok-soft); border-radius: 16px; padding: 16px; display: grid; grid-template-columns: 40px 1fr; gap: 12px; align-items: start; }
+.okcard .badge { width: 40px; height: 40px; border-radius: 50%; background: var(--ok); color: var(--surface); display: grid; place-items: center; }
+.okcard b { font-size: 17px; display: block; }
+.facts { display: grid; grid-template-columns: auto 1fr; gap: 4px 14px; font-size: 14px; margin-top: 6px; }
+.facts dt { color: var(--muted); } .facts dd { margin: 0; font-weight: 600; font-variant-numeric: tabular-nums; }
+
+/* ---------- design system ---------- */
+.ds { display: grid; gap: 28px; }
+.ds > header { display: grid; gap: 8px; max-width: 70ch; }
+.ds > header h2, .questions h2 { font-size: 26px; font-weight: 800; }
+.ds > header p { color: var(--muted); }
+.ds-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 20px; }
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 20px; display: grid; gap: 14px; align-content: start; min-width: 0; }
+.panel h3 { font-size: 13px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; color: var(--muted); }
+.swatches { display: grid; gap: 10px; }
+.sw { display: grid; grid-template-columns: 44px 1fr; gap: 12px; align-items: center; }
+.sw i { width: 44px; height: 44px; border-radius: 10px; border: 1px solid var(--line); }
+.sw b { display: block; font-size: 14.5px; }
+.sw small { color: var(--muted); font-size: 13px; font-family: var(--mono); }
+.scale { display: grid; gap: 10px; }
+.scale div { display: grid; grid-template-columns: 70px 1fr; gap: 12px; align-items: baseline; }
+.scale code { font-family: var(--mono); font-size: 12px; color: var(--muted); }
+.comp { display: grid; gap: 10px; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.questions { display: grid; gap: 18px; max-width: 78ch; }
+.qlist { margin: 0; padding: 0; list-style: none; display: grid; gap: 12px; }
+.qlist li { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px; display: grid; gap: 4px; }
+.qlist li b { font-size: 16.5px; }
+.qlist li p { color: var(--muted); font-size: 15px; }
+.qlist li p strong { color: var(--ink); }
+
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-siren" viewBox="0 0 24 24"><path d="M6 18v-5a6 6 0 0 1 12 0v5"/><path d="M4 18h16v3H4z"/><path d="M12 2v2M3.5 6.5 5 8M20.5 6.5 19 8"/></symbol>
+  <symbol id="i-shelter" viewBox="0 0 24 24"><path d="M3 11l9-7 9 7"/><path d="M5 9.5V20h14V9.5"/><path d="M10 20v-6h4v6"/></symbol>
+  <symbol id="i-bag" viewBox="0 0 24 24"><path d="M9 6V4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/><rect x="4" y="6" width="16" height="15" rx="4"/><path d="M8 13h8v4"/></symbol>
+  <symbol id="i-aid" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="14" rx="2"/><path d="M9 6V4h6v2M12 10v6M9 13h6"/></symbol>
+  <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8z"/></symbol>
+  <symbol id="i-drop" viewBox="0 0 24 24"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/></symbol>
+  <symbol id="i-radio" viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="13" rx="2"/><path d="M7 8l10-5"/><circle cx="8.5" cy="14.5" r="2.5"/><path d="M14 13h4M14 16h4"/></symbol>
+  <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7"/></symbol>
+  <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></symbol>
+  <symbol id="i-chev" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></symbol>
+  <symbol id="i-ext" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></symbol>
+  <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.5"/></symbol>
+  <symbol id="i-print" viewBox="0 0 24 24"><path d="M7 9V3h10v6"/><rect x="3" y="9" width="18" height="8" rx="2"/><path d="M7 14h10v7H7z"/></symbol>
+  <symbol id="i-mark" viewBox="0 0 32 32"><rect width="32" height="32" rx="6" style="fill:var(--signal)"/><path d="M16 6.5 27 25.5H5z" style="fill:#1D3F8F"/></symbol>
+</svg>
+
+<div class="wrap">
+
+<header class="intro">
+  <div class="eyebrow"><svg class="mark" style="width:22px;height:22px"><use href="#i-mark"/></svg> Etap 2 · Makiety mobile · v0.1</div>
+  <h1>Gotowość Brodnica — makiety do akceptacji</h1>
+  <p>Sześć kluczowych ekranów w wersji na telefon, zalążek design systemu i lista decyzji do podjęcia. Elementy da się klikać: checklista plecaka zapisuje postęp, przełączniki filtrują listę, rozwijane sekcje działają.</p>
+  <div class="legend"><span class="ex">Przykład</span> <span>= dane fikcyjne lub do uzupełnienia z oficjalnego źródła. Nie publikujemy ich w tej formie.</span></div>
+</header>
+
+<section class="screens" aria-label="Ekrany">
+
+<!-- E1 START -->
+<figure class="shot">
+  <div class="phone"><div class="screen">
+    <div class="app-head">
+      <div class="brand"><svg class="mark"><use href="#i-mark"/></svg><div>Gotowość Brodnica<small>poradnik dla mieszkańców</small></div></div>
+      <a class="call112" href="#e5" aria-label="Numer alarmowy 112"><svg class="i"><use href="#i-phone"/></svg>112</a>
+    </div>
+    <div class="netbar"><span class="dot"></span>Dostępne offline · treści z 22.11.2026</div>
+    <div class="body">
+      <div class="card">
+        <div class="row"><span class="sec-title">Stopień alarmowy w Polsce</span><span class="ex">Przykład</span></div>
+        <div class="status-val">BRAVO-CRP</div>
+        <p class="meta">Stan na 22.11.2026, 08:00 · źródło: gov.pl</p>
+        <a href="#e2" style="font-size:14.5px;font-weight:600">Co oznacza ten stopień</a>
+      </div>
+      <a class="btn btn-primary" href="#e2"><svg class="i"><use href="#i-siren"/></svg><span>Alarm? Co robić teraz</span><svg class="i"><use href="#i-chev"/></svg></a>
+      <nav class="tiles" aria-label="Sekcje">
+        <a class="tile" href="#e4"><svg class="i"><use href="#i-shelter"/></svg>Schrony</a>
+        <a class="tile" href="#e3"><svg class="i"><use href="#i-bag"/></svg>Plecak ewakuacyjny</a>
+        <a class="tile" href="#e5"><svg class="i"><use href="#i-aid"/></svg>Pierwsza pomoc</a>
+        <a class="tile" href="#e1"><svg class="i"><use href="#i-bolt"/></svg>Brak prądu</a>
+        <a class="tile" href="#e1"><svg class="i"><use href="#i-drop"/></svg>Woda i ciepło</a>
+        <a class="tile" href="#e1"><svg class="i"><use href="#i-radio"/></svg>Łączność awaryjna</a>
+      </nav>
+      <div class="msgs">
+        <div class="row"><span class="sec-title">Ostatnie komunikaty</span><a href="#e1" style="font-size:14px;font-weight:600">Wszystkie</a></div>
+        <article class="msg">
+          <div class="row"><span class="chip chip-warn">Ostrzeżenie IMGW · 1. stopień</span><span class="meta">22.11 · 06:40</span></div>
+          <b>Silny wiatr, powiat brodnicki</b>
+          <span class="meta">do 23.11, 18:00 · źródło: IMGW-PIB, pobrane automatycznie <span class="ex">Przykład</span></span>
+        </article>
+        <article class="msg">
+          <div class="row"><span class="chip chip-warn">Ważne</span><span class="meta">21.11 · 14:20</span></div>
+          <b>Planowe wyłączenie prądu, ul. Przykładowa 1–15</b>
+          <span class="meta">Sobota 9:00–15:00 · źródło: operator sieci <span class="ex">Przykład</span></span>
+        </article>
+        <article class="msg">
+          <div class="row"><span class="chip chip-info">Informacja</span><span class="meta">18.11 · 10:05</span></div>
+          <b>Test syren alarmowych w powiecie</b>
+          <span class="meta">źródło: starostwo <span class="ex">Przykład</span></span>
+        </article>
+      </div>
+      <a class="btn btn-signal" href="#e6"><svg class="i"><use href="#i-down"/></svg><span>Pobierz poradnik offline</span></a>
+      <p class="disclaimer">Strona informacyjno-edukacyjna. Nie zastępuje oficjalnych komunikatów służb i władz.</p>
+    </div>
+    <nav class="tabbar" aria-label="Nawigacja główna">
+      <a class="tab" aria-current="page" href="#e1"><svg class="i"><use href="#i-home"/></svg>Start</a>
+      <a class="tab" href="#e2"><svg class="i"><use href="#i-siren"/></svg>Alarm</a>
+      <a class="tab" href="#e4"><svg class="i"><use href="#i-shelter"/></svg>Schrony</a>
+      <a class="tab" href="#e3"><svg class="i"><use href="#i-bag"/></svg>Plecak</a>
+      <a class="tab" href="#e1"><svg class="i"><use href="#i-menu"/></svg>Więcej</a>
+    </nav>
+  </div></div>
+  <figcaption id="e1">
+    <h2><span class="id">E1</span> Start</h2>
+    <ul>
+      <li>Najpierw stan i jedna duża akcja „Alarm? Co robić teraz”, potem sekcje.</li>
+      <li>Stopień alarmowy tylko oficjalny, zawsze z godziną i źródłem. Brak własnej skali.</li>
+      <li>Przycisk 112 w nagłówku na każdej stronie.</li>
+      <li>Pasek „Dostępne offline” mówi, z którego dnia są treści.</li>
+      <li>Komunikaty: ostrzeżenia IMGW dla powiatu brodnickiego pobierane automatycznie przy budowaniu strony, reszta wpisywana ręcznie.</li>
+    </ul>
+  </figcaption>
+</figure>
+
+<!-- E2 ALARM -->
+<figure class="shot">
+  <div class="phone"><div class="screen">
+    <div class="app-head">
+      <div class="brand"><svg class="mark"><use href="#i-mark"/></svg><div>Gotowość Brodnica<small>poradnik dla mieszkańców</small></div></div>
+      <a class="call112" href="#e5" aria-label="Numer alarmowy 112"><svg class="i"><use href="#i-phone"/></svg>112</a>
+    </div>
+    <div class="body">
+      <p class="crumb">Zagrożenia i alarm</p>
+      <h3 class="page-h">Słyszysz syreny</h3>
+      <div class="quick">
+        <span class="sec-title">Najważniejsze w 30 sekund</span>
+        <ol class="steps">
+          <li><span><b>Wejdź do budynku.</b><small>Nie zostawaj na ulicy ani w samochodzie.</small></span></li>
+          <li><span><b>Zejdź niżej, z dala od okien.</b><small>Piwnica, garaż podziemny, korytarz w środku budynku. Najlepiej dwie ściany między tobą a zewnętrzem.</small></span></li>
+          <li><span><b>Weź telefon, dokumenty, leki.</b><small>Plecak, jeśli jest pod ręką. Nie wracaj po rzeczy.</small></span></li>
+          <li><span><b>Słuchaj komunikatów.</b><small>Alert RCB (SMS), radio, strona gminy.</small></span></li>
+          <li><span><b>Zostań do odwołania alarmu.</b></span></li>
+        </ol>
+      </div>
+      <div class="card" style="gap:14px">
+        <span class="sec-title">Jak brzmią syreny</span>
+        <div class="siren">
+          <svg viewBox="0 0 96 32" aria-hidden="true"><path d="M2 16 Q8 4 14 16 T26 16 T38 16 T50 16 T62 16 T74 16 T86 16 T94 16"/></svg>
+          <p><b>Ogłoszenie alarmu</b><span>dźwięk modulowany (rośnie i opada) przez 3 minuty</span></p>
+        </div>
+        <div class="siren">
+          <svg viewBox="0 0 96 32" aria-hidden="true"><path d="M2 16 H94"/></svg>
+          <p><b>Odwołanie alarmu</b><span>dźwięk ciągły przez 3 minuty</span></p>
+        </div>
+        <p class="meta">Pełna lista sygnałów: do potwierdzenia z RCB przed publikacją.</p>
+      </div>
+      <div class="card">
+        <span class="sec-title">Skąd brać oficjalne informacje</span>
+        <ul class="src-list">
+          <li><span>Alert RCB<small>SMS przychodzi sam, nic nie trzeba instalować</small></span></li>
+          <li><span>Rządowe Centrum Bezpieczeństwa<small>gov.pl/rcb</small></span><svg class="i"><use href="#i-ext"/></svg></li>
+          <li><span>Wojewoda Kujawsko-Pomorski<small>komunikaty dla województwa</small></span><svg class="i"><use href="#i-ext"/></svg></li>
+          <li><span>Urząd Miejski w Brodnicy<small>komunikaty lokalne</small></span><svg class="i"><use href="#i-ext"/></svg></li>
+        </ul>
+      </div>
+      <details class="acc"><summary>Nieoficjalne mapy zagrożeń z powietrza<svg class="i"><use href="#i-chev"/></svg></summary>
+        <ul><li><b>Zorya</b> (zorya.website) i <b>Strażnik</b> (straznik.eu) zbierają publiczne źródła i media.</li><li>To <b>nie są</b> serwisy państwowe. Mogą się mylić lub opóźniać.</li><li>Pierwszeństwo mają zawsze: syreny, Alert RCB, komunikaty służb.</li></ul>
+      </details>
+      <details class="acc"><summary>Drony i rakiety — co warto wiedzieć<svg class="i"><use href="#i-chev"/></svg></summary>
+        <ul><li>Nie podchodź do szczątków. Nie dotykaj, nie fotografuj z bliska.</li><li>Zgłoś znalezisko pod 112 i podaj dokładne miejsce.</li><li>Nie publikuj w sieci zdjęć miejsc uderzeń ani pracy służb.</li></ul>
+      </details>
+    </div>
+    <nav class="tabbar" aria-label="Nawigacja główna">
+      <a class="tab" href="#e1"><svg class="i"><use href="#i-home"/></svg>Start</a>
+      <a class="tab" aria-current="page" href="#e2"><svg class="i"><use href="#i-siren"/></svg>Alarm</a>
+      <a class="tab" href="#e4"><svg class="i"><use href="#i-shelter"/></svg>Schrony</a>
+      <a class="tab" href="#e3"><svg class="i"><use href="#i-bag"/></svg>Plecak</a>
+      <a class="tab" href="#e1"><svg class="i"><use href="#i-menu"/></svg>Więcej</a>
+    </nav>
+  </div></div>
+  <figcaption id="e2">
+    <h2><span class="id">E2</span> Alarm — co robić</h2>
+    <ul>
+      <li>Wzorzec każdej strony: blok „Najważniejsze w 30 sekund”, szczegóły niżej.</li>
+      <li>Numeracja tylko tam, gdzie kolejność ma znaczenie.</li>
+      <li>Rysunek sygnału syreny zamiast opisu słownego: rozpoznawalny bez czytania.</li>
+      <li>Treści dodatkowe w rozwijanych sekcjach, żeby nie wydłużać ekranu.</li>
+      <li>Mapy Zorya i Strażnik tylko jako linki, z wyraźnym „nieoficjalne”. Nie osadzamy ich: ciężkie i nie działają offline.</li>
+    </ul>
+  </figcaption>
+</figure>
+
+<!-- E3 PLECAK -->
+<figure class="shot">
+  <div class="phone"><div class="screen">
+    <div class="app-head">
+      <div class="brand"><svg class="mark"><use href="#i-mark"/></svg><div>Gotowość Brodnica<small>poradnik dla mieszkańców</small></div></div>
+      <a class="call112" href="#e5" aria-label="Numer alarmowy 112"><svg class="i"><use href="#i-phone"/></svg>112</a>
+    </div>
+    <div class="body">
+      <p class="crumb">Plecak ewakuacyjny</p>
+      <h3 class="page-h">Spakuj plecak na 72 godziny</h3>
+      <div class="seg" role="group" aria-label="Zakres listy">
+        <button type="button" id="lvl-basic" aria-pressed="true" data-lvl="basic">Podstawowy</button>
+        <button type="button" id="lvl-ext" aria-pressed="false" data-lvl="ext">Rozszerzony</button>
+      </div>
+      <div class="seg" role="group" aria-label="Dla kogo">
+        <button type="button" id="who-one" aria-pressed="true" data-who="one">Dla 1 osoby</button>
+        <button type="button" id="who-fam" aria-pressed="false" data-who="fam">Rodzina</button>
+      </div>
+      <div class="progress">
+        <div class="row"><b id="prog-txt">0 z 0 spakowane</b><span class="meta">zapisuje się w telefonie</span></div>
+        <div class="bar"><i id="prog-bar"></i></div>
+      </div>
+      <div class="group" id="checklist">
+        <h3>Woda i jedzenie</h3>
+        <label class="check"><input type="checkbox" id="c1"><span>Woda pitna na 3 dni<small>ilość na osobę: do potwierdzenia z poradnikiem rządowym</small></span></label>
+        <label class="check"><input type="checkbox" id="c2"><span>Jedzenie bez gotowania</span></label>
+        <label class="check" data-lvl="ext"><input type="checkbox" id="c3"><span>Kuchenka turystyczna, kubek</span></label>
+        <label class="check" data-who="fam"><input type="checkbox" id="c4"><span>Mleko modyfikowane, butelka <span class="tag-fam">rodzina</span></span></label>
+      </div>
+      <div class="group">
+        <h3>Dokumenty i pieniądze</h3>
+        <label class="check"><input type="checkbox" id="c5"><span>Dowód, kopie dokumentów w woreczku</span></label>
+        <label class="check"><input type="checkbox" id="c6"><span>Gotówka w małych nominałach</span></label>
+        <label class="check"><input type="checkbox" id="c7"><span>Kartka z numerami telefonów</span></label>
+      </div>
+      <div class="group">
+        <h3>Zdrowie</h3>
+        <label class="check"><input type="checkbox" id="c8"><span>Leki stałe + lista leków i dawek</span></label>
+        <label class="check"><input type="checkbox" id="c9"><span>Apteczka</span></label>
+        <label class="check"><input type="checkbox" id="c10"><span>Koc termiczny</span></label>
+        <label class="check" data-who="fam"><input type="checkbox" id="c11"><span>Pieluchy, chusteczki <span class="tag-fam">rodzina</span></span></label>
+      </div>
+      <div class="group">
+        <h3>Światło i łączność</h3>
+        <label class="check"><input type="checkbox" id="c12"><span>Latarka + zapasowe baterie</span></label>
+        <label class="check"><input type="checkbox" id="c13"><span>Naładowany powerbank i kabel</span></label>
+        <label class="check"><input type="checkbox" id="c14"><span>Radio na baterie lub korbkę</span></label>
+        <label class="check" data-lvl="ext"><input type="checkbox" id="c15"><span>Krótkofalówka PMR</span></label>
+        <label class="check" data-lvl="ext"><input type="checkbox" id="c16"><span>Multitool, zapalniczka, taśma</span></label>
+      </div>
+    </div>
+    <nav class="tabbar" aria-label="Nawigacja główna">
+      <a class="tab" href="#e1"><svg class="i"><use href="#i-home"/></svg>Start</a>
+      <a class="tab" href="#e2"><svg class="i"><use href="#i-siren"/></svg>Alarm</a>
+      <a class="tab" href="#e4"><svg class="i"><use href="#i-shelter"/></svg>Schrony</a>
+      <a class="tab" aria-current="page" href="#e3"><svg class="i"><use href="#i-bag"/></svg>Plecak</a>
+      <a class="tab" href="#e1"><svg class="i"><use href="#i-menu"/></svg>Więcej</a>
+    </nav>
+  </div></div>
+  <figcaption id="e3">
+    <h2><span class="id">E3</span> Plecak ewakuacyjny</h2>
+    <ul>
+      <li>Dwa przełączniki zamiast czterech osobnych list. Pozycje „rodzina” oznaczone.</li>
+      <li>Postęp zapisuje się tylko w tym telefonie, bez konta i bez wysyłania danych.</li>
+      <li>Pola wyboru 24 px, cały wiersz klikalny (min. 52 px wysokości).</li>
+      <li>Lista w MVP pochodzi z <code>data/plecak.json</code>.</li>
+    </ul>
+  </figcaption>
+</figure>
+
+<!-- E4 SCHRONY -->
+<figure class="shot">
+  <div class="phone"><div class="screen">
+    <div class="app-head">
+      <div class="brand"><svg class="mark"><use href="#i-mark"/></svg><div>Gotowość Brodnica<small>poradnik dla mieszkańców</small></div></div>
+      <a class="call112" href="#e5" aria-label="Numer alarmowy 112"><svg class="i"><use href="#i-phone"/></svg>112</a>
+    </div>
+    <div class="body">
+      <p class="crumb">Schronienia</p>
+      <h3 class="page-h">Gdzie się schronić</h3>
+      <div class="notice"><svg class="i"><use href="#i-info"/></svg><span>Układ przykładowy. Docelowo lista pochodzi z oficjalnego zbioru <b>Państwowej Straży Pożarnej</b> (dane.gov.pl), zapisanego w telefonie razem ze stroną.</span></div>
+      <div class="map">
+        <svg viewBox="0 0 320 190" role="img" aria-label="Schematyczny plan miasta z trzema przykładowymi punktami">
+          <rect class="land" width="320" height="190"/>
+          <ellipse class="water" cx="248" cy="30" rx="62" ry="22"/>
+          <ellipse class="water" cx="70" cy="22" rx="46" ry="14"/>
+          <path class="road" d="M0 120 C80 112 160 128 320 108"/>
+          <path class="road" d="M150 0 C146 60 160 120 152 190"/>
+          <path class="river" d="M-5 160 C60 150 90 172 150 150 S250 140 330 168"/>
+          <text class="lbl" x="232" y="176">Drwęca</text>
+          <g class="pin"><circle cx="118" cy="98" r="11"/><text x="118" y="102">1</text></g>
+          <g class="pin"><circle cx="196" cy="82" r="11"/><text x="196" y="86">2</text></g>
+          <g class="pin"><circle cx="70" cy="132" r="11"/><text x="70" y="136">3</text></g>
+          <text class="cap" x="8" y="184">schemat działa offline · nie do nawigacji</text>
+        </svg>
+      </div>
+      <div class="group">
+        <div class="place"><span class="n">1</span><span><b>Obiekt przykładowy A</b><small>ul. Przykładowa 1 · schron <span class="ex">Przykład</span></small><small>sprawdzono: —</small></span></div>
+        <div class="place"><span class="n">2</span><span><b>Obiekt przykładowy B</b><small>ul. Przykładowa 2 · ukrycie <span class="ex">Przykład</span></small><small>sprawdzono: —</small></span></div>
+        <div class="place"><span class="n">3</span><span><b>Obiekt przykładowy C</b><small>ul. Przykładowa 3 · miejsce doraźnego schronienia <span class="ex">Przykład</span></small><small>sprawdzono: —</small></span></div>
+      </div>
+      <p class="meta">Źródło: KG PSP, „Punkty schronienia w Polsce”, licencja CC BY 4.0 · dane z: 10.11.2026</p>
+      <a class="btn btn-ghost" href="#e4"><svg class="i"><use href="#i-ext"/></svg><span>Mapa PSP: gdziesieukryc.pl</span></a>
+      <details class="acc"><summary>Jak się zachować w schronie<svg class="i"><use href="#i-chev"/></svg></summary>
+        <ul><li>Słuchaj osób zarządzających obiektem.</li><li>Zajmij miejsce, nie blokuj wejść i przejść.</li><li>Oszczędzaj baterię telefonu i wodę.</li><li>Pomóż osobom starszym i dzieciom.</li></ul>
+      </details>
+      <details class="acc"><summary>Schron, ukrycie, MDS — czym się różnią<svg class="i"><use href="#i-chev"/></svg></summary>
+        <ul><li>Krótkie wyjaśnienie trzech typów miejsc, na podstawie przepisów. Treść w przygotowaniu.</li></ul>
+      </details>
+    </div>
+    <nav class="tabbar" aria-label="Nawigacja główna">
+      <a class="tab" href="#e1"><svg class="i"><use href="#i-home"/></svg>Start</a>
+      <a class="tab" href="#e2"><svg class="i"><use href="#i-siren"/></svg>Alarm</a>
+      <a class="tab" aria-current="page" href="#e4"><svg class="i"><use href="#i-shelter"/></svg>Schrony</a>
+      <a class="tab" href="#e3"><svg class="i"><use href="#i-bag"/></svg>Plecak</a>
+      <a class="tab" href="#e1"><svg class="i"><use href="#i-menu"/></svg>Więcej</a>
+    </nav>
+  </div></div>
+  <figcaption id="e4">
+    <h2><span class="id">E4</span> Schronienia</h2>
+    <ul>
+      <li>Dane z oficjalnego zbioru PSP, przefiltrowane do powiatu brodnickiego i zapisane lokalnie (offline, bez zapytań do API z telefonu).</li>
+      <li>Schemat SVG (kilka KB) zamiast mapy kafelkowej: działa bez internetu.</li>
+      <li>Numery na schemacie odpowiadają liście. Typ obiektu i data weryfikacji przy każdym.</li>
+      <li>Interaktywna mapa (Leaflet) dopiero po MVP, jeśli będzie potrzebna.</li>
+    </ul>
+  </figcaption>
+</figure>
+
+<!-- E5 PIERWSZA POMOC -->
+<figure class="shot">
+  <div class="phone"><div class="screen">
+    <div class="app-head">
+      <div class="brand"><svg class="mark"><use href="#i-mark"/></svg><div>Gotowość Brodnica<small>poradnik dla mieszkańców</small></div></div>
+      <a class="call112" href="#e5" aria-label="Numer alarmowy 112"><svg class="i"><use href="#i-phone"/></svg>112</a>
+    </div>
+    <div class="body">
+      <p class="crumb">Pierwsza pomoc › Krwotok</p>
+      <h3 class="page-h">Silny krwotok</h3>
+      <div class="callout"><svg class="i"><use href="#i-phone"/></svg><div><b>Zadzwoń 112 albo poproś kogoś</b><p>Powiedz: co się stało, gdzie jesteś, ile osób jest rannych.</p></div></div>
+      <div class="quick">
+        <span class="sec-title">Krok po kroku</span>
+        <ol class="steps">
+          <li><span><b>Uciśnij ranę mocno.</b><small>Opatrunkiem albo czystym materiałem. Najlepiej w rękawiczkach.</small></span></li>
+          <li><span><b>Nie zdejmuj opatrunku.</b><small>Gdy przesiąka, dołóż kolejną warstwę i dalej uciskaj.</small></span></li>
+          <li><span><b>Ręka lub noga i ucisk nie pomaga?</b><small>Załóż opaskę uciskową powyżej rany. Zapisz godzinę.</small></span></li>
+          <li><span><b>Okryj i obserwuj.</b><small>Koc termiczny, sprawdzaj oddech do przyjazdu pogotowia.</small></span></li>
+        </ol>
+      </div>
+      <p class="meta">Źródło: wytyczne ERC · przegląd ratownika: <b>do wykonania</b> · zweryfikowano: —</p>
+      <div>
+        <p class="sec-title" style="margin-bottom:8px">Inne sytuacje</p>
+        <nav class="links" aria-label="Procedury">
+          <a href="#e5">Nie oddycha — resuscytacja<svg class="i"><use href="#i-chev"/></svg></a>
+          <a href="#e5">Oparzenie<svg class="i"><use href="#i-chev"/></svg></a>
+          <a href="#e5">Zadławienie<svg class="i"><use href="#i-chev"/></svg></a>
+          <a href="#e5">Pozycja boczna<svg class="i"><use href="#i-chev"/></svg></a>
+          <a href="#e5">Co mieć w apteczce<svg class="i"><use href="#i-chev"/></svg></a>
+        </nav>
+      </div>
+    </div>
+    <nav class="tabbar" aria-label="Nawigacja główna">
+      <a class="tab" href="#e1"><svg class="i"><use href="#i-home"/></svg>Start</a>
+      <a class="tab" href="#e2"><svg class="i"><use href="#i-siren"/></svg>Alarm</a>
+      <a class="tab" href="#e4"><svg class="i"><use href="#i-shelter"/></svg>Schrony</a>
+      <a class="tab" href="#e3"><svg class="i"><use href="#i-bag"/></svg>Plecak</a>
+      <a class="tab" aria-current="page" href="#e1"><svg class="i"><use href="#i-menu"/></svg>Więcej</a>
+    </nav>
+  </div></div>
+  <figcaption id="e5">
+    <h2><span class="id">E5</span> Procedura pierwszej pomocy</h2>
+    <ul>
+      <li>Wezwanie pomocy zawsze na górze, w kolorze alarmowym.</li>
+      <li>Kroki krótkie, pogrubiona czynność + jedno zdanie wyjaśnienia.</li>
+      <li>Status przeglądu medycznego widoczny przy treści. Bez przeglądu nie publikujemy.</li>
+    </ul>
+  </figcaption>
+</figure>
+
+<!-- E6 OFFLINE -->
+<figure class="shot">
+  <div class="phone"><div class="screen">
+    <div class="app-head">
+      <div class="brand"><svg class="mark"><use href="#i-mark"/></svg><div>Gotowość Brodnica<small>poradnik dla mieszkańców</small></div></div>
+      <a class="call112" href="#e5" aria-label="Numer alarmowy 112"><svg class="i"><use href="#i-phone"/></svg>112</a>
+    </div>
+    <div class="body">
+      <p class="crumb">Offline</p>
+      <h3 class="page-h">Poradnik bez internetu</h3>
+      <div class="okcard">
+        <span class="badge"><svg class="i"><use href="#i-check"/></svg></span>
+        <div><b>Cała strona jest zapisana w tym telefonie</b>
+          <dl class="facts"><dt>Treści z</dt><dd>22.11.2026</dd><dt>Rozmiar</dt><dd>ok. 400 KB <span class="ex">Przykład</span></dd><dt>Stron</dt><dd>14</dd></dl>
+        </div>
+      </div>
+      <div class="card">
+        <span class="sec-title">Dodaj do ekranu głównego</span>
+        <p style="font-size:15px"><b>Android (Chrome):</b> menu ⋮ → „Dodaj do ekranu głównego”.</p>
+        <p style="font-size:15px"><b>iPhone (Safari):</b> Udostępnij → „Do ekranu początkowego”.</p>
+      </div>
+      <a class="btn btn-signal" href="#e6"><svg class="i"><use href="#i-down"/></svg><span>Pobierz poradnik PDF</span><span class="meta" style="flex:none;color:inherit;opacity:.8">ok. 1 MB</span></a>
+      <a class="btn btn-ghost" href="#e6"><svg class="i"><use href="#i-print"/></svg><span>Wersja do druku</span></a>
+      <p class="meta">Wydrukuj i trzymaj przy plecaku. Telefon może się rozładować, kartka nie.</p>
+    </div>
+    <nav class="tabbar" aria-label="Nawigacja główna">
+      <a class="tab" href="#e1"><svg class="i"><use href="#i-home"/></svg>Start</a>
+      <a class="tab" href="#e2"><svg class="i"><use href="#i-siren"/></svg>Alarm</a>
+      <a class="tab" href="#e4"><svg class="i"><use href="#i-shelter"/></svg>Schrony</a>
+      <a class="tab" href="#e3"><svg class="i"><use href="#i-bag"/></svg>Plecak</a>
+      <a class="tab" aria-current="page" href="#e1"><svg class="i"><use href="#i-menu"/></svg>Więcej</a>
+    </nav>
+  </div></div>
+  <figcaption id="e6">
+    <h2><span class="id">E6</span> Offline i pobieranie</h2>
+    <ul>
+      <li>Service Worker zapisuje całą stronę przy pierwszej wizycie, ten ekran to potwierdza.</li>
+      <li>Poradnik w jednym pliku: do druku i do zapisania jako PDF.</li>
+      <li>Instrukcja „ekranu głównego” dla dwóch najpopularniejszych telefonów.</li>
+    </ul>
+  </figcaption>
+</figure>
+
+</section>
+
+<section class="ds" aria-labelledby="ds-h">
+  <header>
+    <h2 id="ds-h">Design system — szkic</h2>
+    <p>Kolory pochodzą z międzynarodowego znaku obrony cywilnej. Czcionki systemowe: 0 KB do pobrania. Bazowy tekst 16–17 px, cele dotyku min. 44 px. Pełna wersja trafi do <code>docs/DESIGN.md</code> po akceptacji.</p>
+  </header>
+  <div class="ds-grid">
+    <div class="panel">
+      <h3>Kolory i role</h3>
+      <div class="swatches">
+        <div class="sw"><i style="background:var(--brand)"></i><span><b>Granat — marka i akcje</b><small>--brand</small></span></div>
+        <div class="sw"><i style="background:var(--signal)"></i><span><b>Pomarańcz — znak, offline</b><small>--signal</small></span></div>
+        <div class="sw"><i style="background:var(--danger)"></i><span><b>Czerwień — tylko 112 i „pilne”</b><small>--danger</small></span></div>
+        <div class="sw"><i style="background:var(--warn-soft);"></i><span><b>Bursztyn — „ważne”</b><small>--warn / --warn-soft</small></span></div>
+        <div class="sw"><i style="background:var(--ok)"></i><span><b>Zieleń — zrobione, zapisane</b><small>--ok</small></span></div>
+        <div class="sw"><i style="background:var(--bg)"></i><span><b>Tło i tekst</b><small>--bg · --surface · --ink · --muted</small></span></div>
+      </div>
+    </div>
+    <div class="panel">
+      <h3>Typografia (system-ui)</h3>
+      <div class="scale">
+        <div><code>30 / 800</code><span style="font-size:30px;font-weight:800;line-height:1.1">BRAVO</span></div>
+        <div><code>26 / 800</code><span style="font-size:26px;font-weight:800;line-height:1.15">Słyszysz syreny</span></div>
+        <div><code>17 / 700</code><span style="font-size:17px;font-weight:700">Alarm? Co robić teraz</span></div>
+        <div><code>16 / 400</code><span>Zejdź niżej, z dala od okien.</span></div>
+        <div><code>13 / 400</code><span class="meta">Stan na 22.11.2026 · źródło</span></div>
+        <div><code>12.5 / 700</code><span class="sec-title">Etykieta sekcji</span></div>
+      </div>
+    </div>
+    <div class="panel">
+      <h3>Komponenty</h3>
+      <div class="comp">
+        <a class="btn btn-primary" href="#ds-h"><svg class="i"><use href="#i-siren"/></svg><span>Akcja główna</span><svg class="i"><use href="#i-chev"/></svg></a>
+        <a class="btn btn-signal" href="#ds-h"><svg class="i"><use href="#i-down"/></svg><span>Pobierz offline</span></a>
+        <a class="btn btn-ghost" href="#ds-h"><svg class="i"><use href="#i-ext"/></svg><span>Link zewnętrzny</span></a>
+        <div class="chips"><span class="chip chip-info">Informacja</span><span class="chip chip-warn">Ważne</span><span class="chip chip-danger">Pilne</span><span class="chip chip-ok">Zapisano</span><span class="ex">Przykład</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="questions" aria-labelledby="q-h">
+  <h2 id="q-h">Do decyzji przed etapem 3</h2>
+  <ul class="qlist">
+    <li><b>Nazwa: „Gotowość Brodnica” czy „Brodnica Alert”?</b><p>Rekomendacja: <strong>Gotowość Brodnica</strong>. Słowo „Alert” sugeruje oficjalny system ostrzegania i myli się z Alert RCB.</p></li>
+    <li><b>Kto i jak często aktualizuje stopień alarmowy i komunikaty?</b><p>Jeśli nie ma osoby, która zrobi to w ciągu godzin, lepiej zastąpić kartę stopnia linkiem do gov.pl niż pokazywać nieaktualny stan.</p></li>
+    <li><b>Schrony: tylko Brodnica czy cały powiat?</b><p>Źródło już wybrane: zbiór PSP z dane.gov.pl. Rekomendacja: <strong>cały powiat brodnicki</strong>, posortowany tak, by Brodnica była pierwsza.</p></li>
+    <li><b>Tailwind czy własny CSS z tokenami?</b><p>Rekomendacja: <strong>własny CSS</strong> (cel &lt; 15 KB, bez narzędzi budowania). Tailwind też zadziała, jeśli wolisz.</p></li>
+    <li><b>Kto przejrzy treści medyczne?</b><p>Procedury pierwszej pomocy publikujemy dopiero po przeglądzie ratownika lub lekarza.</p></li>
+    <li><b>Adres na CT8</b><p>Subdomena CT8 na start czy własna domena?</p></li>
+  </ul>
+</section>
+
+</div>
+
+<script>
+(function () {
+  var KEY = 'gb-plecak-v1';
+  var state = { lvl: 'basic', who: 'one', done: {} };
+  try { var s = JSON.parse(localStorage.getItem(KEY) || 'null'); if (s) state = Object.assign(state, s); } catch (e) {}
+  function save() { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {} }
+  var items = Array.prototype.slice.call(document.querySelectorAll('.check'));
+  function render() {
+    document.querySelectorAll('[data-lvl]').forEach(function (b) { if (b.tagName === 'BUTTON') b.setAttribute('aria-pressed', String(b.dataset.lvl === state.lvl)); });
+    document.querySelectorAll('[data-who]').forEach(function (b) { if (b.tagName === 'BUTTON') b.setAttribute('aria-pressed', String(b.dataset.who === state.who)); });
+    var total = 0, done = 0;
+    items.forEach(function (it) {
+      var show = !(it.dataset.lvl === 'ext' && state.lvl !== 'ext') && !(it.dataset.who === 'fam' && state.who !== 'fam');
+      it.hidden = !show;
+      var cb = it.querySelector('input');
+      cb.checked = !!state.done[cb.id];
+      if (show) { total++; if (cb.checked) done++; }
+    });
+    document.getElementById('prog-txt').textContent = done + ' z ' + total + ' spakowane';
+    document.getElementById('prog-bar').style.width = (total ? Math.round(done / total * 100) : 0) + '%';
+  }
+  document.querySelectorAll('.seg button').forEach(function (b) {
+    b.addEventListener('click', function () { if (b.dataset.lvl) state.lvl = b.dataset.lvl; if (b.dataset.who) state.who = b.dataset.who; save(); render(); });
+  });
+  items.forEach(function (it) {
+    var cb = it.querySelector('input');
+    cb.addEventListener('change', function () { state.done[cb.id] = cb.checked; save(); render(); });
+  });
+  if (Object.keys(state.done).length === 0) { ['c5', 'c8', 'c12'].forEach(function (id) { state.done[id] = true; }); }
+  render();
+})();
+</script>
