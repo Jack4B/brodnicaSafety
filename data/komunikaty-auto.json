@@ -1,20 +1,27 @@
 {
-  "pobrano": "2026-11-23T12:34:12.703Z",
+  "pobrano": "2026-11-23T15:21:07.703Z",
   "zrodla": [
     {
       "nazwa": "Urząd Miejski w Brodnicy",
       "url": "https://www.portal.brodnica.pl/aktualnosci.xml",
       "wpisow": 10,
-      "sprawdzono": "2026-11-23T12:34:12.703Z"
+      "sprawdzono": "2026-11-23T15:21:07.703Z"
     },
     {
       "nazwa": "PSSE w Brodnicy",
       "url": "https://www.gov.pl/web/psse-brodnica/komunikaty",
       "wpisow": 10,
-      "sprawdzono": "2026-11-23T12:34:12.703Z"
+      "sprawdzono": "2026-11-23T15:21:07.703Z"
     }
   ],
   "komunikaty": [
+    {
+      "data": "2026-11-23",
+      "tytul": "Do 31 grudnia czas na zakup i montaż ogrzewania elektrycznego",
+      "url": "https://www.portal.brodnica.pl/aktualnosc-5884-do_31_grudnia_czas_na_zakup_i_montaz.html",
+      "zrodlo": "Urząd Miejski w Brodnicy",
+      "waga": "info"
+    },
     {
       "data": "2026-08-14",
       "tytul": "Komunikaty dotyczące jakości wody w kąpieliskach na terenie powiatu brodnickiego",
