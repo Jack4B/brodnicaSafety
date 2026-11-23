@@ -1,17 +1,17 @@
 {
-  "pobrano": "2026-11-23T01:41:05.165Z",
+  "pobrano": "2026-11-23T12:34:12.703Z",
   "zrodla": [
     {
       "nazwa": "Urząd Miejski w Brodnicy",
       "url": "https://www.portal.brodnica.pl/aktualnosci.xml",
       "wpisow": 10,
-      "sprawdzono": "2026-11-23T01:41:05.165Z"
+      "sprawdzono": "2026-11-23T12:34:12.703Z"
     },
     {
       "nazwa": "PSSE w Brodnicy",
       "url": "https://www.gov.pl/web/psse-brodnica/komunikaty",
       "wpisow": 10,
-      "sprawdzono": "2026-11-23T01:41:05.165Z"
+      "sprawdzono": "2026-11-23T12:34:12.703Z"
     }
   ],
   "komunikaty": [
