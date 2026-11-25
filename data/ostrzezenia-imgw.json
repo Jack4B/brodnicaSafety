@@ -2,8 +2,8 @@
   "zrodlo": "IMGW-PIB — dane publiczne",
   "api": "https://danepubliczne.imgw.pl/api/data/warningsmeteo",
   "teryt": "0402",
-  "pobrano": "2026-11-24T23:53:30.215Z",
-  "komunikat_api": null,
+  "pobrano": "2026-11-25T08:30:56.800Z",
+  "komunikat_api": "Brak ostrzeżeń meteorologicznych",
   "liczba": 0,
   "ostrzezenia": []
 }
