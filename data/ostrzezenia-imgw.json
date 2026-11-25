@@ -2,8 +2,19 @@
   "zrodlo": "IMGW-PIB — dane publiczne",
   "api": "https://danepubliczne.imgw.pl/api/data/warningsmeteo",
   "teryt": "0402",
-  "pobrano": "2026-11-25T08:30:56.800Z",
-  "komunikat_api": "Brak ostrzeżeń meteorologicznych",
-  "liczba": 0,
-  "ostrzezenia": []
+  "pobrano": "2026-11-25T19:14:45.900Z",
+  "komunikat_api": null,
+  "liczba": 1,
+  "ostrzezenia": [
+    {
+      "zdarzenie": "Oblodzenie",
+      "stopien": "1",
+      "od": "2026-11-25 20:00:00",
+      "do": "2026-11-26 08:00:00",
+      "tresc": "Miejscami prognozuje się zamarzanie mokrej nawierzchni dróg i chodników po opadach deszczu, deszczu ze śniegiem oraz mokrego śniegu powodujące ich oblodzenie. Temperatura minimalna około -4°C, temperatura minimalna przy gruncie około -7°C.",
+      "komentarz": "Brak.",
+      "biuro": "Centralne Biuro Prognoz Meteorologicznych w Warszawie",
+      "opublikowano": "2026-11-25 11:57:00"
+    }
+  ]
 }
